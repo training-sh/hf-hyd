@@ -1,3 +1,7 @@
+to convert long timestamp in sec to datetime 
+
+df["datetime"] = pd.to_datetime(df["timestamp"], unit="s")
+
 ```
 
 NO DATA INFERENCE
