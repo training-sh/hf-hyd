@@ -1,3 +1,18 @@
+DataSet link  https://grouplens.org/datasets/movielens/
+
+
+33,000,000 ratings , 86K movies data set
+
+Download ml-latest.zip (size: 335 MB)  https://files.grouplens.org/datasets/movielens/ml-latest.zip
+
+Try to do timeit module for two approach.
+
+-- Perform movies join with ratings. then perform aggregation. check time
+-- Perform ratings analytics with agg, filter for rating 4.0 and above, rated by at least 4000 users, then Join with movies, check time
+
+
+
+
 to convert long timestamp in sec to datetime 
 
 df["datetime"] = pd.to_datetime(df["timestamp"], unit="s")
