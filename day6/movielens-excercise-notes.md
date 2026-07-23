@@ -7,8 +7,9 @@ Download ml-latest.zip (size: 335 MB)  https://files.grouplens.org/datasets/movi
 
 Try to do timeit module for two approach.
 
--- Perform movies join with ratings. then perform aggregation. check time
--- Perform ratings analytics with agg, filter for rating 4.0 and above, rated by at least 4000 users, then Join with movies, check time
+- Perform movies join with ratings. then perform aggregation. check time
+- 
+- Perform ratings analytics with agg, filter for rating 4.0 and above, rated by at least 4000 users, then Join with movies, check time
 
 
 
