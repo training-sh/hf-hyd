@@ -2,6 +2,11 @@ to convert long timestamp in sec to datetime
 
 df["datetime"] = pd.to_datetime(df["timestamp"], unit="s")
 
+After completion,
+
+- write the results as popular-movies.json and
+- - popular-movies.csv using pandas write
+
 ```
 
 NO DATA INFERENCE
