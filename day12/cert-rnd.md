@@ -65,3 +65,24 @@ print(f"Open: https://{DOMAIN}:{PORT}")
 server.serve_forever()
 
 ```
+
+
+```
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name _;
+
+    ssl_certificate     /etc/letsencrypt/live/YOUR_DOMAIN/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/YOUR_DOMAIN/privkey.pem;
+
+    root /var/www/html;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+```
+
