@@ -130,3 +130,73 @@ echo "Test with:"
 echo "docker run hello-world"
 
 ```
+
+
+```
+#!/bin/bash
+set -e
+
+echo "==> Updating system..."
+sudo apt update
+sudo apt upgrade -y
+
+echo "==> Installing XFCE Desktop..."
+sudo DEBIAN_FRONTEND=noninteractive apt install -y \
+    xfce4 \
+    xfce4-goodies
+
+echo "==> Installing XRDP..."
+sudo apt install -y \
+    xrdp \
+    xorgxrdp
+
+echo "==> Installing useful applications..."
+sudo apt install -y \
+    firefox \
+    dbus-x11 \
+    x11-xserver-utils \
+    xfce4-terminal \
+    thunar \
+    gvfs \
+    gvfs-backends \
+    gvfs-fuse \
+    pavucontrol \
+    unzip \
+    zip \
+    curl \
+    wget \
+    nano \
+    git
+
+echo "==> Configure XFCE for XRDP..."
+echo "startxfce4" > ~/.xsession
+chmod +x ~/.xsession
+
+sudo adduser xrdp ssl-cert || true
+
+echo "==> Enable XRDP..."
+sudo systemctl enable xrdp
+sudo systemctl restart xrdp
+
+echo "==> Enable Firewall Rule (if UFW exists)..."
+if command -v ufw >/dev/null 2>&1; then
+    sudo ufw allow 3389/tcp || true
+fi
+
+echo
+echo "======================================="
+echo "Installation Complete"
+echo
+echo "XRDP Status:"
+systemctl --no-pager status xrdp | head -10
+echo
+echo "Listening Port:"
+ss -tlnp | grep 3389 || true
+echo
+echo "Connect using:"
+echo "mstsc.exe"
+echo
+echo "IP: $(hostname -I | awk '{print $1}')"
+echo "Port: 3389"
+echo "======================================="
+```
