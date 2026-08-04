@@ -60,3 +60,11 @@ TOKEN=$(curl -s -X PUT \
 curl -H "X-aws-ec2-metadata-token:$TOKEN" \
 http://169.254.169.254/latest/meta-data/block-device-mapping/
 ```
+
+```
+cat /sys/block/nvme0n1/size
+```
+
+```
+blockdev --getsize64 /dev/nvme0n1
+```
