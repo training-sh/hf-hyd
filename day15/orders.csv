@@ -1,0 +1,6 @@
+order_id,customer_name,customer_email,order_date,status,total_amount
+1001,Asha Rao,asha@example.com,2026-08-01,SHIPPED,4097.00
+1002,Ravi Kumar,ravi@example.com,2026-08-02,NEW,1899.00
+1003,Meera Shah,meera@example.com,2026-08-02,PAID,8999.00
+1004,Asha Rao,asha@example.com,2026-08-03,PAID,15999.00
+1005,John Peter,john@example.com,2026-08-04,CANCELLED,799.00

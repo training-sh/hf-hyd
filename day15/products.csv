@@ -1,0 +1,6 @@
+product_id,sku,product_name,category,price,stock_quantity
+101,EL-MOU-01,Wireless Mouse,Electronics,799.00,120
+102,EL-KEY-02,Mechanical Keyboard,Electronics,2499.00,65
+103,EL-WEB-03,HD Webcam,Electronics,1899.00,42
+104,OF-CHR-04,Ergonomic Chair,Office Furniture,8999.00,18
+105,OF-DSK-05,Standing Desk,Office Furniture,15999.00,10
