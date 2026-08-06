@@ -20,3 +20,8 @@ sudo adduser xrdp ssl-cert
 sudo systemctl enable --now xrdp
 sudo systemctl restart xrdp
 ```
+
+```
+sudo systemctl status xrdp --no-pager
+sudo ss -lntp | grep 3389
+```
