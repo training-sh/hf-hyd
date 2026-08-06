@@ -44,6 +44,16 @@ mysql SHOULD NEVER exposed to 0.0.0.0, which listen on all the network interface
 sudo ss -ltnp | grep mysqld
 ```
 
+Mysql runs on port 3306, 127.0.0.1:3306 where mysql listen to localhost connection, 0.0.0.0:* actually means accept IP, however since it binds to 127.0.0.1, it does not accept over ethernet or wifi connection.
+
+Not a command, just preview.
+```
+sudo ss -ltnp | grep mysqld
+[sudo: authenticate] Password:
+LISTEN 0      70          127.0.0.1:33060      0.0.0.0:*    users:(("mysqld",pid=333,fd=21))
+LISTEN 0      151         127.0.0.1:3306       0.0.0.0:*    users:(("mysqld",pid=333,fd=24))
+```
+
 
 We have stop | restart commands, along with start command
 
