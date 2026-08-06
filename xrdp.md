@@ -15,3 +15,8 @@ chmod 644 ~/.xsession
 ```
 sudo adduser xrdp ssl-cert
 ```
+
+```
+sudo systemctl enable --now xrdp
+sudo systemctl restart xrdp
+```
