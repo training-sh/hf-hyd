@@ -47,6 +47,12 @@ sudo ufw allow 3389/tcp comment 'XRDP'
 sudo ufw allow 31297/tcp comment 'fwwebc'
 
 
+sudo ufw delete allow 3389/tcp
+sudo ufw delete allow 22/tcp
+
+
+sudo ufw allow from xyz.0.113.yy to any port 3389 proto tcp comment 'XRDP my pg IP'
+
 
 
 
