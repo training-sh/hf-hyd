@@ -38,6 +38,13 @@ start if not running
 sudo systemctl start mysql
 ```
 
+mysql SHOULD NEVER exposed to 0.0.0.0, which listen on all the network interfaces (wifi, ethernets, virtual networks) or any specific interface other than loopback ie 127.0.0.1. No one expected to connect mysql outside your machine strictly during this learning phase.
+
+```
+sudo ss -ltnp | grep mysqld
+```
+
+
 We have stop | restart commands, along with start command
 
 To set mysql root password,
