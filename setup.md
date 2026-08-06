@@ -1,5 +1,7 @@
 ### Tool setup over WSL
 
+
+
 ```
 sudo apt update
 ```
@@ -48,12 +50,14 @@ below instruction setup weak password, not a production recommendation.
 
 Here it allow root user to be accepted only through localhost, you cannot connect mysql over other machines.
 
+copy below statement to notepad, edit your password of choice, before run the command
+
 ```
 ALTER USER 'root'@'localhost'
 
 IDENTIFIED WITH caching_sha2_password
 
-BY 'root';
+BY 'your-secure-password';
 
 
 
@@ -80,4 +84,53 @@ SHOW DATABASES;
 EXIT;
 ```
 
+Advised, not to use *root* for regular connection.
+
+
+Instead create user of your choice. Copy below to notebook, edit yourname and yourpassword of your choice.
+
+
+```
+mysql -u root -p
+```
+
+```
+CREATE USER 'yourname'@'localhost'
+IDENTIFIED BY 'yourpassword';
+
+FLUSH PRIVILEGES;
+```
+```
+Exit; 
+```
+
+
+To grant permission to a user over a new database. This setup restrict, mysql to accept connection only from localhost 
+
+
+```
+mysql -u root -p
+```
+
+*.* refers to database.tables, not a good thing.
+
+```
+GRANT ALL PRIVILEGES ON *.* TO 'yourname'@'localhost'
+WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+```
+
+Instead, limit database, objects
+
+```
+GRANT ALL PRIVILEGES ON salesdb.* TO 'yourname'@'localhost'
+WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+```
+
+or
+
+ON sales.orders, or any table or view of your preference.
 
