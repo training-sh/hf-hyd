@@ -1,5 +1,11 @@
 ### Tool setup over WSL
 
+to start wsl,
+
+
+```
+wsl
+```
 
 
 ```
