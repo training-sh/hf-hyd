@@ -1,3 +1,5 @@
+```
+  
   2  PROJECT_ID=$(gcloud config get-value project)
     3  gcloud org-policies describe constraints/gcp.resourceLocations   --project="$PROJECT_ID"   --effective   --format=yaml
     4  gcloud config set dataproc/region us-central1
@@ -11,3 +13,5 @@
    12  gcloud dataproc clusters create my-cluster2   --region=us-central1   --single-node   --master-machine-type=e2-standard-2   --master-boot-disk-size=50GB
    13  history
 cloud_user_p_fdd301e4@cloudshell:~ (playground-s-11-fccaad34)$ 
+
+```
