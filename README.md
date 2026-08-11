@@ -6,6 +6,17 @@ Open Command Prompt, run
 wsl
 ```
 
+```
+pip install jupyterlab_sql_editor
+```
+
+validate extensions
+
+```
+jupyter labextension list
+```
+
+
 ```python
 from IPython.core.magic import register_cell_magic
 from IPython.core.magic import register_line_cell_magic
