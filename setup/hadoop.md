@@ -17,7 +17,7 @@ sudo apt install -y openjdk-11-jdk
 
 ```
 sudo apt install -y \
-  openjdk-17-jdk \
+  openjdk-11-jdk \
   openssh-server \
   wget \
   curl \
