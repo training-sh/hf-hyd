@@ -332,4 +332,71 @@ EOF
 ```
 
 
+```
+
+tee -a "$HADOOP_CONF_DIR/hadoop-env.sh" > /dev/null <<'EOF'
+
+# Training-cluster environment
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export HADOOP_LOG_DIR="${HOME}/hadoop-logs"
+
+# Small single-node cluster heap limits
+export HDFS_NAMENODE_OPTS="-Xmx512m ${HDFS_NAMENODE_OPTS}"
+export HDFS_DATANODE_OPTS="-Xmx512m ${HDFS_DATANODE_OPTS}"
+export HDFS_SECONDARYNAMENODE_OPTS="-Xmx256m ${HDFS_SECONDARYNAMENODE_OPTS}"
+EOF
+```
+
+```
+tee -a "$HADOOP_CONF_DIR/yarn-env.sh" > /dev/null <<'EOF'
+
+# Training-cluster environment
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export YARN_RESOURCEMANAGER_HEAPSIZE=512
+export YARN_NODEMANAGER_HEAPSIZE=512
+EOF
+```
+
+job history
+
+```
+tee -a "$HADOOP_CONF_DIR/mapred-env.sh" > /dev/null <<'EOF'
+
+# Training-cluster environment
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export HADOOP_JOB_HISTORYSERVER_HEAPSIZE=256
+EOF
+```
+
+configure workers list
+
+```
+printf '%s\n' localhost > "$HADOOP_CONF_DIR/workers"
+```
+
+check 
+
+```
+cat "$HADOOP_CONF_DIR/workers"
+```
+
+XML validation
+
+```
+sudo apt install -y libxml2-utils
+```
+
+Copy whole thing, ensure all four xml are good, no syntactical error, here we validate xml format, not hadoop conf right or wrong.
+
+```
+for file in core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml
+do
+    echo "Checking $file"
+    xmllint --noout "$HADOOP_CONF_DIR/$file"
+done
+```
+
+
+
+
 
