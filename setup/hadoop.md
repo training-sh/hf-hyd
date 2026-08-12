@@ -62,3 +62,29 @@ export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin"
 EOF
 ```
 
+```
+source "$HOME/.bashrc"
+```
+
+```
+cd /tmp
+
+wget -O hadoop-3.3.6.tar.gz \
+  https://archive.apache.org/dist/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+```
+
+```
+sudo tar -xzf /tmp/hadoop-3.3.6.tar.gz -C /opt
+
+sudo mv /opt/hadoop-3.3.6 /opt/hadoop
+
+sudo chown -R "$USER:$(id -gn)" /opt/hadoop
+```
+
+```
+hadoop version
+```
+
+
+
+
