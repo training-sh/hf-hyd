@@ -632,6 +632,41 @@ done
 ```
 
 
+```
+yarn node -list
+```
+
+Now start the MapReduce JobHistory Server
+
+```
+mapred --daemon start historyserver
+```
+
+```
+jps
+```
+
+check JobHistoryServer
+
+For Word count.. a hello world ritual in big data
+
+```
+hdfs dfs -mkdir -p "/user/$USER/input"
+```
+
+```
+printf '%s\n' \
+  'hadoop stores data in hdfs' \
+  'hadoop mapreduce runs on yarn' \
+  'yarn manages mapreduce resources' \
+  > /tmp/wordcount.txt
+```
+
+```
+hdfs dfs -put -f /tmp/wordcount.txt "/user/$USER/input/"
+```
+
+
 
 
 
