@@ -97,3 +97,15 @@ def execute_sql(sql_text, params=None, *, many=False):
     finally:
         cursor.close()
 ```
+
+
+```
+ssh -v -N \
+  -o PreferredAuthentications=password \
+  -o PubkeyAuthentication=no \
+  -o GSSAPIAuthentication=no \
+  -o ConnectTimeout=15 \
+  -o ExitOnForwardFailure=yes \
+  -L 8888:127.0.0.1:8888 \
+  user@remote-vm
+```
