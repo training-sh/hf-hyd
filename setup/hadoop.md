@@ -667,7 +667,48 @@ hdfs dfs -put -f /tmp/wordcount.txt "/user/$USER/input/"
 ```
 
 
+verify files exist
 
+```
+hdfs dfs -ls "/user/$USER/input"
+hdfs dfs -cat "/user/$USER/input/wordcount.txt"
+```
+
+remove old word count output if any
+
+```
+hdfs dfs -rm -r -f "/user/$USER/output"
+```
+
+another big test,, worth another prayer for map reduce
+
+```
+hadoop jar \
+  "$HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar" \
+  wordcount \
+  "/user/$USER/input" \
+  "/user/$USER/output"
+```
+
+map % reduce %, must reach 100% for both
+
+check output, do you see word count output? celebrate..
+
+```
+hdfs dfs -cat "/user/$USER/output/part-r-00000"
+```
+
+```
+yarn application -list -appStates ALL
+```
+
+to stop the server at the end
+
+```
+mapred --daemon stop historyserver
+stop-yarn.sh
+stop-dfs.sh
+```
 
 
 
