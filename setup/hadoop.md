@@ -496,8 +496,15 @@ xyz NameNode
 
 xyz is process id
 
+HDFS Health check
 
+```
+hdfs dfsadmin -report
+```
 
+while it prints more details, validate it has a line
+
+Live datanodes (1):
 
 
 
