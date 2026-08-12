@@ -67,3 +67,18 @@ sudo certbot certificates
 sudo apt install -y python3-venv
 ```
 
+```
+python3 -m venv ~/dataengenv
+source ~/dataengenv/bin/activate
+```
+
+```
+cat <<'EOF' >> ~/.bashrc
+
+# Automatically activate the Data Engineering environment
+if [ -f "$HOME/dataengenv/bin/activate" ]; then
+    source "$HOME/dataengenv/bin/activate"
+fi
+EOF
+
+```
