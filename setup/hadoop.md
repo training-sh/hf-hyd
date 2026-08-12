@@ -4,6 +4,17 @@
 sudo apt update
 ```
 
+
+```
+sudo apt install -y openjdk-11-jdk
+```
+
+```
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -version
+```
+
+
+
 ```
 sudo apt install -y \
   openjdk-17-jdk \
