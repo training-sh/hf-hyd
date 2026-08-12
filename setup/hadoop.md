@@ -448,5 +448,29 @@ check again, you must see echo msg printed
 ssh -o BatchMode=yes localhost 'echo "SSH working as $(whoami)"'
 ```
 
+Hadoop Formatting
+
+Below command is to test, if hadoop has some files, if no shows shown, means , we need to format hdfs freshly
+
+```
+find "$HOME/hadoop-data/namenode" -maxdepth 2 -type f
+```
+
+format hdfs now. it is like formatting your pen drive, harddisk etc but limited to hadoop. 
+
+```
+hdfs namenode -format hadoop-training
+```
+
+check again, if any files found, we expect few defaults added by hadoop format command
+
+```
+find "$HOME/hadoop-data/namenode" -maxdepth 2 -type f
+```
+
+
+
+
+
 
 
