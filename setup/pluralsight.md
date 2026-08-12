@@ -127,3 +127,19 @@ watch for server block , that has listen 443 ssl , include above file
 ```
 include /etc/nginx/snippets/jupyter-proxy.conf;
 ```
+
+test your editing skill with below command, -t validate config
+
+```
+sudo nginx -t
+```
+
+reload nginx
+
+```
+sudo systemctl reload nginx
+```
+
+
+
+```
