@@ -141,5 +141,12 @@ sudo systemctl reload nginx
 ```
 
 
-
+for reference
+```
+jupyter lab \
+  --ip=127.0.0.1 \
+  --port=8888 \
+  --no-browser \
+  --ServerApp.base_url=/jupyter/ \
+  --ServerApp.allow_remote_access=True
 ```
