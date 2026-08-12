@@ -63,3 +63,7 @@ check the path
 sudo certbot certificates
 
 
+```
+sudo apt install -y python3-venv
+```
+
