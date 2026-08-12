@@ -468,6 +468,38 @@ check again, if any files found, we expect few defaults added by hadoop format c
 find "$HOME/hadoop-data/namenode" -maxdepth 2 -type f
 ```
 
+Now real fun start, did we really configure correctly or not
+
+Start HDFS
+
+```
+start-dfs.sh
+```
+
+check namenode, datanode, secondary data node, also adding your host into known host list
+
+to check these services alive or dead,
+
+jps command print running java processes
+
+```
+jps
+```
+
+must print 
+
+xyz SecondaryNameNode
+
+xyz DataNode
+
+xyz NameNode
+
+xyz is process id
+
+
+
+
+
 
 
 
