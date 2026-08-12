@@ -7,6 +7,11 @@ wsl
 ```
 
 ```
+jupyter lab  --notebook-dir=/mnt/c/training
+```
+
+
+```
 pip install jupyterlab_sql_editor
 ```
 
