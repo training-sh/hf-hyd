@@ -17,6 +17,10 @@ nginx webserver
 sudo apt install nginx
 ```
 
+```
+sudo systemctl enable --now nginx
+```
+
 check this return full domain name, hostname.domainname.tld, example lab123.example.com
 
 ```
