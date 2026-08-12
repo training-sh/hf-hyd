@@ -576,6 +576,49 @@ does it print content?, celebrate!!, have small talk, non technical.. you earned
 
 Still not yet done fully, we have to check Map Reduce/YARN
 
+## Start YARN
+
+
+```
+start-yarn.sh
+```
+
+must start resourcemanager, nodemanagers
+
+```
+jps
+```
+
+
+
+# Utilities, logs
+
+```
+find "$HOME/hadoop-logs" -maxdepth 1 -type f \
+  -printf '%T@ %p\n' |
+  sort -nr |
+  head -10 |
+  cut -d' ' -f2-
+```
+
+```
+grep -RniE \
+  'exception|error|failed|inaccessible|unsupported|could not' \
+  "$HOME/hadoop-logs" |
+  tail -80
+```
+
+end of daemon logs, if any error in resource or nodemanager, if they didn't start these logs unlikely present or may have last known errors
+
+```
+for file in "$HOME"/hadoop-logs/*resourcemanager* \
+            "$HOME"/hadoop-logs/*nodemanager*
+do
+    [ -f "$file" ] || continue
+    echo "===== $file ====="
+    tail -80 "$file"
+done
+```
 
 
 
