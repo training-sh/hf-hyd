@@ -129,6 +129,12 @@ location /jupyter/ {
 EOF
 ```
 
+```
+sudo tee /etc/nginx/snippets/lab-auth.conf >/dev/null <<'EOF'
+auth_basic "Restricted Training Lab";
+auth_basic_user_file /etc/nginx/.htpasswd;
+EOF
+```
 
 ```
 sudo nano /etc/nginx/sites-available/default
