@@ -116,3 +116,14 @@ location /jupyter/ {
 }
 EOF
 ```
+
+
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+watch for server block , that has listen 443 ssl , include above file 
+
+```
+include /etc/nginx/snippets/jupyter-proxy.conf;
+```
