@@ -396,7 +396,19 @@ do
 done
 ```
 
+Resolved home directory, especially to validate ${user.home} worked or not,
+it must show your home directory
 
+Confirm resolved directories
+
+Hadoop can show the resolved values:
+
+```
+hdfs getconf -confKey fs.defaultFS
+hdfs getconf -confKey hadoop.tmp.dir
+hdfs getconf -confKey dfs.namenode.name.dir
+hdfs getconf -confKey dfs.datanode.data.dir
+```
 
 
 
