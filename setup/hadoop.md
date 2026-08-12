@@ -46,7 +46,7 @@ if below files, you will brick your linux, no warranty, no support
 
 ```
 sudo tee -a /etc/environment > /dev/null <<'EOF'
-JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 HADOOP_HOME="/opt/hadoop"
 HADOOP_CONF_DIR="/opt/hadoop/etc/hadoop"
 EOF
@@ -66,7 +66,7 @@ sudo cat /etc/environment
 tee -a "$HOME/.bashrc" > /dev/null <<'EOF'
 
 # Hadoop environment
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export HADOOP_HOME=/opt/hadoop
 export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop"
 export PATH="$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin"
@@ -348,7 +348,7 @@ EOF
 tee -a "$HADOOP_CONF_DIR/hadoop-env.sh" > /dev/null <<'EOF'
 
 # Training-cluster environment
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export HADOOP_LOG_DIR="${HOME}/hadoop-logs"
 
 # Small single-node cluster heap limits
@@ -362,7 +362,7 @@ EOF
 tee -a "$HADOOP_CONF_DIR/yarn-env.sh" > /dev/null <<'EOF'
 
 # Training-cluster environment
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export YARN_RESOURCEMANAGER_HEAPSIZE=512
 export YARN_NODEMANAGER_HEAPSIZE=512
 EOF
@@ -374,7 +374,7 @@ job history
 tee -a "$HADOOP_CONF_DIR/mapred-env.sh" > /dev/null <<'EOF'
 
 # Training-cluster environment
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export HADOOP_JOB_HISTORYSERVER_HEAPSIZE=256
 EOF
 ```
