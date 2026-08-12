@@ -82,3 +82,12 @@ fi
 EOF
 
 ```
+
+
+```
+python -m pip install --upgrade pip
+```
+
+```
+pip install jupyterlab
+```
