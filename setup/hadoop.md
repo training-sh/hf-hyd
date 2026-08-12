@@ -442,6 +442,11 @@ grep -qxF "$(cat "$HOME/.ssh/id_ed25519.pub")" \
 chmod 600 "$HOME/.ssh/authorized_keys"
 ```
 
+check again, you must see echo msg printed
+
+```
+ssh -o BatchMode=yes localhost 'echo "SSH working as $(whoami)"'
+```
 
 
 
