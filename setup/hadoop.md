@@ -711,6 +711,25 @@ stop-dfs.sh
 ```
 
 
+```
+| Component                 |  Port | Protocol   | Nginx HTTP proxy?            |
+| ------------------------- | ----: | ---------- | ---------------------------- |
+| NameNode UI               |  9870 | HTTP       | Yes                          |
+| DataNode UI               |  9864 | HTTP       | Yes, but usually unnecessary |
+| ResourceManager UI        |  8088 | HTTP       | Yes                          |
+| NodeManager UI            |  8042 | HTTP       | Yes, but usually unnecessary |
+| JobHistory UI             | 19888 | HTTP       | Yes                          |
+| NameNode filesystem       |  9000 | Hadoop RPC | No                           |
+| DataNode transfer         |  9866 | Native TCP | No                           |
+| DataNode IPC              |  9867 | Hadoop RPC | No                           |
+| ResourceManager client    |  8032 | Hadoop RPC | No                           |
+| ResourceManager scheduler |  8030 | Hadoop RPC | No                           |
+| Resource tracker          |  8031 | Hadoop RPC | No                           |
+| ResourceManager admin     |  8033 | Hadoop RPC | No                           |
+| JobHistory RPC            | 10020 | Hadoop RPC | No                           |
+
+```
+
 
 
 
