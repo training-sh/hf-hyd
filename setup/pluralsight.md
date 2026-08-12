@@ -93,6 +93,18 @@ pip install jupyterlab
 ```
 
 ```
+sudo apt install -y apache2-utils
+```
+
+```
+sudo htpasswd -c /etc/nginx/.htpasswd <<student>>
+```
+
+example
+
+sudo htpasswd -c /etc/nginx/.htpasswd joe
+
+```
 sudo tee /etc/nginx/snippets/jupyter-proxy.conf >/dev/null <<'EOF'
 location = /jupyter {
     return 301 /jupyter/;
@@ -125,6 +137,7 @@ sudo nano /etc/nginx/sites-available/default
 watch for server block , that has listen 443 ssl , include above file 
 
 ```
+include /etc/nginx/snippets/lab-auth.conf;
 include /etc/nginx/snippets/jupyter-proxy.conf;
 ```
 
