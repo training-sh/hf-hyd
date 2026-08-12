@@ -507,6 +507,81 @@ while it prints more details, validate it has a line
 Live datanodes (1):
 
 
+Now you are reaching The Shawshank Redemption  climax, whether Andy escaped jail, living happily on sea shore with his dream boat else ??
+
+create directories in hdfs
+
+```
+hdfs dfs -mkdir -p "/user/$USER"
+hdfs dfs -chown "$USER:$(id -gn)" "/user/$USER"
+```
+
+```
+hdfs dfs -ls /user
+```
+
+List them
+
+Now real test start, can we upload file, creating directories did not use datanodes, it uses only namenode.
+
+Let us upload a file into hdfs
+
+```
+mkdir -p "$HOME/hadoop-lab/input"
+```
+
+create a localfile to upload into cloud files
+
+```
+tee "$HOME/hadoop-lab/input/file1.txt" > /dev/null <<'EOF'
+hadoop stores large data
+hadoop uses hdfs
+mapreduce processes data
+EOF
+```
+
+yet another local file to test your patience
+
+```
+tee "$HOME/hadoop-lab/input/file2.txt" > /dev/null <<'EOF'
+hdfs stores blocks
+yarn manages resources
+mapreduce runs on yarn
+EOF
+```
+
+yet another hdfs directory
+
+```
+hdfs dfs -mkdir -p input
+```
+
+upload files.. pray favorite gods, most hdfs setup fails here due to datanode, hdfs formatting
+
+```
+hdfs dfs -put -f "$HOME/hadoop-lab/input/"*.txt input/
+```
+
+sure, done, take deep breath!!, check if upload successful yet
+
+```
+hdfs dfs -ls input
+```
+
+```
+hdfs dfs -cat 'input/*.txt'
+```
+
+does it print content?, celebrate!!, have small talk, non technical.. you earned 10 mins break
+
+Still not yet done fully, we have to check Map Reduce/YARN
+
+
+
+
+
+
+
 
 
 
