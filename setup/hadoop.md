@@ -85,6 +85,95 @@ sudo chown -R "$USER:$(id -gn)" /opt/hadoop
 hadoop version
 ```
 
+```
+mkdir -p "$HOME/hadoop-data/tmp"
+mkdir -p "$HOME/hadoop-data/namenode"
+mkdir -p "$HOME/hadoop-data/datanode"
+mkdir -p "$HOME/hadoop-data/yarn/local"
+mkdir -p "$HOME/hadoop-data/yarn/log"
+mkdir -p "$HOME/hadoop-logs"
+```
+
+available storage
+
+```
+df -h "$HOME"
+free -h
+```
+
+core-site.xml
+
+
+```
+tee "$HADOOP_CONF_DIR/core-site.xml" > /dev/null <<'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>${user.home}/hadoop-data/tmp</value>
+    </property>
+
+    <property>
+        <name>io.file.buffer.size</name>
+        <value>65536</value>
+    </property>
+
+</configuration>
+EOF
+```
+
+hdfs-site.xml
+
+```
+tee "$HADOOP_CONF_DIR/hdfs-site.xml" > /dev/null <<'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+    <property>
+        <name>dfs.blocksize</name>
+        <value>67108864</value>
+        <description>64 MB blocks for a small training cluster</description>
+    </property>
+
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file://${user.home}/hadoop-data/namenode</value>
+    </property>
+
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file://${user.home}/hadoop-data/datanode</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.checkpoint.dir</name>
+        <value>file://${user.home}/hadoop-data/namesecondary</value>
+    </property>
+
+    <property>
+        <name>dfs.permissions.enabled</name>
+        <value>true</value>
+    </property>
+
+</configuration>
+EOF
+```
+
 
 
 
