@@ -140,6 +140,11 @@ reload nginx
 sudo systemctl reload nginx
 ```
 
+enter your password, confirm your password. if you forgot your jupyter password, reset again in same way.
+
+```
+jupyter server password
+```
 
 for reference
 
