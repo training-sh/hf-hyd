@@ -156,3 +156,9 @@ jupyter lab \
   --ServerApp.base_url=/jupyter/ \
   --ServerApp.allow_remote_access=True
 ```
+
+hashed password
+
+```
+cat ~/.jupyter/jupyter_server_config.json
+```
