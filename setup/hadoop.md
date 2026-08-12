@@ -410,5 +410,38 @@ hdfs getconf -confKey dfs.namenode.name.dir
 hdfs getconf -confKey dfs.datanode.data.dir
 ```
 
+CRITICAL PART
+
+Verify passwordless SSH
+
+```
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+
+ssh-keyscan -H localhost >> "$HOME/.ssh/known_hosts"
+chmod 600 "$HOME/.ssh/known_hosts"
+```
+
+```
+ssh -o BatchMode=yes localhost 'echo "SSH working as $(whoami)"'
+```
+
+if above failed, you need to configure ssh key
+
+```
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
+    ssh-keygen -t ed25519 -N "" -f "$HOME/.ssh/id_ed25519"
+fi
+
+touch "$HOME/.ssh/authorized_keys"
+
+grep -qxF "$(cat "$HOME/.ssh/id_ed25519.pub")" \
+    "$HOME/.ssh/authorized_keys" ||
+    cat "$HOME/.ssh/id_ed25519.pub" >> "$HOME/.ssh/authorized_keys"
+
+chmod 600 "$HOME/.ssh/authorized_keys"
+```
+
+
 
 
