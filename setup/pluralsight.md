@@ -162,3 +162,41 @@ hashed password
 ```
 cat ~/.jupyter/jupyter_server_config.json
 ```
+
+
+create nginx as linux service
+
+```
+sudo tee /etc/systemd/system/jupyter.service >/dev/null <<'EOF'
+[Unit]
+Description=JupyterLab
+After=network.target nginx.service
+
+[Service]
+Type=simple
+User=cloud_user
+Group=cloud_user
+WorkingDirectory=/home/cloud_user
+ExecStart=/home/cloud_user/dataengenv/bin/jupyter lab --no-browser --ip=127.0.0.1 --port=8888 --ServerApp.base_url=/jupyter/ --ServerApp.allow_remote_access=True
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+```
+sudo systemctl daemon-reload
+
+sudo systemctl enable --now jupyter
+```
+
+```
+sudo systemctl status jupyter --no-pager
+sudo journalctl -u jupyter -n 50 --no-pager
+```
+
+```
+sudo ss -lntp | grep ':8888'
+```
