@@ -49,4 +49,9 @@ EOF
 ```
 source "$HOME/.bashrc"
 ```
+validate all the available templates, templates are config files examples.
+
+```
+ls "$HIVE_CONF_DIR" | sort
+```
 
