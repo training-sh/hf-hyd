@@ -92,3 +92,18 @@ mkdir -p "$HOME/hive-logs"
 mkdir -p "$HOME/hive-data/scratch"
 mkdir -p "$HOME/hive-data/resources"
 ```
+
+check hive version , should be 4.0.1
+
+```
+hive --version
+```
+
+beeline version same as hive version
+
+```
+beeline --version
+```
+
+
+
