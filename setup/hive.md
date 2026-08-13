@@ -378,3 +378,9 @@ yarn must show one node
 yarn node -list
 ```
 
+create database
+
+```
+schematool -dbType mysql -initSchema --verbose
+```
+
