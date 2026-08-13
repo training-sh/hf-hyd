@@ -510,6 +510,31 @@ Expected:
 hive.execution.engine=mr
 ```
 
+```
+USE training;
+
+SET hive.execution.engine=mr;
+SET hive.fetch.task.conversion=none;
+```
+
+```
+CREATE TABLE sales (
+    city STRING,
+    amount INT
+);
+
+INSERT INTO sales VALUES
+('Bengaluru', 100),
+('Hyderabad', 200),
+('Bengaluru', 300),
+('Chennai', 150);
+```
+
+```
+SELECT city, SUM(amount) AS total
+FROM sales
+GROUP BY city;
+```
 
 ```
  pkill -f HiveServer2
