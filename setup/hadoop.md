@@ -1,4 +1,19 @@
+# HADOOP DOWNLOAD
+
+```
+cd /tmp
+```
+
+```
+wget -O hadoop-3.3.6.tar.gz \
+  https://archive.apache.org/dist/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
+```
+
+## DONT FOLLOW FURTHER NOTES
+
 #### Java setup
+
+
 
 ```
 sudo apt update
