@@ -311,3 +311,7 @@ tee "$HIVE_CONF_DIR/hive-site.xml" > /dev/null <<'EOF'
 EOF
 ```
 
+```
+cat $HIVE_CONF_DIR/hive-site.xml
+```
+
