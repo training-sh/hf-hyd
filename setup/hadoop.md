@@ -1,6 +1,10 @@
 # HADOOP DOWNLOAD
 
 ```
+wsl
+```
+
+```
 cd /tmp
 ```
 
