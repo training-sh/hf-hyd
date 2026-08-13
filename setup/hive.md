@@ -467,9 +467,48 @@ tail -150 /tmp/cloud_user/hive.log
 
 beeline is a client tool for hive, it connect to hive server 2
 
+```
 beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
+```
 
+```
+SHOW DATABASES;
+CREATE DATABASE IF NOT EXISTS training;
+USE training;
+```
 
+Create a simple managed table:
+
+```
+CREATE TABLE test_message (
+    id INT,
+    message STRING
+);
+```
+
+Insert and query:
+
+```
+INSERT INTO test_message
+VALUES (1, 'Hive is working');
+SELECT * FROM test_message;
+```
+
+Expected:
+
+1    Hive is working
+
+Check the execution engine:
+
+```
+SET hive.execution.engine;
+```
+
+Expected:
+
+```
+hive.execution.engine=mr
+```
 
 
 ```
