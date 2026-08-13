@@ -536,6 +536,19 @@ FROM sales
 GROUP BY city;
 ```
 
+use EXPLAIN
+
+## DONT RUN THESE COMMANDS
+
+```
+yarn application -list -appStates ALL
+```
+
+
+
+
+
+
 ```
  pkill -f HiveServer2
  pkill -f HiveMetaStore
