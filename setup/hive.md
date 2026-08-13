@@ -341,4 +341,9 @@ check live nodes (1),
 hdfs dfsadmin -report
 ```
 
+yarn must show one node
+
+```
+yarn node -list
+```
 
