@@ -246,3 +246,13 @@ location /guacamole/ {
 }
 EOF
 ```
+
+
+
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+```
+  include /etc/nginx/snippets/guacamole-proxy.conf;
+```
