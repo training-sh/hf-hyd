@@ -378,9 +378,58 @@ yarn must show one node
 yarn node -list
 ```
 
-create database
+create database for hive metadata
 
 ```
 schematool -dbType mysql -initSchema --verbose
 ```
+
+```
+schematool -dbType mysql -info
+```
+
+
+Start Hive Metastore
+
+```
+mkdir -p "$HOME/hive-logs"
+```
+
+```
+nohup hive --service metastore \
+  > "$HOME/hive-logs/metastore.log" 2>&1 &
+```
+
+check if hive metastore listening on 9083
+
+```
+ss -lnt | grep ':9083'
+```
+
+if you don't see metastore, see the errors , even check if running
+
+```
+tail -80 "$HOME/hive-logs/metastore.log"
+```
+
+Start HiveServer2
+
+```
+nohup hiveserver2 \
+  > "$HOME/hive-logs/hiveserver2.log" 2>&1 &
+```
+
+check if it is listening on port 10000 or 10002 after a minute
+
+```
+ss -lnt | grep -E ':(10000|10002)\b'
+```
+
+if you don't see the port,
+
+```
+tail -100 "$HOME/hive-logs/hiveserver2.log"
+```
+
+
 
