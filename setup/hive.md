@@ -85,3 +85,10 @@ export HIVE_LOG_DIR="${HOME}/hive-logs"
 export HADOOP_HEAPSIZE=1024
 EOF
 ```
+
+
+```
+mkdir -p "$HOME/hive-logs"
+mkdir -p "$HOME/hive-data/scratch"
+mkdir -p "$HOME/hive-data/resources"
+```
