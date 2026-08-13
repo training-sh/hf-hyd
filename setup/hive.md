@@ -171,6 +171,14 @@ cp /tmp/mysql-connector-j-8.4.0.jar "$HIVE_HOME/lib/"
 ```
 
 
+observations only for author. hive for some reason not picking user.name template variable
+
+
+<value>${system:user.home}/hive-data/scratch</value>, <value>${system:user.home}/hive-data/resources</value>
+
+for others, you need to copy below to notepad, change cloud_user to your linux username
+
+
 Setup hive config
 
 ```
@@ -245,12 +253,14 @@ tee "$HIVE_CONF_DIR/hive-site.xml" > /dev/null <<'EOF'
 
     <property>
         <name>hive.exec.local.scratchdir</name>
-        <value>${system:user.home}/hive-data/scratch</value>
+        <value>/home/cloud_user/hive-data/scratch</value>
+        
     </property>
 
     <property>
         <name>hive.downloaded.resources.dir</name>
-        <value>${system:user.home}/hive-data/resources</value>
+        <value>/home/cloud_user/hive-data/resources</value>
+        
     </property>
 
     <!-- ====================================================== -->
