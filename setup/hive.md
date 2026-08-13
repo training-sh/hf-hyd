@@ -449,5 +449,7 @@ if you don't see the port,
 tail -100 "$HOME/hive-logs/hiveserver2.log"
 ```
 
-
-
+```
+ pkill -f HiveServer2
+ pkill -f HiveMetaStore
+```
