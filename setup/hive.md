@@ -341,6 +341,37 @@ check live nodes (1),
 hdfs dfsadmin -report
 ```
 
+hive needs tmp, warehouse
+
+```
+hdfs dfs -mkdir -p /tmp
+hdfs dfs -chmod 1777 /tmp
+
+hdfs dfs -mkdir -p /tmp/hive
+hdfs dfs -chmod 1777 /tmp/hive
+
+hdfs dfs -mkdir -p /user/hive/warehouse
+hdfs dfs -chown "$USER:$(id -gn)" /user/hive/warehouse
+hdfs dfs -chmod 775 /user/hive/warehouse
+
+hdfs dfs -mkdir -p /user/hive/external
+hdfs dfs -chown "$USER:$(id -gn)" /user/hive/external
+hdfs dfs -chmod 775 /user/hive/external
+
+
+
+```
+
+verify all directories created working
+
+```
+hdfs dfs -ls -d \
+  /tmp \
+  /tmp/hive \
+  /user/hive/warehouse \
+  /user/hive/external
+```
+
 yarn must show one node
 
 ```
