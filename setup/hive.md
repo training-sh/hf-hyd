@@ -20,6 +20,10 @@ wget -O apache-hive-4.0.1-bin.tar.gz \
 sudo tar -xzf /tmp/apache-hive-4.0.1-bin.tar.gz -C /opt
 ```
 
+```
+sudo mv /opt/apache-hive-4.0.1-bin /opt/hive
+```
+
 we will run hive on logged in user credentials, not as backend. this is not a good practice.
 
 ```
