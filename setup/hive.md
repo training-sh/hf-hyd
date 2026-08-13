@@ -105,5 +105,32 @@ beeline version same as hive version
 beeline --version
 ```
 
+```
+mysql -u root -p
+```
 
+copy paste one after another
 
+```
+CREATE DATABASE IF NOT EXISTS hive_metastore;
+
+CREATE USER IF NOT EXISTS 'hive'@'localhost'
+IDENTIFIED BY 'HiveLab@123';
+
+ALTER USER 'hive'@'localhost'
+IDENTIFIED BY 'HiveLab@123';
+
+GRANT ALL PRIVILEGES
+ON hive_metastore.*
+TO 'hive'@'localhost';
+
+FLUSH PRIVILEGES;
+
+SHOW DATABASES LIKE 'hive_metastore';
+
+SELECT user, host, plugin
+FROM mysql.user
+WHERE user = 'hive';
+
+SHOW GRANTS FOR 'hive'@'localhost';
+```
