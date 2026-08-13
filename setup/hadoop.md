@@ -25,25 +25,16 @@ sudo apt update
 
 
 ```
-sudo apt install -y openjdk-11-jdk
-```
-
-```
-/usr/lib/jvm/java-11-openjdk-amd64/bin/java -version
-```
-
-
-
-```
 sudo apt install -y \
   openjdk-11-jdk \
   openssh-server \
+  libxml2-utils \
   wget \
   curl \
   rsync
 ```
 
-Ensure java 17
+Ensure java 11
 
 ```
 java -version
@@ -56,6 +47,15 @@ check the path where java available
 ```
 dirname "$(dirname "$(readlink -f "$(which java)")")"
 ```
+
+
+check java installation location
+
+```
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -version
+```
+
+
 
 ```
 sudo cat /etc/environment
@@ -412,9 +412,7 @@ cat "$HADOOP_CONF_DIR/workers"
 
 XML validation
 
-```
-sudo apt install -y libxml2-utils
-```
+ 
 
 Copy whole thing, ensure all four xml are good, no syntactical error, here we validate xml format, not hadoop conf right or wrong.
 
