@@ -219,3 +219,30 @@ sudo journalctl -u jupyter -n 50 --no-pager
 ```
 sudo ss -lntp | grep ':8888'
 ```
+
+
+```
+sudo tee /etc/nginx/snippets/guacamole-proxy.conf > /dev/null <<'EOF'
+location = /guacamole {
+    return 301 /guacamole/;
+}
+
+location /guacamole/ {
+    proxy_pass http://127.0.0.1:8080/guacamole/;
+
+    proxy_http_version 1.1;
+    proxy_buffering off;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+
+    proxy_read_timeout 3600s;
+    proxy_send_timeout 3600s;
+}
+EOF
+```
