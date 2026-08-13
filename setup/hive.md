@@ -449,6 +449,29 @@ if you don't see the port,
 tail -100 "$HOME/hive-logs/hiveserver2.log"
 ```
 
+trouble-shooting commands
+
+```
+find /tmp "$HOME" -type f -name 'hive.log' \
+  -printf '%T@ %p\n' 2>/dev/null |
+sort -nr | head
+```
+
+if it is cloud_user, if not or wsl user, change path
+
+```
+tail -150 /tmp/cloud_user/hive.log
+```
+
+## beeline
+
+beeline is a client tool for hive, it connect to hive server 2
+
+beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
+
+
+
+
 ```
  pkill -f HiveServer2
  pkill -f HiveMetaStore
