@@ -315,3 +315,30 @@ EOF
 cat $HIVE_CONF_DIR/hive-site.xml
 ```
 
+run jps command check if hdfs and yarn components working NameNode, DataNode, SecondaryNameNode, ResourceManager, NodeManager, JobHistoryServer
+else start them
+
+```
+start-dfs.sh
+```
+
+```
+start-yarn.sh
+```
+
+history server
+
+```
+mapred --daemon start historyserver
+```
+
+run jps again..
+
+hdfs health check
+check live nodes (1), 
+
+```
+hdfs dfsadmin -report
+```
+
+
