@@ -256,3 +256,11 @@ sudo nano /etc/nginx/sites-available/default
 ```
   include /etc/nginx/snippets/guacamole-proxy.conf;
 ```
+
+```
+sudo nginx -t
+```
+
+```
+sudo systemctl reload nginx
+```
