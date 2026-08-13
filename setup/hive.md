@@ -317,6 +317,14 @@ tee "$HIVE_CONF_DIR/hive-site.xml" > /dev/null <<'EOF'
         </description>
     </property>
 
+<property>
+    <name>hive.metastore.event.db.notification.api.auth</name>
+    <value>false</value>
+    <description>
+        Allow HiveServer2 notification API access in this local training setup
+    </description>
+</property>
+
 </configuration>
 EOF
 ```
