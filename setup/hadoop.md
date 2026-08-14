@@ -19,7 +19,7 @@ wsl
 cd /mnt/c/username/Downloads
 ls
 
-cp apa*Tab  /tmp
+cp hadoop-3.3.6.tar.gz  /tmp
 ```
 
 
