@@ -1,6 +1,6 @@
 # Security Audit
 
-ensure we don't listen on network port, instead listen only on loopback ip, ie same machine localhost /127.0.0.1
+ensure we don't listen ssh or any application on network port, instead listen only on loopback ip, ie same machine localhost /127.0.0.1
 
 ```
 wsl
@@ -43,9 +43,9 @@ sudo sshd -T | grep -i '^listenaddress'
 sudo systemctl restart ssh
 ```
 
-'''
+```
 ssh -o BatchMode=yes localhost 'echo "SSH working as $(whoami)"'
-'''
+```
 
 Re-run hdfs commands, get/put, rerun word count again to ensure setup is working
 
