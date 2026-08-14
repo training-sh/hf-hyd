@@ -13,6 +13,16 @@ wget -O hadoop-3.3.6.tar.gz \
   https://archive.apache.org/dist/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz --no-check-certificate
 ```
 
+temporary arrangement
+```
+wsl
+cd /mnt/c/username/Downloads
+ls
+
+cp apa*Tab  /tmp
+```
+
+
 ## DONT FOLLOW FURTHER NOTES
 
 Extract and copy hadoop binaries to /opt directory.
