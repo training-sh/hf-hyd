@@ -6,6 +6,29 @@ Open Command Prompt, run
 wsl
 ```
 
+Hadoop/hive start commands
+
+```
+start-dfs.sh
+```
+```
+start-yarn.sh
+```
+```
+mapred --daemon start historyserver
+```
+
+```
+nohup hive --service metastore > "$HOME/hive-logs/metastore.log" 2>&1 &
+```
+```
+nohup hiveserver2 > "$HOME/hive-logs/hiveserver2.log" 2>&1 &
+```
+```
+jps
+```
+
+
 ```
 jupyter lab  --notebook-dir=/mnt/c/training
 ```
