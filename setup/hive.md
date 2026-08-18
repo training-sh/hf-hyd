@@ -10,6 +10,33 @@ wsl
 cd ~
 ```
 
+Java 8
+
+```
+cd /tmp
+```
+
+```
+wget -O temurin8.tar.gz \
+  "https://api.adoptium.net/v3/binary/latest/8/ga/linux/x64/jdk/hotspot/normal/eclipse"
+```
+
+```
+sudo mkdir -p /opt/java8
+```
+
+```
+sudo tar -xzf /tmp/temurin8.tar.gz \
+  -C /opt/java8 \
+  --strip-components=1
+```
+```
+sudo chown -R root:root /opt/java8
+```
+```
+sudo chmod -R a+rX /opt/java8
+```
+
 ```
 wget -O apache-hive-4.0.1-bin.tar.gz \
   https://archive.apache.org/dist/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz \
