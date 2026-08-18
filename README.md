@@ -24,6 +24,11 @@ nohup hive --service metastore > "$HOME/hive-logs/metastore.log" 2>&1 &
 ```
 nohup hiveserver2 > "$HOME/hive-logs/hiveserver2.log" 2>&1 &
 ```
+
+```
+beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
+```
+
 ```
 jps
 ```
