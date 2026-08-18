@@ -327,6 +327,16 @@ tee "$HIVE_CONF_DIR/hive-site.xml" > /dev/null <<'EOF'
     </description>
 </property>
 
+<!-- SET mapreduce.job.user.classpath.first=true; -->
+<property>
+    <name>mapreduce.job.user.classpath.first</name>
+    <value>true</value>
+    <description>
+        Load Hive and ORC dependencies before Hadoop dependencies in MapReduce >
+    </description>
+</property>
+
+
 </configuration>
 EOF
 ```
