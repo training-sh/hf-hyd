@@ -241,10 +241,12 @@ tee "$HIVE_CONF_DIR/hive-site.xml" > /dev/null <<'EOF'
         <value>/user/hive/warehouse</value>
     </property>
 
+<!--  
     <property>
         <name>hive.metastore.warehouse.external.dir</name>
         <value>/user/hive/external</value>
     </property>
+-->
 
     <property>
         <name>hive.exec.scratchdir</name>
