@@ -29,6 +29,13 @@ nohup hiveserver2 > "$HOME/hive-logs/hiveserver2.log" 2>&1 &
 beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
 ```
 
+Set this property before orc, later view
+
+```
+SET mapreduce.job.user.classpath.first=true;
+```
+
+
 ```
 jps
 ```
