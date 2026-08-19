@@ -10,32 +10,6 @@ wsl
 cd ~
 ```
 
-Java 8
-
-```
-cd /tmp
-```
-
-```
-wget -O temurin8.tar.gz \
-  "https://api.adoptium.net/v3/binary/latest/8/ga/linux/x64/jdk/hotspot/normal/eclipse"
-```
-
-```
-sudo mkdir -p /opt/java8
-```
-
-```
-sudo tar -xzf /tmp/temurin8.tar.gz \
-  -C /opt/java8 \
-  --strip-components=1
-```
-```
-sudo chown -R root:root /opt/java8
-```
-```
-sudo chmod -R a+rX /opt/java8
-```
 
 ```
 wget -O apache-hive-4.0.1-bin.tar.gz \
@@ -595,3 +569,54 @@ yarn application -list -appStates ALL
  pkill -f HiveServer2
  pkill -f HiveMetaStore
 ```
+
+
+Java 8
+
+```
+cd /tmp
+```
+
+DO NOT INSTALL JAVA 8, 
+
+
+```
+wget -O temurin8.tar.gz \
+  "https://api.adoptium.net/v3/binary/latest/8/ga/linux/x64/jdk/hotspot/normal/eclipse"
+```
+
+```
+sudo mkdir -p /opt/java8
+```
+
+```
+sudo tar -xzf /tmp/temurin8.tar.gz \
+  -C /opt/java8 \
+  --strip-components=1
+```
+```
+sudo chown -R root:root /opt/java8
+```
+```
+sudo chmod -R a+rX /opt/java8
+```
+
+if queries needs to be stored
+
+```xml
+<property>
+  <name>hive.server2.logging.operation.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.server2.logging.operation.log.location</name>
+  <value>/logs/hive/operation_logs</value>
+</property>
+
+<property>
+  <name>hive.server2.logging.operation.level</name>
+  <value>VERBOSE</value>
+</property>
+```
+
