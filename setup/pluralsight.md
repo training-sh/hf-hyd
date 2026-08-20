@@ -210,6 +210,25 @@ AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY
 AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 ```
 
+this is to refresh the key and password
+
+```
+tee ~/awsrefresh >/dev/null <<'EOF'
+read -rp "AWS Access Key ID: " key
+read -rsp "AWS Secret Access Key: " secret
+echo
+
+printf 'AWS_ACCESS_KEY_ID=%s\nAWS_SECRET_ACCESS_KEY=%s\n' \
+  "$key" "$secret" > "$HOME/.aws-jupyter.env"
+
+chmod 600 "$HOME/.aws-jupyter.env"
+sudo systemctl restart jupyter
+
+echo "AWS credentials updated and Jupyter restarted."
+unset key secret
+EOF
+```
+
 create jupter as linux service
 
 ```
@@ -298,4 +317,12 @@ sudo nginx -t
 
 ```
 sudo systemctl reload nginx
+```
+
+```
+source ~/awsrefresh
+```
+
+```
+sudo systemctl restart jupyter
 ```
