@@ -40,6 +40,10 @@ SET mapreduce.job.user.classpath.first=true;
 jps
 ```
 
+```
+export AWS_ACCESS_KEY_ID=key-from-plural-sight
+export AWS_SECRET_ACCESS_KEY=secret-from-plural-sight
+```
 
 ```
 jupyter lab  --notebook-dir=/mnt/c/training
