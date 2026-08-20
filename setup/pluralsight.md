@@ -196,7 +196,7 @@ cat ~/.jupyter/jupyter_server_config.json
 ```
 
 
-create nginx as linux service
+create jupter as linux service
 
 ```
 sudo tee /etc/systemd/system/jupyter.service >/dev/null <<'EOF'
