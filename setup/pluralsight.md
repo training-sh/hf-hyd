@@ -196,6 +196,22 @@ cat ~/.jupyter/jupyter_server_config.json
 ```
 
 
+```
+sudo install -o cloud_user -g cloud_user -m 600 /dev/null \
+  /home/cloud_user/.aws-jupyter.env
+```
+
+```
+sudo nano /home/cloud_user/.aws-jupyter.env
+```
+
+paste below, replace your password from aws/ps
+
+```
+AWS_ACCESS_KEY_ID=YOUR_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
+```
+
 create jupter as linux service
 
 ```
@@ -209,6 +225,14 @@ Type=simple
 User=cloud_user
 Group=cloud_user
 WorkingDirectory=/home/cloud_user
+
+
+
+EnvironmentFile=/home/cloud_user/.aws-jupyter.env
+Environment=HOME=/home/cloud_user
+Environment=PATH=/home/cloud_user/dataengenv/bin:/usr/local/bin:/usr/bin:/bin
+
+
 ExecStart=/home/cloud_user/dataengenv/bin/jupyter lab --no-browser --ip=127.0.0.1 --port=8888 --ServerApp.base_url=/jupyter/ --ServerApp.allow_remote_access=True
 Restart=on-failure
 RestartSec=5
