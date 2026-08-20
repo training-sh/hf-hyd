@@ -29,8 +29,21 @@ hostname -f
 
 Obtain ssl certification for subdomain, this helps you access https://lab123.example.com
 
+
 ```
-sudo certbot --nginx -d "$(hostname -f)"
+# List current firewall rules and allowed ports
+sudo ufw status numbered
+
+# Allow required TCP ports
+sudo ufw allow 80/tcp
+sudo ufw allow 8080/tcp
+sudo ufw allow 443/tcp
+
+# Enable firewall
+sudo ufw enable
+
+# Verify
+sudo ufw status verbose
 ```
 
 ```
