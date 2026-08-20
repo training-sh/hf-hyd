@@ -6,6 +6,38 @@
 ssh -i ~/.ssh/ec2emrkey.pem hadoop@PRIMARY-DNS
 ```
 
+# S3 and HDFS 
+
+below are reference commands for s3/hdfs. You can still use s3 input directly into map reduce instead of using hdfs.
+
+```
+aws s3 ls s3://YOUR-BUCKET/
+```
+
+```
+hadoop fs -ls s3://YOUR-BUCKET/
+```
+```
+hadoop fs -ls s3://YOUR-BUCKET/
+```
+```
+aws s3 ls s3://YOUR-BUCKET/ --recursive
+```
+```
+aws s3 cp \
+  s3://YOUR-BUCKET/input/test.txt \
+  /tmp/test.txt
+```
+```
+echo "EMR S3 test" >/tmp/emr-test.txt
+```
+```
+aws s3 cp \
+  /tmp/emr-test.txt \
+  s3://YOUR-BUCKET/emr-test/emr-test.txt
+```
+
+
 
 to connect to core nodes or task nodes, use jump connection approach, using ssh itself a proxy
 
