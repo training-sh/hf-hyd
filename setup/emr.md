@@ -3,9 +3,168 @@
 
 
 ```
+ssh -i ~/.ssh/ec2emrkey.pem hadoop@PRIMARY-DNS
+```
+
+
+to connect to core nodes or task nodes, use jump connection approach, using ssh itself a proxy
+
+```
+ssh \
+  -i ~/.ssh/ec2emrkey.pem \
+  -o ProxyCommand="ssh -i ~/.ssh/ec2emrkey.pem -W %h:%p hadoop@PRIMARY-DNS" \
+  hadoop@CORE-TASK-NODE-DNS
+```
+
+
+
+
+```
+hdfs dfsadmin -report
+```
+
+```
+hdfs dfsadmin -report | grep -E 'Name:|Hostname:|Decommission Status'
+```
+
+to run map reduce 
+
+```
 hadoop jar \
   /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar \
   wordcount \
   "/user/$USER/input" \
   "/user/$USER/output"
+```
+
+
+Fault Tolerance
+
+
+Check available EMR service names
+
+On a core node:
+
+```
+sudo systemctl status hadoop-hdfs-datanode
+sudo systemctl status hadoop-yarn-nodemanager
+```
+
+Discover them if the names differ:
+
+```
+systemctl list-unit-files |
+  grep -E 'hadoop.*(datanode|nodemanager)'
+```
+
+```
+hdfs getconf -confKey dfs.replication
+```
+
+test file
+
+```
+seq 1 100000 > /tmp/failover-demo.txt
+
+hdfs dfs -mkdir -p /demo/failover
+hdfs dfs -put -f /tmp/failover-demo.txt /demo/failover/
+```
+
+all the blocks
+
+```
+hdfs fsck /demo/failover/failover-demo.txt \
+  -files \
+  -blocks \
+  -locations
+```
+
+do this on primary node
+
+```
+sudo systemctl status hadoop-hdfs-datanode --no-pager
+```
+
+```
+hdfs dfs -cat /demo/failover/failover-demo.txt |
+  head
+```
+
+```
+hdfs dfsadmin -report
+```
+
+stop datanode, do on datanode vm
+
+```
+sudo systemctl stop hadoop-hdfs-datanode
+```
+
+```
+sudo systemctl status hadoop-hdfs-datanode --no-pager
+```
+
+now read on primary node again
+
+```
+hdfs dfs -cat /demo/failover/failover-demo.txt |
+  head
+```
+
+
+```
+hdfs dfsadmin -report
+```
+
+```
+hdfs fsck /demo/failover/failover-demo.txt \
+  -files \
+  -blocks \
+  -locations
+```
+
+restart again..
+
+```
+sudo systemctl start hadoop-hdfs-datanode
+sudo systemctl status hadoop-hdfs-datanode --no-pager
+```
+
+```
+hdfs dfsadmin -report
+```
+
+----
+
+Task node stop and restart, do this on task node or core node
+```
+sudo systemctl status hadoop-yarn-nodemanager
+```
+```
+sudo systemctl stop hadoop-yarn-nodemanager
+```
+```
+yarn node -list -all
+```
+```
+yarn application -list
+```
+```
+yarn application -status APPLICATION_ID
+```
+
+watch dogs on data node
+
+```
+sudo journalctl \
+  -u hadoop-hdfs-datanode \
+  -f
+```
+
+for task or node manager over task or data node
+
+```
+sudo journalctl \
+  -u hadoop-yarn-nodemanager \
+  -f
 ```
