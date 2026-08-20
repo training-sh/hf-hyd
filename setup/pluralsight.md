@@ -194,15 +194,13 @@ hashed password
 ```
 cat ~/.jupyter/jupyter_server_config.json
 ```
-
-
-```
-sudo install -o cloud_user -g cloud_user -m 600 /dev/null \
-  /home/cloud_user/.aws-jupyter.env
-```
+ 
 
 ```
-sudo nano /home/cloud_user/.aws-jupyter.env
+touch ~/.aws-jupyter.env
+
+nano ~/.aws-jupyter.env
+
 ```
 
 paste below, replace your password from aws/ps
