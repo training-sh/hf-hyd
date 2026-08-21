@@ -6,6 +6,29 @@
 ssh -i ~/.ssh/ec2emrkey.pem hadoop@PRIMARY-DNS
 ```
 
+```
+yarn node -list
+```
+
+```
+hdfs getconf -confKey fs.defaultFS
+hdfs getconf -confKey hadoop.tmp.dir
+hdfs getconf -confKey dfs.namenode.name.dir
+hdfs getconf -confKey dfs.datanode.data.dir
+```
+
+```
+hdfs dfsadmin -report
+```
+
+```
+hdfs dfs -ls /
+```
+
+```
+yarn application -list -appStates ALL
+```
+
 # S3 and HDFS 
 
 below are reference commands for s3/hdfs. You can still use s3 input directly into map reduce instead of using hdfs.
