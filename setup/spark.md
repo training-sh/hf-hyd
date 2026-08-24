@@ -126,6 +126,8 @@ spark-submit \
   /opt/spark/examples/src/main/python/pi.py 10
 ```
 
+now run spark over yarn, check README.md for starting hdfs, yarn
+
 ```
 pyspark \
   --master yarn \
