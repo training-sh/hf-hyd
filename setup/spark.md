@@ -126,13 +126,15 @@ spark-submit \
   /opt/spark/examples/src/main/python/pi.py 10
 ```
 
-now run spark over yarn, check README.md for starting hdfs, yarn
+# now run spark over yarn, check README.md for starting hdfs, yarn
 
 ```
 pyspark \
   --master yarn \
   --deploy-mode client
 ```
+
+
 
 ```
 spark.range(1, 11).show()
@@ -146,6 +148,27 @@ print("Application ID:", spark.sparkContext.applicationId)
 spark.stop()
 exit()
 ```
+
+
+# submit using yarn, client mode, discussed later
+
+```
+spark-submit \
+  --master yarn \
+  --deploy-mode client \
+  /opt/spark/examples/src/main/python/pi.py 10
+```
+
+# submit using yarn, cluster mode, discussed later
+
+```
+spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  /opt/spark/examples/src/main/python/pi.py 10
+```
+
+  
 
 
 ## SPARK CONF, DO NOT ATTEMPT NOW, explained later
