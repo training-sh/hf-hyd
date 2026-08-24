@@ -126,6 +126,26 @@ spark-submit \
   /opt/spark/examples/src/main/python/pi.py 10
 ```
 
+```
+pyspark \
+  --master yarn \
+  --deploy-mode client
+```
+
+```
+spark.range(1, 11).show()
+
+print("Spark version:", spark.version)
+print("Spark master:", spark.sparkContext.master)
+print("Application ID:", spark.sparkContext.applicationId)
+```
+
+```
+spark.stop()
+exit()
+```
+
+
 ## SPARK CONF, DO NOT ATTEMPT NOW, explained later
 
 ```
