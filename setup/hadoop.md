@@ -18,6 +18,10 @@ For faster upload
 ```
 sudo apt update
 sudo apt install -y aria2
+
+aria2c -x 16 -s 16 -k 1M -c --check-certificate=false \
+  -o hadoop-3.3.6.tar.gz \
+  "https://archive.apache.org/dist/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz"
 ```
 
 
