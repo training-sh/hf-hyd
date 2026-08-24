@@ -13,7 +13,7 @@ wget -O hadoop-3.3.6.tar.gz \
   https://archive.apache.org/dist/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz --no-check-certificate
 ```
 
-For faster upload
+For faster download especially archive.apache.org slow sometimes
 
 ```
 sudo apt update
