@@ -13,6 +13,15 @@ wget -O hadoop-3.3.6.tar.gz \
   https://archive.apache.org/dist/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz --no-check-certificate
 ```
 
+For faster upload
+
+```
+sudo apt update
+sudo apt install -y aria2
+```
+
+
+
 temporary arrangement
 ```
 wsl
