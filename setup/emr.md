@@ -254,3 +254,45 @@ ssh -i ~/.ssh/ec2emrkey.pem \
   -L 19888:"$EMR_PRIMARY":19888 \
   hadoop@ec2-100-62-23-158.compute-1.amazonaws.com
 ```
+
+
+### Livy EMR
+
+
+```
+ssh -i ~/.ssh/ec2emrkey.pem \
+  hadoop@ec2-100-62-23-158.compute-1.amazonaws.com \
+  'sudo ss -lntp | grep ":8998" || echo "Livy is not listening on port 8998"'
+```
+
+```
+ssh -i ~/.ssh/ec2emrkey.pem \
+  hadoop@ec2-100-62-23-158.compute-1.amazonaws.com \
+  'curl -i "http://$(hostname -f):8998/sessions"'
+```
+
+Run Livy ssh proxy
+
+```
+EMR_PRIMARY=$(ssh -i ~/.ssh/ec2emrkey.pem \
+  hadoop@ec2-100-62-23-158.compute-1.amazonaws.com \
+  'hostname -f')
+
+echo "$EMR_PRIMARY"
+```
+
+proxy
+
+```
+ssh -i ~/.ssh/ec2emrkey.pem \
+  -N \
+  -o ExitOnForwardFailure=yes \
+  -L 18998:"$EMR_PRIMARY":8998 \
+  hadoop@ec2-100-62-23-158.compute-1.amazonaws.com
+```
+
+check this locally, whether proxy works, able to fetch sessions, empty sessions are fine
+
+```
+curl -i http://localhost:18998/sessions
+```
