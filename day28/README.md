@@ -1,0 +1,3 @@
+- Explored S3 and Hive integration on EMR cluster
+- Started Spark Foundation
+- Setup spark on WSL
