@@ -223,3 +223,34 @@ sudo journalctl \
   -u hadoop-yarn-nodemanager \
   -f
 ```
+
+
+
+## PluralSight
+
+```
+ssh -i ~/.ssh/ec2emrkey.pem \
+  hadoop@ec2-100-62-23-158.compute-1.amazonaws.com \
+  'hostname -f; sudo ss -lntp | grep -E ":(8088|9870|18080|19888)\b"'
+```
+
+```
+EMR_PRIMARY=$(ssh -i ~/.ssh/ec2emrkey.pem \
+  hadoop@ec2-100-62-23-158.compute-1.amazonaws.com \
+  'hostname -f')
+```
+
+```
+echo "$EMR_PRIMARY"
+```
+
+```
+ssh -i ~/.ssh/ec2emrkey.pem \
+  -N \
+  -o ExitOnForwardFailure=yes \
+  -L 18088:"$EMR_PRIMARY":8088 \
+  -L 19870:"$EMR_PRIMARY":9870 \
+  -L 18080:"$EMR_PRIMARY":18080 \
+  -L 19888:"$EMR_PRIMARY":19888 \
+  hadoop@ec2-100-62-23-158.compute-1.amazonaws.com
+```
