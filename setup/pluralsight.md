@@ -274,6 +274,45 @@ sudo journalctl -u jupyter -n 50 --no-pager
 sudo ss -lntp | grep ':8888'
 ```
 
+## Spark history server if the cluster runs in the VM
+
+```
+sudo tee /etc/nginx/snippets/spark-history.conf >/dev/null <<'EOF'
+location = /spark-history {
+    return 301 /spark-history/;
+}
+
+location /spark-history/ {
+    proxy_pass http://127.0.0.1:18080/;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Prefix /spark-history;
+
+    proxy_redirect off;
+}
+EOF
+```
+
+
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+paste it with other jupyter, default auth 
+
+```
+
+```
+
+
+
+
+# Guacamole, skip for HF training, until needed
+
 
 ```
 sudo tee /etc/nginx/snippets/guacamole-proxy.conf > /dev/null <<'EOF'
