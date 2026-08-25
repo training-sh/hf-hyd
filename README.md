@@ -29,6 +29,32 @@ nohup hiveserver2 > "$HOME/hive-logs/hiveserver2.log" 2>&1 &
 beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
 ```
 
+
+
+## Web interfaces
+
+Open these URLs in the Windows browser while Hadoop is running in WSL:
+
+| Interface | URL | What to inspect |
+|---|---|---|
+| ResourceManager | [http://localhost:8088](http://localhost:8088) | Applications, states, queues, nodes, memory, and vCores |
+| ResourceManager applications | [http://localhost:8088/cluster/apps](http://localhost:8088/cluster/apps) | Running, completed, and failed applications |
+| ResourceManager nodes | [http://localhost:8088/cluster/nodes](http://localhost:8088/cluster/nodes) | NodeManager health and available resources |
+| NodeManager | [http://localhost:8042](http://localhost:8042) | Containers and local logs on this node |
+| MapReduce JobHistory | [http://localhost:19888](http://localhost:19888) | Completed MapReduce jobs, tasks, attempts, counters, and logs |
+| NameNode | [http://localhost:9870](http://localhost:9870) | HDFS files, DataNodes, capacity, and cluster storage |
+
+WSL normally forwards listening ports to Windows `localhost`. If a page does not open, confirm that the Hadoop daemons are running:
+
+~~~bash
+jps
+~~~
+
+Check which ports are listening:
+
+~~~bash
+ss -ltnp
+~~~
 Set this property before orc, later view
 
 ```
