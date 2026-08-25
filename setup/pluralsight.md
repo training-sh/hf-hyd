@@ -305,7 +305,7 @@ sudo nano /etc/nginx/sites-available/default
 paste it with other jupyter, default auth 
 
 ```
-
+include /etc/nginx/snippets/spark-history.conf;
 ```
 
 
