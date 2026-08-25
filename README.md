@@ -18,6 +18,18 @@ start-yarn.sh
 mapred --daemon start historyserver
 ```
 
+Spark master
+```
+/opt/spark/sbin/start-master.sh
+```
+
+Spark worker
+
+```
+/opt/spark/sbin/start-worker.sh "spark://$(hostname):7077"
+```
+
+
 ```
 nohup hive --service metastore > "$HOME/hive-logs/metastore.log" 2>&1 &
 ```
@@ -37,6 +49,7 @@ Open these URLs in the Windows browser while Hadoop is running in WSL:
 
 | Interface | URL | What to inspect |
 |---|---|---|
+|Spark UI | [http://localhost:8080](http://localhost:8080) | Spark UI |
 | ResourceManager | [http://localhost:8088](http://localhost:8088) | Applications, states, queues, nodes, memory, and vCores |
 | ResourceManager applications | [http://localhost:8088/cluster/apps](http://localhost:8088/cluster/apps) | Running, completed, and failed applications |
 | ResourceManager nodes | [http://localhost:8088/cluster/nodes](http://localhost:8088/cluster/nodes) | NodeManager health and available resources |
@@ -49,6 +62,8 @@ WSL normally forwards listening ports to Windows `localhost`. If a page does not
 ~~~bash
 jps
 ~~~
+
+We needed HDFS and Yarn up, Spark Master and Worker up and running. 
 
 Check which ports are listening:
 
