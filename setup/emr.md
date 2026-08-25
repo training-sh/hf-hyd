@@ -404,3 +404,16 @@ tee "$HOME/.sparkmagic/config.json" >/dev/null <<'EOF'
 }
 EOF
 ```
+
+validate json is all ok
+
+```
+python -m json.tool "$HOME/.sparkmagic/config.json" >/dev/null \
+  && echo "Sparkmagic config is valid"
+```
+
+confirm livy reachable
+
+```
+curl -sS http://127.0.0.1:18998/sessions | python -m json.tool
+```
