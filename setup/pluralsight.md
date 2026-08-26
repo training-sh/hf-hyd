@@ -274,7 +274,145 @@ sudo journalctl -u jupyter -n 50 --no-pager
 sudo ss -lntp | grep ':8888'
 ```
 
-## Spark history server if the cluster runs in the VM
+## Spark History Server for EMR cluster for PS workaround
+
+```
+sudo tee /etc/nginx/snippets/emr-proxies.conf >/dev/null <<'EOF'
+# ==========================================================
+# EMR services through local SSH tunnels
+# ==========================================================
+
+# YARN ResourceManager
+# Local tunnel: 127.0.0.1:18088 -> EMR Primary:8088
+location = /yarn {
+    return 301 /yarn/;
+}
+
+location /yarn/ {
+    proxy_pass http://127.0.0.1:18088/;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_redirect ~^(/.*)$ /yarn$1;
+
+    proxy_connect_timeout 10s;
+    proxy_read_timeout 300s;
+    proxy_send_timeout 300s;
+}
+
+
+# HDFS NameNode
+# Local tunnel: 127.0.0.1:19870 -> EMR Primary:9870
+location = /hdfs {
+    return 301 /hdfs/;
+}
+
+location /hdfs/ {
+    proxy_pass http://127.0.0.1:19870/;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_redirect ~^(/.*)$ /hdfs$1;
+
+    proxy_connect_timeout 10s;
+    proxy_read_timeout 300s;
+    proxy_send_timeout 300s;
+}
+
+
+# Spark History Server
+# Local tunnel: 127.0.0.1:18080 -> EMR Primary:18080
+location = /spark-history {
+    return 301 /spark-history/;
+}
+
+location /spark-history/ {
+    proxy_pass http://127.0.0.1:18080/;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_redirect ~^(/.*)$ /spark-history$1;
+
+    proxy_connect_timeout 10s;
+    proxy_read_timeout 300s;
+    proxy_send_timeout 300s;
+}
+
+
+# MapReduce JobHistory Server
+# Local tunnel: 127.0.0.1:19888 -> EMR Primary:19888
+location = /job-history {
+    return 301 /job-history/;
+}
+
+location /job-history/ {
+    proxy_pass http://127.0.0.1:19888/;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_redirect ~^(/.*)$ /job-history$1;
+
+    proxy_connect_timeout 10s;
+    proxy_read_timeout 300s;
+    proxy_send_timeout 300s;
+}
+
+
+# Apache Livy REST API
+# Local tunnel: 127.0.0.1:18998 -> EMR Primary:8998
+location = /livy {
+    return 301 /livy/;
+}
+
+location /livy/ {
+    proxy_pass http://127.0.0.1:18998/;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_connect_timeout 10s;
+    proxy_read_timeout 3600s;
+    proxy_send_timeout 3600s;
+
+    # Important for long-running Livy requests and log streaming
+    proxy_buffering off;
+    proxy_request_buffering off;
+}
+EOF
+```
+
+## include emr proxies
+
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+```
+include /etc/nginx/snippets/emr-proxies.conf;
+```
+
+
+
+## DONT USE this until instructed, Spark history server if the cluster runs in the VM
 
 ```
 sudo tee /etc/nginx/snippets/spark-history.conf >/dev/null <<'EOF'
