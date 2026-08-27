@@ -1,5 +1,12 @@
 Spark Dataframe introduction
 
+
+```
+wget -O mysql-connector-j-8.4.0.jar \
+  https://repo.maven.apache.org/maven2/com/mysql/mysql-connector-j/8.4.0/mysql-connector-j-8.4.0.jar --no-check-certificate
+```
+
+
 convert notebook to python
 
 ```
