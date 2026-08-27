@@ -620,3 +620,18 @@ if queries needs to be stored
 </property>
 ```
 
+
+```
+sudo apt install -y openjdk-8-jdk
+
+```
+
+```
+update-java-alternatives --list
+```
+
+fix in hive env file
+
+```
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
