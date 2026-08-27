@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="760" viewBox="0 0 920 760" role="img" aria-labelledby="title desc">
+  <title id="title">YARN application and container allocation flow</title>
+  <desc id="desc">A client submits an application to the ResourceManager. The ResourceManager launches the ApplicationMaster container. The ApplicationMaster negotiates resources with the ResourceManager and coordinates worker containers through NodeManagers.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#53657a"/>
+    </marker>
+    <style>
+      .box { fill: #f7f9fc; stroke: #53657a; stroke-width: 2; rx: 8; }
+      .am { fill: #e9f3ff; stroke: #2878b5; }
+      .worker { fill: #eef8ee; stroke: #3c8543; }
+      .label { fill: #17212b; font: 600 22px Arial, sans-serif; text-anchor: middle; }
+      .small { fill: #52606d; font: 16px Arial, sans-serif; text-anchor: middle; }
+      .edge { fill: none; stroke: #53657a; stroke-width: 2.2; marker-end: url(#arrow); }
+      .edge-label { fill: #52606d; font: 15px Arial, sans-serif; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="920" height="760" fill="#ffffff"/>
+
+  <rect class="box" x="310" y="30" width="300" height="82"/>
+  <text class="label" x="460" y="65">Client</text>
+  <text class="small" x="460" y="92">submits application</text>
+
+  <path class="edge" d="M460 112 V165"/>
+  <text class="edge-label" x="535" y="144">submission</text>
+
+  <rect class="box" x="310" y="166" width="300" height="78"/>
+  <text class="label" x="460" y="214">ResourceManager</text>
+
+  <path class="edge" d="M430 244 C405 285 405 307 430 342"/>
+  <text class="edge-label" x="340" y="293">launches AM</text>
+  <path class="edge" d="M490 342 C515 307 515 285 490 244"/>
+  <text class="edge-label" x="585" y="293">requests resources</text>
+
+  <rect class="box am" x="245" y="343" width="430" height="94"/>
+  <text class="label" x="460" y="380">AM container</text>
+  <text class="small" x="460" y="410">ApplicationMaster process</text>
+
+  <path class="edge" d="M360 437 C285 475 255 493 255 525"/>
+  <path class="edge" d="M560 437 C635 475 665 493 665 525"/>
+  <text class="edge-label" x="460" y="480">launch and coordinate allocated containers</text>
+
+  <rect class="box" x="105" y="526" width="300" height="78"/>
+  <text class="label" x="255" y="575">NodeManager 1</text>
+  <rect class="box" x="515" y="526" width="300" height="78"/>
+  <text class="label" x="665" y="575">NodeManager 2</text>
+
+  <path class="edge" d="M255 604 V660"/>
+  <path class="edge" d="M665 604 V660"/>
+
+  <rect class="box worker" x="105" y="661" width="300" height="70"/>
+  <text class="label" x="255" y="704">Worker container</text>
+  <rect class="box worker" x="515" y="661" width="300" height="70"/>
+  <text class="label" x="665" y="704">Worker container</text>
+</svg>
