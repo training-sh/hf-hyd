@@ -1,3 +1,16 @@
+# TODO: DIY
+
+pass paths from command line arguments
+
+Convention
+
+1. use --bronze-movies-path hdfspath
+2. use --bronze-rating-path hdfspath
+3. use --silver-movies-path  hdfspath
+4. use --silver-rating-path hdfspath
+5. use --gold-popular-movies-path hdfspath
+
+
 Spark Dataframe introduction
 
 
