@@ -12,17 +12,17 @@ cd ~
 
 
 ```
-wget -O apache-hive-4.0.1-bin.tar.gz \
-  https://archive.apache.org/dist/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz \
+wget -O apache-hive-4.0.0-bin.tar.gz \
+  https://archive.apache.org/dist/hive/hive-4.0.0/apache-hive-4.0.0-bin.tar.gz \
   --no-check-certificate
 ```
 
 ```
-sudo tar -xzf /tmp/apache-hive-4.0.1-bin.tar.gz -C /opt
+sudo tar -xzf /tmp/apache-hive-4.0.0-bin.tar.gz -C /opt
 ```
 
 ```
-sudo mv /opt/apache-hive-4.0.1-bin /opt/hive
+sudo mv /opt/apache-hive-4.0.0-bin /opt/hive
 ```
 
 we will run hive on logged in user credentials, not as backend. this is not a good practice.
@@ -97,7 +97,7 @@ mkdir -p "$HOME/hive-data/scratch"
 mkdir -p "$HOME/hive-data/resources"
 ```
 
-check hive version , should be 4.0.1
+check hive version , should be 4.0.0
 
 ```
 hive --version
