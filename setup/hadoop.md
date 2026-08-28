@@ -120,7 +120,7 @@ sudo cat /etc/environment
 tee -a "$HOME/.bashrc" > /dev/null <<'EOF'
 
 # Hadoop environment
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 export HADOOP_HOME=/opt/hadoop
 export HADOOP_CONF_DIR="$HADOOP_HOME/etc/hadoop"
@@ -390,7 +390,7 @@ EOF
 tee -a "$HADOOP_CONF_DIR/hadoop-env.sh" > /dev/null <<'EOF'
 
 # Training-cluster environment
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 export HADOOP_LOG_DIR="${HOME}/hadoop-logs"
 
@@ -405,7 +405,7 @@ EOF
 tee -a "$HADOOP_CONF_DIR/yarn-env.sh" > /dev/null <<'EOF'
 
 # Training-cluster environment
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 export YARN_RESOURCEMANAGER_HEAPSIZE=512
 export YARN_NODEMANAGER_HEAPSIZE=512
@@ -418,7 +418,7 @@ job history
 tee -a "$HADOOP_CONF_DIR/mapred-env.sh" > /dev/null <<'EOF'
 
 # Training-cluster environment
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export HADOOP_JOB_HISTORYSERVER_HEAPSIZE=256
 EOF
 ```
