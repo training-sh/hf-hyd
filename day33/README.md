@@ -1,0 +1,4 @@
+- Downgrade Hadoop 4.0.1 to 4.0.0 for Spark 3.5.9 compatibility 
+- HBase and Sqoop Introduction
+- Spark Excercises from D32 will be performed
+- About 50% students off due to mid-semester exam, we cover non-important components
