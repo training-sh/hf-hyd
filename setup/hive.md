@@ -583,7 +583,9 @@ cp $HIVE_HOME/lib/mysql-connector-j-8.4.0.jar ~
 sudo rm -rf /opt/hive
 ```
 
-
+```
+cp ~/mysql-connector-j-8.4.0.jar $HIVE_HOME/lib/
+```
 
 ## DO NOT FOLLOW   
 
