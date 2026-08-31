@@ -71,9 +71,7 @@ append JAVA, hadoop, hadoop, hive env into hive-env.sh file
 
 ```
 tee -a "$HIVE_CONF_DIR/hive-env.sh" > /dev/null <<'EOF'
-
-# Java 8
-export JAVA_HOME=/opt/java8
+ 
 
 # Hadoop training-lab environment
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
