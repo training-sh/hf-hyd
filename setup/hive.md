@@ -569,35 +569,23 @@ yarn application -list -appStates ALL
 ```
 
 
-Java 8
-
-```
-cd /tmp
-```
-
-DO NOT INSTALL JAVA 8, 
+# Downgrade hive to 4.0.0
 
 
-```
-wget -O temurin8.tar.gz \
-  "https://api.adoptium.net/v3/binary/latest/8/ga/linux/x64/jdk/hotspot/normal/eclipse"
-```
+copy to home directory 
 
 ```
-sudo mkdir -p /opt/java8
+cp $HIVE_HOME/lib/mysql-connector-j-8.4.0.jar ~
 ```
 
+
 ```
-sudo tar -xzf /tmp/temurin8.tar.gz \
-  -C /opt/java8 \
-  --strip-components=1
+sudo rm -rf /opt/hive
 ```
-```
-sudo chown -R root:root /opt/java8
-```
-```
-sudo chmod -R a+rX /opt/java8
-```
+
+
+
+## DO NOT FOLLOW   
 
 if queries needs to be stored
 
