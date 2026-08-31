@@ -43,6 +43,31 @@ sqoop import \
 ```
 
   
+export local hdfs data into mysql
+
+```
+export HADOOP_CLIENT_OPTS="-Xms128m -Xmx256m"
+```
+
+```
+sqoop export \
+  -D mapreduce.map.memory.mb=512 \
+  -D mapreduce.map.java.opts='-Xms128m -Xmx384m' \
+  -D mapreduce.map.cpu.vcores=1 \
+  -D yarn.app.mapreduce.am.resource.mb=384 \
+  -D yarn.app.mapreduce.am.command-opts='-Xms128m -Xmx256m' \
+  --connect "${JDBC_URL}" \
+  --driver org.mariadb.jdbc.Driver \
+  --username "${DB_USER}" \
+  --password-file "file://${PASSWORD_FILE}" \
+  --table customer_scores \
+  --columns 'customer_id,score,segment' \
+  --export-dir /user/hadoop/d335/customer_scores \
+  --input-fields-terminated-by ',' \
+  --input-null-string '\\N' \
+  --input-null-non-string '\\N' \
+  --num-mappers 1
+```
 
 
 
