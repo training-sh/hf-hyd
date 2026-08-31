@@ -6,17 +6,13 @@
 
 ## DIY
 
-- whitelist MariaDB port 3306 accessible from pluralsight vm in Security Group
+- whitelist MysQL/MariaDB port 3306 accessible from pluralsight vm in Security Group
 
 MariaDB is flavor of MySQL, same codebase
+ 
 
 ```
-sudo apt update
-sudo apt install -y mariadb-client
-```
-
-```
-mariadb --version
+mysql --version
 ```
 
 ```
@@ -33,7 +29,8 @@ Port, normally 3306
 Master username from the Configuration tab
 ```
 
+Replace $RDS_ENDPOINT or assign to variable RDS_ENDPOINT=hostname
 
 ```
-mariadb -h "$RDS_ENDPOINT" -P 3306 -u admin -p
+mysql -h "$RDS_ENDPOINT" -P 3306 -u admin -p
 ```
