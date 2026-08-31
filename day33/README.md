@@ -7,7 +7,45 @@
 
 - whitelist MysQL/MariaDB port 3306 accessible from pluralsight vm in Security Group
 
+- use mysql from aws cloud shell
+
+```
+
+yarn application -list -appStates ALL
+```
+
+```
+yarn application -kill application_1788167517234_0003
+```
+
+```
+export HADOOP_CLIENT_OPTS="-Xms128m -Xmx256m"
+```
+```
+sqoop import \
+  -D mapreduce.map.memory.mb=512 \
+  -D mapreduce.map.java.opts='-Xms128m -Xmx384m' \
+  -D mapreduce.map.cpu.vcores=1 \
+  -D yarn.app.mapreduce.am.resource.mb=384 \
+  -D yarn.app.mapreduce.am.command-opts='-Xms128m -Xmx256m' \
+  --connect "${JDBC_URL}" \
+  --driver org.mariadb.jdbc.Driver \
+  --username "${DB_USER}" \
+  --password-file "file://${PASSWORD_FILE}" \
+  --table customers \
+  --columns 'customer_id,customer_name,city,signup_date' \
+  --target-dir /user/hadoop/d335/customers \
+  --fields-terminated-by ',' \
+  --null-string '\\N' \
+  --null-non-string '\\N' \
+  --num-mappers 1
+
+```
+
   
+
+
+
 
 ```
 mysql --version
