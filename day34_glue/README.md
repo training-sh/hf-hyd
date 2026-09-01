@@ -15,3 +15,11 @@ pyspark \
   --conf spark.driver.memoryOverhead=512m \
   --conf spark.dynamicAllocation.enabled=false
 ```
+
+---
+
+Documentation
+
+https://docs.aws.amazon.com/glue/latest/webapi/API_GrokClassifier.html
+
+
