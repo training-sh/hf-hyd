@@ -47,6 +47,26 @@ export PATH="$PATH:$HIVE_HOME/bin"
 EOF
 ```
 
+### Local filesystem
+
+```
+sudo mkdir -p /tmp/hive-local
+sudo chmod 1777 /tmp/hive-local
+```
+
+# HDFS
+
+```
+hdfs dfs -mkdir -p /tmp/hive
+hdfs dfs -chmod 1777 /tmp/hive
+```
+
+```
+hdfs dfs -mkdir -p /user/hive/warehouse
+hdfs dfs -chmod 775 /user/hive/warehouse
+```
+
+
 ```
 source "$HOME/.bashrc"
 ```
