@@ -1,10 +1,10 @@
 ## ICEBERG DELTA
 
 
-# ============================================================
+ 
 # DELTA LAKE 3.3.2
 # Spark 3.5.x / Scala 2.12
-# ============================================================
+ 
 
 ```
 curl --fail --location --retry 5 --continue-at - \
@@ -20,10 +20,10 @@ curl --fail --location --retry 5 --continue-at - \
   https://repo.maven.apache.org/maven2/io/delta/delta-storage/3.3.2/delta-storage-3.3.2.jar
 ```
 
-# ============================================================
+ 
 # APACHE ICEBERG 1.10.0
 # Spark 3.5 / Scala 2.12 / Java 11
-# ============================================================
+ 
 
 
 ```
@@ -33,10 +33,10 @@ curl --fail --location --retry 5 --continue-at - \
 
 ```
 
-# ============================================================
+ 
 # ICEBERG AWS BUNDLE
 # For Iceberg + S3/AWS support
-# ============================================================
+ 
 
 
 ```
