@@ -50,7 +50,8 @@ EOF
 curl -k --fail --location --retry 5 --continue-at - \
   --output "$SPARK_HOME/jars/delta-spark_2.12-3.3.2.jar" \
   https://repo.maven.apache.org/maven2/io/delta/delta-spark_2.12/3.3.2/delta-spark_2.12-3.3.2.jar
-
+```
+```
 curl -k --fail --location --retry 5 --continue-at - \
   --output "$SPARK_HOME/jars/delta-storage-3.3.2.jar" \
   https://repo.maven.apache.org/maven2/io/delta/delta-storage/3.3.2/delta-storage-3.3.2.jar
