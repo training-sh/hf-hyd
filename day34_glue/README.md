@@ -4,6 +4,23 @@
 
 
 ```
+
+
+
+create a csv file without header
+
+invoice0.csv
+
+inv101,1000.34
+inv102,1003.55
+
+add csv classifier
+invoice_no,amount
+then create crawler with csv classifier
+
+```
+
+```
 pyspark \
   --master yarn \
   --deploy-mode client \
