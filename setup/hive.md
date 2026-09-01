@@ -255,17 +255,20 @@ tee "$HIVE_CONF_DIR/hive-site.xml" > /dev/null <<'EOF'
         <value>/tmp/hive</value>
     </property>
 
+    <!-- linux path, instead of actual linux user, kept in temp -->
     <property>
         <name>hive.exec.local.scratchdir</name>
-        <value>/home/cloud_user/hive-data/scratch</value>
+        <value>/tmp/hive-local</value>
         
     </property>
 
+<!--
     <property>
         <name>hive.downloaded.resources.dir</name>
         <value>/home/cloud_user/hive-data/resources</value>
         
     </property>
+-->
 
     <!-- ====================================================== -->
     <!-- MapReduce execution through YARN                       -->
