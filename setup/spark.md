@@ -43,8 +43,10 @@ export PYTHONPATH="$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.9.7-src.z
 EOF
 ```
 
+### Delta Lake 3.3.2
+
 ```
-# Delta Lake 3.3.2
+
 curl -k --fail --location --retry 5 --continue-at - \
   --output "$SPARK_HOME/jars/delta-spark_2.12-3.3.2.jar" \
   https://repo.maven.apache.org/maven2/io/delta/delta-spark_2.12/3.3.2/delta-spark_2.12-3.3.2.jar
@@ -54,14 +56,15 @@ curl -k --fail --location --retry 5 --continue-at - \
   https://repo.maven.apache.org/maven2/io/delta/delta-storage/3.3.2/delta-storage-3.3.2.jar
 
 
+```
+
 # Apache Iceberg 1.10.0
+```
 # Spark 3.5 / Scala 2.12 / Java 11 compatible choice
 curl -k --fail --location --retry 5 --continue-at - \
   --output "$SPARK_HOME/jars/iceberg-spark-runtime-3.5_2.12-1.10.0.jar" \
   https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12/1.10.0/iceberg-spark-runtime-3.5_2.12-1.10.0.jar
 ```
-
-
 
 ```
 source "$HOME/.bashrc"
