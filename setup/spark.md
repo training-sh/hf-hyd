@@ -60,8 +60,11 @@ curl -k --fail --location --retry 5 --continue-at - \
 ```
 
 # Apache Iceberg 1.10.0
-```
+
 # Spark 3.5 / Scala 2.12 / Java 11 compatible choice
+
+```
+
 curl -k --fail --location --retry 5 --continue-at - \
   --output "$SPARK_HOME/jars/iceberg-spark-runtime-3.5_2.12-1.10.0.jar" \
   https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12/1.10.0/iceberg-spark-runtime-3.5_2.12-1.10.0.jar
