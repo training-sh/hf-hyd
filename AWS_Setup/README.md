@@ -16,7 +16,12 @@ mkdir -p datalake/bronze/movielens/movies
 mkdir -p datalake/bronze/movielens/ratings
 
 
+wget https://files.grouplens.org/datasets/movielens/ml-latest-small.zip --no-check-certificate
+
+ unzip ml-latest-small.zip
 
 
+cp ml-latest-small/movies.csv  ~/datalake/bronze/movielens/movies
 
+cp ml-latest-small/rating.csv  ~/datalake/bronze/movielens/ratings
 ```
