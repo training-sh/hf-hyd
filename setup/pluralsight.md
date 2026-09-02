@@ -231,7 +231,6 @@ EOF
 
 create jupter as linux service
 
-```
 sudo tee /etc/systemd/system/jupyter.service >/dev/null <<'EOF'
 [Unit]
 Description=JupyterLab
@@ -243,21 +242,46 @@ User=cloud_user
 Group=cloud_user
 WorkingDirectory=/home/cloud_user
 
-
-
 EnvironmentFile=/home/cloud_user/.aws-jupyter.env
-Environment=HOME=/home/cloud_user
-Environment=PATH=/home/cloud_user/dataengenv/bin:/usr/local/bin:/usr/bin:/bin
 
+Environment="HOME=/home/cloud_user"
 
-ExecStart=/home/cloud_user/dataengenv/bin/jupyter lab --no-browser --ip=127.0.0.1 --port=8888 --ServerApp.base_url=/jupyter/ --ServerApp.allow_remote_access=True
+Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+
+Environment="HADOOP_HOME=/opt/hadoop"
+Environment="HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop"
+Environment="YARN_CONF_DIR=/opt/hadoop/etc/hadoop"
+
+Environment="SPARK_HOME=/opt/spark"
+
+Environment="PYSPARK_PYTHON=/home/cloud_user/dataengenv/bin/python"
+Environment="PYSPARK_DRIVER_PYTHON=/home/cloud_user/dataengenv/bin/python"
+
+Environment="PYTHONPATH=/opt/spark/python:/opt/spark/python/lib/py4j-0.10.9.7-src.zip"
+
+Environment="PATH=/home/cloud_user/dataengenv/bin:/opt/spark/bin:/opt/spark/sbin:/opt/hadoop/bin:/opt/hadoop/sbin:/usr/local/bin:/usr/bin:/bin"
+
+Environment="AWS_SHARED_CREDENTIALS_FILE=/home/cloud_user/.aws/credentials"
+Environment="AWS_CONFIG_FILE=/home/cloud_user/.aws/config"
+
+ExecStart=/home/cloud_user/dataengenv/bin/jupyter lab \
+  --no-browser \
+  --ip=127.0.0.1 \
+  --port=8888 \
+  --ServerApp.base_url=/jupyter/ \
+  --ServerApp.allow_remote_access=True
+
 Restart=on-failure
 RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
 EOF
-```
+
+sudo systemctl daemon-reload
+sudo systemctl restart jupyter
+sudo systemctl status jupyter --no-pager
+
 
 ```
 sudo systemctl daemon-reload
