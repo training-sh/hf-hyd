@@ -1,5 +1,14 @@
 AWS Cli, S3 Sync, other Automation scripts due to lab cleanup
- 
+
+
+```
+S3_BUCKET_NAME="gksdatalake"
+
+
+aws s3 sync "$HOME/datalake/" "s3://$S3_BUCKET_NAME/" \
+  --region us-east-1 \
+  --profile training
+```
 
 setup structure to be copied into s3
 
