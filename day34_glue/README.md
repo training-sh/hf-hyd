@@ -10,7 +10,7 @@ Inline policy
 		{
 			"Effect": "Allow",
 			"Action": "iam:PassRole",
-			"Resource": "arn:aws:iam::253862056991:role/*"
+			"Resource": "arn:aws:iam::253862056991:role/YOUR_GLUE_ROLENAME"
 		}
 	]
 }
