@@ -1,0 +1,3 @@
+- covering   part of glue notebooks from day34 and Athena. 
+- Redshift basics will be covered
+- Deep drive into Datawarehousing shall be over Snowflake
