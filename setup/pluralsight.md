@@ -230,7 +230,7 @@ EOF
 ```
 
 create jupter as linux service
-
+```
 sudo tee /etc/systemd/system/jupyter.service >/dev/null <<'EOF'
 [Unit]
 Description=JupyterLab
@@ -277,16 +277,17 @@ RestartSec=5
 [Install]
 WantedBy=multi-user.target
 EOF
-
-sudo systemctl daemon-reload
-sudo systemctl restart jupyter
-sudo systemctl status jupyter --no-pager
-
+```
+ 
 
 ```
 sudo systemctl daemon-reload
 
 sudo systemctl enable --now jupyter
+
+sudo systemctl restart jupyter
+
+sudo systemctl status jupyter --no-pager
 ```
 
 ```
