@@ -15,6 +15,20 @@ Inline policy
 	]
 }
 ```
+Custom transformation
+```
+def MyTransform (glueContext, dfc) -> DynamicFrameCollection:
+    df = dfc.select(list(dfc.keys())[0]).toDF()
+
+    from pyspark.sql.functions import upper, lower, col
+
+    df = df.withColumn("title", lower(col("title")))
+
+    return DynamicFrameCollection(
+        {"CustomTransform": DynamicFrame.fromDF(df, glueContext, "CustomTransform")},
+        glueContext
+    )
+```
 
 ```
 
