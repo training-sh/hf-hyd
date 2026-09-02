@@ -23,5 +23,5 @@ wget https://files.grouplens.org/datasets/movielens/ml-latest-small.zip --no-che
 
 cp ml-latest-small/movies.csv  ~/datalake/bronze/movielens/movies
 
-cp ml-latest-small/rating.csv  ~/datalake/bronze/movielens/ratings
+cp ml-latest-small/ratings.csv  ~/datalake/bronze/movielens/ratings
 ```
