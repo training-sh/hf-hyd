@@ -10,6 +10,19 @@ aws s3 sync "$HOME/datalake/" "s3://$S3_BUCKET_NAME/" \
   --profile training
 ```
 
+# Now S3 Bucket to local directory
+
+```
+S3_BUCKET_NAME="gksdatalake"
+LOCAL_BACKUP="$HOME/datalake_from_s3"
+aws s3 sync "s3://$S3_BUCKET_NAME/" "$LOCAL_BACKUP/" \
+  --exact-timestamps \
+  --region us-east-1 \
+  --profile training
+```
+
+
+
 setup structure to be copied into s3
 
 ```
