@@ -307,8 +307,14 @@ sudo tee /etc/nginx/snippets/emr-proxies.conf >/dev/null <<'EOF'
 # EMR services through local SSH tunnels
 # ==========================================================
 
+
+# ==========================================================
 # YARN ResourceManager
-# Local tunnel: 127.0.0.1:18088 -> EMR Primary:8088
+# 127.0.0.1:18088 -> EMR Primary:8088
+# Public URL:
+# https://f8b6936f061c.mylabserver.com/yarn/
+# ==========================================================
+
 location = /yarn {
     return 301 /yarn/;
 }
@@ -322,7 +328,26 @@ location /yarn/ {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
 
+    proxy_set_header Accept-Encoding "";
+
+    sub_filter_once off;
+
+    sub_filter 'href="/static/'  'href="/yarn/static/';
+    sub_filter 'src="/static/'   'src="/yarn/static/';
+
+    sub_filter 'href="/cluster/' 'href="/yarn/cluster/';
+    sub_filter 'href="/cluster"' 'href="/yarn/cluster"';
+
+    sub_filter 'action="/cluster/' 'action="/yarn/cluster/';
+
+    sub_filter '"/cluster/' '"/yarn/cluster/';
+    sub_filter "'/cluster/" "'/yarn/cluster/";
+
+    sub_filter '"/ws/' '"/yarn/ws/';
+    sub_filter "'/ws/" "'/yarn/ws/";
+
     proxy_redirect ~^(/.*)$ /yarn$1;
+    proxy_redirect ~^https?://[^/]+(/.*)$ /yarn$1;
 
     proxy_connect_timeout 10s;
     proxy_read_timeout 300s;
@@ -330,8 +355,33 @@ location /yarn/ {
 }
 
 
+# YARN escaped/root-relative URLs
+
+location = /cluster {
+    return 302 /yarn/cluster;
+}
+
+location ^~ /cluster/ {
+    return 302 /yarn$request_uri;
+}
+
+location ^~ /static/ {
+    return 302 /yarn$request_uri;
+}
+
+location ^~ /ws/ {
+    return 302 /yarn$request_uri;
+}
+
+
+
+# ==========================================================
 # HDFS NameNode
-# Local tunnel: 127.0.0.1:19870 -> EMR Primary:9870
+# 127.0.0.1:19870 -> EMR Primary:9870
+# Public URL:
+# https://f8b6936f061c.mylabserver.com/hdfs/
+# ==========================================================
+
 location = /hdfs {
     return 301 /hdfs/;
 }
@@ -345,7 +395,46 @@ location /hdfs/ {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
 
+    proxy_set_header Accept-Encoding "";
+
+    sub_filter_once off;
+
+    # ------------------------------------------------------
+    # HDFS HTML / JS paths
+    # ------------------------------------------------------
+
+    sub_filter 'href="/index.html'     'href="/hdfs/index.html';
+    sub_filter 'src="/index.html'      'src="/hdfs/index.html';
+
+    sub_filter 'href="/dfshealth.html' 'href="/hdfs/dfshealth.html';
+    sub_filter 'src="/dfshealth.html'  'src="/hdfs/dfshealth.html';
+
+    sub_filter 'href="/explorer.html'  'href="/hdfs/explorer.html';
+    sub_filter 'src="/explorer.html'   'src="/hdfs/explorer.html';
+
+    sub_filter 'href="/static/'        'href="/hdfs/static/';
+    sub_filter 'src="/static/'         'src="/hdfs/static/';
+
+    # WebHDFS
+    sub_filter '"/webhdfs/' '"/hdfs/webhdfs/';
+    sub_filter "'/webhdfs/" "'/hdfs/webhdfs/";
+
+    # NameNode JMX
+    sub_filter '"/jmx' '"/hdfs/jmx';
+    sub_filter "'/jmx" "'/hdfs/jmx";
+
+    sub_filter 'url: "/jmx' 'url: "/hdfs/jmx';
+    sub_filter "url: '/jmx" "url: '/hdfs/jmx";
+
+    # NameNode logs
+    sub_filter 'href="/logs/' 'href="/hdfs/logs/';
+    sub_filter 'src="/logs/'  'src="/hdfs/logs/';
+
+    sub_filter '"/logs/' '"/hdfs/logs/';
+    sub_filter "'/logs/" "'/hdfs/logs/";
+
     proxy_redirect ~^(/.*)$ /hdfs$1;
+    proxy_redirect ~^https?://[^/]+(/.*)$ /hdfs$1;
 
     proxy_connect_timeout 10s;
     proxy_read_timeout 300s;
@@ -353,8 +442,49 @@ location /hdfs/ {
 }
 
 
+# ----------------------------------------------------------
+# HDFS escaped/root-relative URLs
+# ----------------------------------------------------------
+
+location = /index.html {
+    return 302 /hdfs/index.html;
+}
+
+location = /dfshealth.html {
+    return 302 /hdfs/dfshealth.html;
+}
+
+location = /explorer.html {
+    return 302 /hdfs/explorer.html;
+}
+
+location ^~ /webhdfs/ {
+    return 302 /hdfs$request_uri;
+}
+
+# NameNode UI dynamically calls /jmx?qry=...
+location = /jmx {
+    return 302 /hdfs$request_uri;
+}
+
+# NameNode log links may escape to /logs/...
+location = /logs {
+    return 302 /hdfs/logs/;
+}
+
+location ^~ /logs/ {
+    return 302 /hdfs$request_uri;
+}
+
+
+
+# ==========================================================
 # Spark History Server
-# Local tunnel: 127.0.0.1:18080 -> EMR Primary:18080
+# 127.0.0.1:18080 -> EMR Primary:18080
+# Public URL:
+# https://f8b6936f061c.mylabserver.com/spark-history/
+# ==========================================================
+
 location = /spark-history {
     return 301 /spark-history/;
 }
@@ -368,7 +498,21 @@ location /spark-history/ {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
 
+    proxy_set_header Accept-Encoding "";
+
+    sub_filter_once off;
+
+    sub_filter 'href="/static/' 'href="/spark-history/static/';
+    sub_filter 'src="/static/'  'src="/spark-history/static/';
+
+    sub_filter 'href="/history/' 'href="/spark-history/history/';
+    sub_filter 'src="/history/'  'src="/spark-history/history/';
+
+    sub_filter '"/history/' '"/spark-history/history/';
+    sub_filter "'/history/" "'/spark-history/history/";
+
     proxy_redirect ~^(/.*)$ /spark-history$1;
+    proxy_redirect ~^https?://[^/]+(/.*)$ /spark-history$1;
 
     proxy_connect_timeout 10s;
     proxy_read_timeout 300s;
@@ -376,8 +520,14 @@ location /spark-history/ {
 }
 
 
+
+# ==========================================================
 # MapReduce JobHistory Server
-# Local tunnel: 127.0.0.1:19888 -> EMR Primary:19888
+# 127.0.0.1:19888 -> EMR Primary:19888
+# Public URL:
+# https://f8b6936f061c.mylabserver.com/job-history/
+# ==========================================================
+
 location = /job-history {
     return 301 /job-history/;
 }
@@ -391,7 +541,21 @@ location /job-history/ {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
 
+    proxy_set_header Accept-Encoding "";
+
+    sub_filter_once off;
+
+    sub_filter 'href="/jobhistory/' 'href="/job-history/jobhistory/';
+    sub_filter 'src="/jobhistory/'  'src="/job-history/jobhistory/';
+
+    sub_filter '"/jobhistory/' '"/job-history/jobhistory/';
+    sub_filter "'/jobhistory/" "'/job-history/jobhistory/";
+
+    sub_filter '"/ws/v1/history/' '"/job-history/ws/v1/history/';
+    sub_filter "'/ws/v1/history/" "'/job-history/ws/v1/history/";
+
     proxy_redirect ~^(/.*)$ /job-history$1;
+    proxy_redirect ~^https?://[^/]+(/.*)$ /job-history$1;
 
     proxy_connect_timeout 10s;
     proxy_read_timeout 300s;
@@ -399,8 +563,14 @@ location /job-history/ {
 }
 
 
-# Apache Livy REST API
-# Local tunnel: 127.0.0.1:18998 -> EMR Primary:8998
+
+# ==========================================================
+# Apache Livy
+# 127.0.0.1:18998 -> EMR Primary:8998
+# Public URL:
+# https://f8b6936f061c.mylabserver.com/livy/
+# ==========================================================
+
 location = /livy {
     return 301 /livy/;
 }
@@ -418,11 +588,12 @@ location /livy/ {
     proxy_read_timeout 3600s;
     proxy_send_timeout 3600s;
 
-    # Important for long-running Livy requests and log streaming
     proxy_buffering off;
     proxy_request_buffering off;
 }
 EOF
+
+
 ```
 
 ## include emr proxies
@@ -474,7 +645,7 @@ include /etc/nginx/snippets/spark-history.conf;
 ```
 
 
-
+sudo nginx -t && sudo systemctl reload nginx
 
 # Guacamole, skip for HF training, until needed
 
