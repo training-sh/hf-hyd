@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="720" viewBox="0 0 1250 720" role="img" aria-labelledby="title desc">
+  <title id="title">Spark failure handling hierarchy</title><desc id="desc">A task failure branches into transient failure retry, fetch-failure shuffle recovery, or repeated deterministic failure, ending in continuation or job abortion.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker><style>.b{fill:#eff6ff;stroke:#2563eb;stroke-width:2;rx:10}.d{fill:#fff7ed;stroke:#ea580c;stroke-width:2}.ok{fill:#ecfdf5;stroke:#059669;stroke-width:2;rx:10}.bad{fill:#fef2f2;stroke:#dc2626;stroke-width:2;rx:10}.t{font:600 17px Arial,sans-serif;fill:#0f172a;text-anchor:middle}.s{font:14px Arial,sans-serif;fill:#475569;text-anchor:middle}.l{stroke:#475569;stroke-width:2.3;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1250" height="720" fill="white"/><text x="625" y="31" class="t" font-size="24">Failure recovery uses the smallest safe unit</text>
+  <g transform="translate(485 55)"><rect class="bad" width="280" height="58"/><text class="t" x="140" y="35">Task attempt fails</text></g><line class="l" x1="625" y1="113" x2="625" y2="143"/>
+  <polygon class="d" points="625,145 815,205 625,265 435,205"/><text class="t" x="625" y="198">What kind of failure</text><text class="t" x="625" y="220">occurred?</text>
+  <path class="l" d="M470 220 C350 245,270 275,230 310"/><text class="s" x="310" y="262">transient task/executor error</text>
+  <path class="l" d="M625 265 L625 310"/><text class="s" x="690" y="292">FetchFailed</text>
+  <path class="l" d="M780 220 C900 245,980 275,1020 310"/><text class="s" x="944" y="262">deterministic user/data error</text>
+  <g transform="translate(60 312)"><rect class="b" width="340" height="70"/><text class="t" x="170" y="30">Retry task attempt</text><text class="s" x="170" y="53">often on another executor</text></g>
+  <g transform="translate(455 312)"><rect class="b" width="340" height="70"/><text class="t" x="170" y="28">Mark shuffle output missing</text><text class="s" x="170" y="52">resubmit required producer work</text></g>
+  <g transform="translate(850 312)"><rect class="bad" width="340" height="70"/><text class="t" x="170" y="28">Same partition fails again</text><text class="s" x="170" y="52">retry cannot fix code or data</text></g>
+  <line class="l" x1="230" y1="382" x2="230" y2="425"/><polygon class="d" points="230,427 355,475 230,523 105,475"/><text class="t" x="230" y="470">Attempt</text><text class="t" x="230" y="490">succeeds?</text>
+  <line class="l" x1="625" y1="382" x2="625" y2="443"/><g transform="translate(455 445)"><rect class="b" width="340" height="75"/><text class="t" x="170" y="28">Recompute missing map outputs</text><text class="s" x="170" y="53">then retry downstream stage</text></g>
+  <path class="l" d="M105 475 C45 500,45 570,105 590"/><text class="s" x="57" y="530">yes</text><g transform="translate(105 560)"><rect class="ok" width="250" height="70"/><text class="t" x="125" y="29">Stage continues</text><text class="s" x="125" y="52">partition is complete</text></g>
+  <path class="l" d="M355 475 C430 510,500 575,545 590"/><text class="s" x="430" y="525">no: limit reached</text>
+  <path class="l" d="M1020 382 C1020 510,820 575,705 590"/>
+  <g transform="translate(535 560)"><rect class="bad" width="340" height="70"/><text class="t" x="170" y="29">Abort stage and fail job</text><text class="s" x="170" y="52">terminal action exception</text></g>
+  <path class="l" d="M625 520 L625 555"/><text class="s" x="730" y="545">consumer stage retries</text>
+</svg>

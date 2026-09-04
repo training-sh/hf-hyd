@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="610" viewBox="0 0 1000 610" role="img" aria-labelledby="title desc">
+  <title id="title">Catalyst query planning pipeline</title>
+  <desc id="desc">Vertical flow from unresolved logical plan through analysis, logical optimization, physical candidates, selected SparkPlan, preparation, and adaptive query execution.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker><style>.b{fill:#eff6ff;stroke:#2563eb;stroke-width:2;rx:12}.p{fill:#f5f3ff;stroke:#7c3aed;stroke-width:2;rx:12}.q{fill:#ecfdf5;stroke:#059669;stroke-width:2;rx:12}.t{font:600 19px Arial,sans-serif;fill:#0f172a;text-anchor:middle}.s{font:14px Arial,sans-serif;fill:#475569;text-anchor:middle}.l{stroke:#475569;stroke-width:2.5;marker-end:url(#a)}</style></defs>
+  <rect width="1000" height="610" fill="white"/><text x="500" y="32" class="t" font-size="24">Catalyst planning and adaptive execution</text>
+  <g transform="translate(285 58)"><rect class="b" width="430" height="58"/><text class="t" x="215" y="35">Unresolved logical plan</text></g><line class="l" x1="500" y1="116" x2="500" y2="143"/>
+  <text x="655" y="137" class="s">resolve relations, attributes, functions, types</text><g transform="translate(285 145)"><rect class="b" width="430" height="58"/><text class="t" x="215" y="35">Analyzed logical plan</text></g><line class="l" x1="500" y1="203" x2="500" y2="230"/>
+  <text x="660" y="224" class="s">apply semantics-preserving rules</text><g transform="translate(285 232)"><rect class="b" width="430" height="58"/><text class="t" x="215" y="35">Optimized logical plan</text></g><line class="l" x1="500" y1="290" x2="500" y2="317"/>
+  <text x="650" y="311" class="s">generate physical alternatives</text><g transform="translate(285 319)"><rect class="p" width="430" height="58"/><text class="t" x="215" y="35">Physical plan candidates</text></g><line class="l" x1="500" y1="377" x2="500" y2="404"/>
+  <g transform="translate(285 406)"><rect class="p" width="430" height="58"/><text class="t" x="215" y="35">Selected and prepared SparkPlan</text></g><line class="l" x1="500" y1="464" x2="500" y2="491"/>
+  <text x="690" y="485" class="s">insert exchanges/sorts; generate code</text><g transform="translate(285 493)"><rect class="q" width="430" height="70"/><text class="t" x="215" y="30">Adaptive Query Execution</text><text class="s" x="215" y="52">revise remaining plan using runtime statistics</text></g>
+</svg>

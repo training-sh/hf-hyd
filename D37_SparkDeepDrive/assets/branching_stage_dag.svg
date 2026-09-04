@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="390" viewBox="0 0 1100 390" role="img" aria-labelledby="title desc">
+  <title id="title">Branching Spark stage DAG</title><desc id="desc">Two independent shuffle map stages for left and right join inputs converge into a result stage.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker><style>.m{fill:#eff6ff;stroke:#2563eb;stroke-width:2;rx:12}.r{fill:#ecfdf5;stroke:#059669;stroke-width:2;rx:12}.t{font:600 18px Arial,sans-serif;fill:#0f172a;text-anchor:middle}.s{font:14px Arial,sans-serif;fill:#475569;text-anchor:middle}.l{stroke:#475569;stroke-width:3;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1100" height="390" fill="white"/><text x="550" y="34" class="t" font-size="24">One job with independent parent branches</text>
+  <g transform="translate(55 80)"><rect class="m" width="365" height="95"/><text class="t" x="182" y="31">Stage 0 · left input</text><text class="s" x="182" y="57">scan → filter → shuffle write</text><text class="s" x="182" y="78">can run concurrently with Stage 1</text></g>
+  <g transform="translate(55 230)"><rect class="m" width="365" height="95"/><text class="t" x="182" y="31">Stage 1 · right input</text><text class="s" x="182" y="57">scan → filter → shuffle write</text><text class="s" x="182" y="78">can run concurrently with Stage 0</text></g>
+  <path class="l" d="M420 128 C560 128,560 170,690 190"/><path class="l" d="M420 278 C560 278,560 235,690 215"/>
+  <g transform="translate(695 145)"><rect class="r" width="350" height="120"/><text class="t" x="175" y="34">Stage 2 · result</text><text class="s" x="175" y="62">fetch both shuffles → local sorts</text><text class="s" x="175" y="84">sort-merge join → result</text><text class="s" x="175" y="106">waits for both parents</text></g>
+</svg>

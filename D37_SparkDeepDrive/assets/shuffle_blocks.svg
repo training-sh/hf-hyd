@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="500" viewBox="0 0 1100 500" role="img" aria-labelledby="title desc">
+  <title id="title">Shuffle block redistribution</title><desc id="desc">Three map partitions each write a block for each of two reduce partitions; reduce tasks fetch their block from every map output.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker><style>.m{fill:#eff6ff;stroke:#2563eb;stroke-width:2;rx:10}.r{fill:#ecfdf5;stroke:#059669;stroke-width:2;rx:10}.t{font:600 17px Arial,sans-serif;fill:#0f172a;text-anchor:middle}.s{font:14px Arial,sans-serif;fill:#475569;text-anchor:middle}.l0{stroke:#2563eb;stroke-width:2;fill:none;marker-end:url(#a)}.l1{stroke:#7c3aed;stroke-width:2;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1100" height="500" fill="white"/><text x="550" y="32" class="t" font-size="24">Shuffle: every map output is partitioned for downstream reducers</text>
+  <text x="200" y="72" class="t">Shuffle-map tasks</text><text x="900" y="72" class="t">Reduce-side tasks</text>
+  <g transform="translate(60 100)"><rect class="m" width="280" height="75"/><text class="t" x="140" y="30">Map partition 0</text><text class="s" x="140" y="54">writes block R0 + block R1</text></g>
+  <g transform="translate(60 215)"><rect class="m" width="280" height="75"/><text class="t" x="140" y="30">Map partition 1</text><text class="s" x="140" y="54">writes block R0 + block R1</text></g>
+  <g transform="translate(60 330)"><rect class="m" width="280" height="75"/><text class="t" x="140" y="30">Map partition 2</text><text class="s" x="140" y="54">writes block R0 + block R1</text></g>
+  <g transform="translate(790 145)"><rect class="r" width="250" height="85"/><text class="t" x="125" y="31">Reduce partition 0</text><text class="s" x="125" y="57">fetches every R0 block</text></g>
+  <g transform="translate(790 295)"><rect class="r" width="250" height="85"/><text class="t" x="125" y="31">Reduce partition 1</text><text class="s" x="125" y="57">fetches every R1 block</text></g>
+  <path class="l0" d="M340 125 C560 125,610 170,785 180"/><path class="l1" d="M340 150 C540 160,620 305,785 330"/>
+  <path class="l0" d="M340 240 C530 225,610 195,785 190"/><path class="l1" d="M340 265 C530 280,610 320,785 335"/>
+  <path class="l0" d="M340 355 C540 345,620 210,785 200"/><path class="l1" d="M340 380 C560 380,610 350,785 345"/>
+  <text x="550" y="458" class="s">Blue paths carry blocks for reduce partition 0 · Purple paths carry blocks for reduce partition 1</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="420" viewBox="0 0 1250 420" role="img" aria-labelledby="title desc">
+  <title id="title">Task completion sequence</title><desc id="desc">An executor task reports completion to TaskScheduler, which sends a completion event to DAGScheduler; map output is registered and the partition is marked complete.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker><style>.h{fill:#eff6ff;stroke:#2563eb;stroke-width:2;rx:9}.t{font:600 17px Arial,sans-serif;fill:#0f172a;text-anchor:middle}.s{font:14px Arial,sans-serif;fill:#334155}.life{stroke:#94a3b8;stroke-width:2;stroke-dasharray:7 7}.msg{stroke:#475569;stroke-width:2.5;marker-end:url(#a)}</style></defs>
+  <rect width="1250" height="420" fill="white"/><text x="625" y="30" class="t" font-size="23">Successful task-attempt completion</text>
+  <g transform="translate(35 55)"><rect class="h" width="220" height="55"/><text class="t" x="110" y="34">Executor task attempt</text></g><g transform="translate(340 55)"><rect class="h" width="220" height="55"/><text class="t" x="110" y="34">TaskScheduler</text></g><g transform="translate(645 55)"><rect class="h" width="220" height="55"/><text class="t" x="110" y="34">DAGScheduler</text></g><g transform="translate(950 55)"><rect class="h" width="260" height="55"/><text class="t" x="130" y="34">Map-output tracking</text></g>
+  <line class="life" x1="145" y1="110" x2="145" y2="385"/><line class="life" x1="450" y1="110" x2="450" y2="385"/><line class="life" x1="755" y1="110" x2="755" y2="385"/><line class="life" x1="1080" y1="110" x2="1080" y2="385"/>
+  <line class="msg" x1="145" y1="160" x2="445" y2="160"/><text class="s" x="210" y="150">status + metrics + accumulators</text>
+  <line class="msg" x1="450" y1="220" x2="750" y2="220"/><text class="s" x="535" y="210">CompletionEvent</text>
+  <line class="msg" x1="755" y1="280" x2="1075" y2="280"/><text class="s" x="825" y="270">register MapStatus</text>
+  <path class="msg" d="M755 330 C850 330,850 375,755 375"/><text class="s" x="825" y="352">mark partition complete;</text><text class="s" x="825" y="370">possibly unblock child stage</text>
+</svg>
