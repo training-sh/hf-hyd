@@ -1,0 +1,4 @@
+mapping_change_id,partner_id,partner_product_code,manufacturer_product_id,product_key,valid_from,valid_to,change_type,approved_by,approved_at_utc
+MAP-2025-091,PTN-US-MM,MM-TV55-NEW,PRD-1002,102,2025-09-01,9999-12-31,NEW_CODE,Partner Data Steward,2025-09-05T10:45:00Z
+MAP-2025-092,PTN-AE-GS,GS-MN-Q327-R2,PRD-3002,302,2025-09-01,9999-12-31,REPLACEMENT_CODE,Channel Data Manager,2025-09-05T11:00:00Z
+MAP-2025-093,PTN-AE-GS,GS-MN-Q327,PRD-3002,302,2025-01-01,2025-08-31,CLOSE_OLD_CODE,Channel Data Manager,2025-09-05T11:00:00Z

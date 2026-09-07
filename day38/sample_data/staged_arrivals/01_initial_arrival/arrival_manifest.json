@@ -1,0 +1,9 @@
+{
+  "batch_reference": "ARR-20250903-01",
+  "available_at_utc": "2025-09-03T08:00:00Z",
+  "files": [
+    "late_partner_sales.csv"
+  ],
+  "mapping_version_known_to_manufacturer": "2025-08-31",
+  "instruction": "Process sales before opening later-stage folders."
+}

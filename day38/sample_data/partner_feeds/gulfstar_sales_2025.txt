@@ -1,0 +1,49 @@
+# GulfStar contract v1: comma-separated key=value pairs; currency defaults to AED
+sale_ref=GS-30001,item=GS-TV-X255,sold_date=2025-02-12,outlet=DXB-03,units=1,unit_aed=2661.26,discount_aed=266.13,net_aed=2395.13,emirate=Dubai,country_code=AE
+sale_ref=GS-30002,item=GS-NB-G215,sold_date=2025-01-18,outlet=DXB-02,units=1,unit_aed=4356.12,discount_aed=435.61,net_aed=3920.51,emirate=Dubai,country_code=AE
+sale_ref=GS-30003,item=GS-NB-P416,sold_date=2025-11-07,outlet=DXB-02,units=3,unit_aed=5171.47,discount_aed=517.15,net_aed=13962.96,emirate=Dubai,country_code=AE
+sale_ref=GS-30004,item=GS-MN-Q327,sold_date=2025-05-22,outlet=AUH-01,units=1,unit_aed=1389.31,discount_aed=0.00,net_aed=1389.31,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30005,item=GS-MN-F224,sold_date=2025-11-10,outlet=DXB-03,units=1,unit_aed=662.85,discount_aed=0.00,net_aed=662.85,emirate=Dubai,country_code=AE
+sale_ref=GS-30006,item=GS-TV-X265,sold_date=2025-07-11,outlet=SHJ-01,units=3,unit_aed=3671.37,discount_aed=0.00,net_aed=11014.11,emirate=Sharjah,country_code=AE
+sale_ref=GS-30007,item=GS-NB-G215,sold_date=2025-06-09,outlet=DXB-03,units=1,unit_aed=4186.14,discount_aed=0.00,net_aed=4186.14,emirate=Dubai,country_code=AE
+sale_ref=GS-30008,item=GS-MN-U134,sold_date=2025-11-01,outlet=SHJ-01,units=1,unit_aed=2376.62,discount_aed=118.83,net_aed=2257.79,emirate=Sharjah,country_code=AE
+sale_ref=GS-30009,item=GS-MN-F224,sold_date=2025-02-26,outlet=JAFZA-W1,units=1,unit_aed=810.86,discount_aed=0.00,net_aed=810.86,emirate=Dubai,country_code=AE
+sale_ref=GS-30010,item=GS-NB-G215,sold_date=2025-02-07,outlet=DXB-02,units=1,unit_aed=4175.02,discount_aed=417.50,net_aed=3757.52,emirate=Dubai,country_code=AE
+sale_ref=GS-30011,item=GS-NB-P416,sold_date=2025-05-25,outlet=SHJ-01,units=1,unit_aed=5213.14,discount_aed=521.31,net_aed=4691.83,emirate=Sharjah,country_code=AE
+sale_ref=GS-30012,item=GS-TV-X265,sold_date=2025-04-15,outlet=AUH-01,units=1,unit_aed=3331.88,discount_aed=0.00,net_aed=3331.88,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30013,item=GS-TV-X255,sold_date=2025-06-30,outlet=AUH-01,units=1,unit_aed=3002.18,discount_aed=0.00,net_aed=3002.18,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30014,item=GS-MN-F224,sold_date=2025-12-27,outlet=DXB-01,units=1,unit_aed=757.95,discount_aed=75.80,net_aed=682.15,emirate=Dubai,country_code=AE
+sale_ref=GS-30015,item=GS-NB-E314,sold_date=2025-07-17,outlet=DXB-03,units=1,unit_aed=2642.79,discount_aed=0.00,net_aed=2642.79,emirate=Dubai,country_code=AE
+sale_ref=GS-30016,item=GS-MN-U134,sold_date=2025-10-30,outlet=AUH-01,units=1,unit_aed=1993.31,discount_aed=199.33,net_aed=1793.98,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30017,item=GS-TV-A143,sold_date=2025-06-29,outlet=SHJ-01,units=3,unit_aed=1394.75,discount_aed=69.74,net_aed=3975.03,emirate=Sharjah,country_code=AE
+sale_ref=GS-30018,item=GS-TV-X255,sold_date=2025-11-24,outlet=DXB-01,units=1,unit_aed=2421.41,discount_aed=242.14,net_aed=2179.27,emirate=Dubai,country_code=AE
+sale_ref=GS-30019,item=GS-MN-Q327,sold_date=2025-10-11,outlet=SHJ-01,units=1,unit_aed=1477.66,discount_aed=73.88,net_aed=1403.78,emirate=Sharjah,country_code=AE
+sale_ref=GS-30020,item=GS-MN-U134,sold_date=2025-09-22,outlet=DXB-03,units=1,unit_aed=1973.48,discount_aed=0.00,net_aed=1973.48,emirate=Dubai,country_code=AE
+sale_ref=GS-30021,item=GS-NB-P416,sold_date=2025-08-30,outlet=DXB-03,units=3,unit_aed=4833.31,discount_aed=483.33,net_aed=13049.94,emirate=Dubai,country_code=AE
+sale_ref=GS-30022,item=GS-TV-X255,sold_date=2025-04-15,outlet=,units=1,unit_aed=3017.28,discount_aed=0.00,net_aed=3017.28,emirate=Dubai,country_code=AE
+sale_ref=GS-30023,item=GS-TV-X255,sold_date=2025-02-11,outlet=DXB-02,units=1,unit_aed=2900.00,discount_aed=0.00,net_aed=2900.00,emirate=Dubai,country_code=AE
+sale_ref=GS-30024,item=GS-NB-E314,sold_date=2025-09-29,outlet=DXB-01,units=1,unit_aed=2365.71,discount_aed=0.00,net_aed=2365.71,emirate=Dubai,country_code=AE
+sale_ref=GS-30025,item=GS-NB-P416,sold_date=2025-03-25,outlet=AUH-01,units=1,unit_aed=4866.56,discount_aed=0.00,net_aed=4866.56,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30026,item=GS-NB-E314,sold_date=2025-04-14,outlet=AUH-01,units=1,unit_aed=2258.79,discount_aed=0.00,net_aed=2258.79,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30027,item=GS-TV-X265,sold_date=2025-08-01,outlet=DXB-02,units=3,unit_aed=3515.72,discount_aed=175.79,net_aed=10019.79,emirate=Dubai,country_code=AE
+sale_ref=GS-30028,item=GS-TV-A143,sold_date=2025-06-04,outlet=SHJ-01,units=1,unit_aed=1357.98,discount_aed=67.90,net_aed=1290.08,emirate=Sharjah,country_code=AE
+sale_ref=GS-30029,item=GS-MN-U134,sold_date=2025-03-09,outlet=DXB-01,units=1,unit_aed=2307.53,discount_aed=115.38,net_aed=2192.15,emirate=Dubai,country_code=AE
+sale_ref=GS-30030,item=GS-NB-G215,sold_date=2025-02-07,outlet=DXB-01,units=2,unit_aed=4085.58,discount_aed=0.00,net_aed=8171.16,emirate=Dubai,country_code=AE
+sale_ref=GS-30031,item=GS-NB-P416,sold_date=2025-12-20,outlet=AUH-01,units=1,unit_aed=5268.33,discount_aed=263.42,net_aed=5004.91,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30032,item=GS-TV-A143,sold_date=2025-10-14,outlet=DXB-03,units=3,unit_aed=1432.19,discount_aed=0.00,net_aed=4296.57,emirate=Dubai,country_code=AE
+sale_ref=GS-30033,item=GS-NB-E314,sold_date=2025-06-25,outlet=DXB-03,units=1,unit_aed=2477.63,discount_aed=123.88,net_aed=2353.75,emirate=Dubai,country_code=AE
+sale_ref=GS-30034,item=GS-TV-A143,sold_date=2025-10-29,outlet=DXB-01,units=2,unit_aed=1672.54,discount_aed=0.00,net_aed=3345.08,emirate=Dubai,country_code=AE
+sale_ref=GS-30035,item=GS-NB-G215,sold_date=2025-05-18,outlet=AUH-01,units=1,unit_aed=3813.53,discount_aed=190.68,net_aed=3622.85,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30036,item=GS-NB-E314,sold_date=2025-11-28,outlet=DXB-03,units=3,unit_aed=2302.36,discount_aed=115.12,net_aed=6561.72,emirate=Dubai,country_code=AE
+sale_ref=GS-30037,item=GS-NB-G215,sold_date=2025-11-17,outlet=DXB-03,units=-1,unit_aed=4094.99,discount_aed=409.50,net_aed=-3685.49,emirate=Dubai,country_code=AE
+sale_ref=GS-30038,item=GS-NB-P416,sold_date=2025-07-12,outlet=AUH-01,units=1,unit_aed=5205.44,discount_aed=0.00,net_aed=5205.44,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30039,item=GS-TV-A143,sold_date=2025-03-15,outlet=DXB-02,units=3,unit_aed=1459.25,discount_aed=145.93,net_aed=3939.96,emirate=Dubai,country_code=AE
+sale_ref=GS-30040,item=GS-TV-X265,sold_date=2025-08-29,outlet=DXB-01,units=1,unit_aed=3898.42,discount_aed=389.84,net_aed=3508.58,emirate=Dubai,country_code=AE
+sale_ref=GS-30041,item=GS-NB-E314,sold_date=2025-06-02,outlet=AUH-01,units=2,unit_aed=2208.94,discount_aed=220.89,net_aed=3976.10,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30042,item=GS-NB-G215,sold_date=2025-07-21,outlet=AUH-01,units=1,unit_aed=3964.78,discount_aed=0.00,net_aed=3964.78,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30043,item=GS-MN-U134,sold_date=2025-01-14,outlet=SHJ-01,units=1,unit_aed=2330.63,discount_aed=116.53,net_aed=2214.10,emirate=Sharjah,country_code=AE
+sale_ref=GS-30044,item=GS-MN-F224,sold_date=2025-04-15,outlet=DXB-02,units=1,unit_aed=771.87,discount_aed=0.00,net_aed=771.87,emirate=Dubai,country_code=AE
+sale_ref=GS-30045,item=GS-MN-Q327,sold_date=2025-03-10,outlet=AUH-01,units=1,unit_aed=1234.88,discount_aed=0.00,net_aed=1234.88,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30046,item=GS-MN-Q327,sold_date=2025-10-10,outlet=DXB-03,units=3,unit_aed=1327.62,discount_aed=132.76,net_aed=3584.58,emirate=Dubai,country_code=AE
+sale_ref=GS-30047,item=GS-MN-U134,sold_date=2025-12-04,outlet=AUH-01,units=2,unit_aed=2141.56,discount_aed=0.00,net_aed=4283.12,emirate=Abu Dhabi,country_code=AE
+sale_ref=GS-30048,item=GS-NB-E314,sold_date=2025-08-08,outlet=JAFZA-W1,units=1,unit_aed=2194.67,discount_aed=0.00,net_aed=2194.67,emirate=Dubai,country_code=AE

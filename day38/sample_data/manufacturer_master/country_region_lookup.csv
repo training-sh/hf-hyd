@@ -1,0 +1,7 @@
+country_key,iso2,iso3,country_name,region_code,region_name
+1,US,USA,United States,NAM,North America
+2,IN,IND,India,SAS,South Asia
+3,DE,DEU,Germany,EUR,Europe
+4,GB,GBR,United Kingdom,EUR,Europe
+5,AE,ARE,United Arab Emirates,MEA,Middle East
+6,SG,SGP,Singapore,SEA,Southeast Asia

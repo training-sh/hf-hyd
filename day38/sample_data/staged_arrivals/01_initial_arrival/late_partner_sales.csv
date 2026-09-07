@@ -1,0 +1,5 @@
+source_partner,transaction_id,line_id,partner_product_code,sale_timestamp,location_code,quantity,unit_price,discount,net_amount,currency,country_code
+MegaMart USA,MM-88001,1,MM-TV55-NEW,2025-09-02T16:20:00-07:00,US034,1,729.00,30.00,699.00,USD,US
+MegaMart USA,MM-88002,1,MM-MON27-233,2025-09-02T17:05:00-07:00,US034,2,379.00,20.00,718.00,USD,US
+GulfStar Retail Distribution,GS-41001,1,GS-MN-Q327-R2,2025-09-02T19:10:00+04:00,DXB-03,3,1425.00,75.00,4050.00,AED,AE
+GulfStar Retail Distribution,GS-41002,1,GS-TV-X255,2025-09-02T19:35:00+04:00,DXB-02,1,2825.00,125.00,2700.00,AED,AE

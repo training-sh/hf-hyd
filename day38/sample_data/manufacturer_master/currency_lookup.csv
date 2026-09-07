@@ -1,0 +1,6 @@
+currency_key,currency_code,currency_name,minor_unit
+1,USD,US Dollar,2
+2,INR,Indian Rupee,2
+3,EUR,Euro,2
+4,GBP,Pound Sterling,2
+5,AED,UAE Dirham,2

@@ -1,0 +1,7 @@
+partner_key,partner_id,partner_name,partner_type,country_code,region_code,feed_format,reporting_frequency,default_currency
+11,PTN-US-MM,MegaMart USA,LARGE_RETAIL,US,NORTH_AMERICA,CSV,DAILY,USD
+12,PTN-IN-BL,BharatLink Distribution,DISTRIBUTOR,IN,SOUTH_ASIA,XML,WEEKLY,INR
+13,PTN-DE-EB,EuroBridge Export GmbH,EXPORT_DISTRIBUTOR,DE,EUROPE,PARQUET,MONTHLY,EUR
+14,PTN-GB-NC,NimbusCart,ONLINE,GB,EUROPE,JSONL,DAILY,GBP
+15,PTN-GB-RL,RenewLoop Electronics,REFURBISHED,GB,EUROPE,AVRO,WEEKLY,GBP
+16,PTN-AE-GS,GulfStar Retail Distribution,RETAIL_DISTRIBUTOR,AE,MIDDLE_EAST,KEY_VALUE_TEXT,WEEKLY,AED

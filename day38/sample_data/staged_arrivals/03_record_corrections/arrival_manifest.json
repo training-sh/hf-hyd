@@ -1,0 +1,9 @@
+{
+  "batch_reference": "ARR-20250907-03",
+  "available_at_utc": "2025-09-07T09:15:00Z",
+  "files": [
+    "corrected_partner_sales.csv"
+  ],
+  "correction_contract": "Highest revision per partner, transaction, and line wins",
+  "instruction": "Retain correction lineage and supersede, rather than append, the earlier event."
+}

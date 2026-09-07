@@ -1,0 +1,23 @@
+location_key,partner_key,partner_location_code,location_name,city,state_province_code,country_code,location_type
+1001,11,US001,Seattle Downtown,Seattle,WA,US,STORE
+1002,11,US017,Austin North,Austin,TX,US,STORE
+1003,11,US034,San Jose Central,San Jose,CA,US,STORE
+1004,11,US041,Denver East,Denver,CO,US,STORE
+1005,11,US052,Chicago Loop,Chicago,IL,US,STORE
+1006,11,US061,Boston Harbor,Boston,MA,US,STORE
+2001,12,BLR-W1,Bengaluru Warehouse,Bengaluru,KA,IN,WAREHOUSE
+2002,12,DEL-W1,Delhi Warehouse,Delhi,DL,IN,WAREHOUSE
+2003,12,MUM-W1,Mumbai Warehouse,Mumbai,MH,IN,WAREHOUSE
+2004,12,CHE-W1,Chennai Warehouse,Chennai,TN,IN,WAREHOUSE
+3001,13,DE-HAM,Hamburg Export Hub,Hamburg,HH,DE,HUB
+3002,13,DE-FRA,Frankfurt Export Hub,Frankfurt,HE,DE,HUB
+4001,14,GB-WEB,NimbusCart UK,London,ENG,GB,VIRTUAL
+5001,15,RL-LON,RenewLoop London,London,ENG,GB,REFURB_CENTER
+5002,15,RL-MAN,RenewLoop Manchester,Manchester,ENG,GB,REFURB_CENTER
+5003,15,RL-BHM,RenewLoop Birmingham,Birmingham,ENG,GB,REFURB_CENTER
+6001,16,DXB-01,Dubai Marina,Dubai,DU,AE,STORE
+6002,16,DXB-02,Dubai Creek,Dubai,DU,AE,STORE
+6003,16,DXB-03,Dubai South,Dubai,DU,AE,STORE
+6004,16,AUH-01,Abu Dhabi Central,Abu Dhabi,AZ,AE,STORE
+6005,16,SHJ-01,Sharjah City,Sharjah,SH,AE,STORE
+6006,16,JAFZA-W1,Jebel Ali Warehouse,Dubai,DU,AE,WAREHOUSE

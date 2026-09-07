@@ -1,0 +1,3 @@
+source_partner,transaction_id,line_id,revision,correction_reason,partner_product_code,sale_timestamp,location_code,quantity,unit_price,discount,net_amount,currency,country_code
+MegaMart USA,MM-88001,1,2,DISCOUNT_POSTED_LATE,MM-TV55-NEW,2025-09-02T16:20:00-07:00,US034,1,729.00,50.00,679.00,USD,US
+GulfStar Retail Distribution,GS-41001,1,2,QUANTITY_KEYING_ERROR,GS-MN-Q327-R2,2025-09-02T19:10:00+04:00,DXB-03,2,1425.00,50.00,2800.00,AED,AE

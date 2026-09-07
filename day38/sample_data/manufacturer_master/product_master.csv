@@ -1,0 +1,10 @@
+product_key,manufacturer_product_id,official_sku,product_name,category,subcategory,model,launch_date,list_price_usd,lifecycle_status
+101,PRD-1001,AW-TV43-A1,Vista 43,Televisions,4K LED,V43A1,2024-09-15,449,ACTIVE
+102,PRD-1002,AW-TV55-X2,VistaPro 55,Televisions,4K QLED,V55X2,2025-02-10,799,ACTIVE
+103,PRD-1003,AW-TV65-X2,VistaPro 65,Televisions,4K QLED,V65X2,2025-02-10,1099,ACTIVE
+201,PRD-2001,AW-NB14-E3,AeroBook 14,Laptops,Everyday,AB14E3,2024-07-01,699,ACTIVE
+202,PRD-2002,AW-NB16-P4,AeroBook Pro 16,Laptops,Professional,AB16P4,2025-01-20,1399,ACTIVE
+203,PRD-2003,AW-NB15-G2,PulseBook 15,Laptops,Gaming,PB15G2,2024-03-18,1199,DISCONTINUED
+301,PRD-3001,AW-MN24-F2,ClearView 24,Monitors,Office,CV24F2,2024-05-06,219,ACTIVE
+302,PRD-3002,AW-MN27-Q3,ClearView 27Q,Monitors,Professional,CV27Q3,2025-03-03,399,ACTIVE
+303,PRD-3003,AW-MN34-U1,Horizon 34,Monitors,Ultrawide,H34U1,2024-11-11,649,END_OF_LIFE

@@ -1,0 +1,17 @@
+state_province_key,country_iso2,state_province_code,state_province_name,sales_territory
+101,US,WA,Washington,US West
+102,US,TX,Texas,US South
+103,US,CA,California,US West
+104,US,CO,Colorado,US Mountain
+105,US,IL,Illinois,US Central
+106,US,MA,Massachusetts,US East
+201,IN,KA,Karnataka,India South
+202,IN,DL,Delhi,India North
+203,IN,MH,Maharashtra,India West
+204,IN,TN,Tamil Nadu,India South
+301,DE,HH,Hamburg,Germany North
+302,DE,HE,Hesse,Germany Central
+401,GB,ENG,England,UK England
+501,AE,DU,Dubai,UAE Dubai
+502,AE,AZ,Abu Dhabi,UAE Abu Dhabi
+503,AE,SH,Sharjah,UAE North
