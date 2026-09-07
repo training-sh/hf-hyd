@@ -3,11 +3,11 @@ quick example, make your own changes to get start with moviedata..
 ```
 show stages;
 
-CREATE STAGE IF NOT EXISTS my_stage
+CREATE STAGE IF NOT EXISTS movielens_stage
   DIRECTORY = (ENABLE = TRUE)
   COMMENT = 'stage hello world demo';
 
-LIST @my_stage;
+LIST @movielens_stage;
 
 
 CREATE FILE FORMAT my_csv_format
@@ -19,7 +19,7 @@ SELECT
     $1,
     $2,
     $3
-FROM @my_stage/movies.csv
+FROM @movielens_stage/movies.csv
 (FILE_FORMAT => my_csv_format);
 
 -- $3::NUMBER     AS rating
@@ -28,7 +28,7 @@ SELECT
     $1::INT        AS movie_id,
     $2::STRING     AS title,
     $3::STRING     AS genre
-FROM @my_stage/movies.csv
+FROM @movielens_stage/movies.csv
 (FILE_FORMAT => my_csv_format);
 
 
@@ -37,7 +37,7 @@ SELECT
     $1::INT     AS movie_id,
     $2::STRING  AS title,
     $3::STRING  AS genres
-FROM @my_stage/movies.csv
+FROM @movielens_stage/movies.csv
 (FILE_FORMAT => my_csv_format);
 
 
@@ -50,7 +50,7 @@ CREATE OR REPLACE TABLE movies2 (
 );
 
 COPY INTO movies
-FROM @my_stage/movies.csv
+FROM @movielens_stage/movies.csv
 FILE_FORMAT = (FORMAT_NAME = my_csv_format);
 ```
 
