@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "training",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "long"
+    },
+    {
+      "name": "customer",
+      "type": "string"
+    },
+    {
+      "name": "city",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "type": "double"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "order_id": 101,
+    "customer": "Asha",
+    "city": "Chennai",
+    "amount": 1250.5,
+    "channel": "web",
+    "items": [
+      {
+        "sku": "BOOK",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "order_id": 102,
+    "customer": "Ravi",
+    "city": "Bengaluru",
+    "amount": 800.0,
+    "channel": "web",
+    "items": [
+      {
+        "sku": "BOOK",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "order_id": 103,
+    "customer": "Meena",
+    "city": "Hyderabad",
+    "amount": 1499.5,
+    "channel": "web",
+    "items": [
+      {
+        "sku": "BOOK",
+        "qty": 1
+      }
+    ]
+  }
+]

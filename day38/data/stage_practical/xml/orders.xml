@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<orders>
+  <order id="101">
+    <customer>Asha</customer>
+    <city>Chennai</city>
+    <amount>1250.5</amount>
+  </order>
+  <order id="102">
+    <customer>Ravi</customer>
+    <city>Bengaluru</city>
+    <amount>800.0</amount>
+  </order>
+  <order id="103">
+    <customer>Meena</customer>
+    <city>Hyderabad</city>
+    <amount>1499.5</amount>
+  </order>
+</orders>
