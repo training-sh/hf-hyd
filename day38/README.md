@@ -1,0 +1,3 @@
+- snowflake introduction
+- Stages, ETL
+- Datawarehouse problem statements, business problem discussion
