@@ -3,6 +3,9 @@ quick example, make your own changes to get start with moviedata..
 ```
 show stages;
 
+CREATE STAGE IF NOT EXISTS my_stage
+  DIRECTORY = (ENABLE = TRUE)
+  COMMENT = 'stage hello world demo';
 
 LIST @my_stage;
 
