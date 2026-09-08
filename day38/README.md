@@ -15,7 +15,7 @@ then use the schema daily basic
 
 just redo one more time  the movies.md
 
-```
+```sql
 
 WITH xml_sales AS (
     SELECT PARSE_XML(SOURCE_DOCUMENT) AS invoice
@@ -34,7 +34,7 @@ WHERE GET(f.value, '@')::VARCHAR = 'sale';
 - XMLGET(F.VALUE, 'invoice_no'):"$"::STRING , here we get invoice_no which is an element <invoice_no>123</invoice_no>
 - to get attribute within element , you must use @attribute name , example below, GET(invoice, '@partner')::VARCHAR AS partner reads partner attribute from weekly sales
 
-```
+```sql
 
 WITH xml_sales AS (
     SELECT PARSE_XML(SOURCE_DOCUMENT) AS invoice
