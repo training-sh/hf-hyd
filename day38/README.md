@@ -15,10 +15,10 @@ then use the schema daily basic
 
 just redo one more time  the movies.md
 
-
-```
 beware of SCHEMA NAME or DB name used in this example, taken from course 
 match to your schema/db name if any
+```sql
+
 
 CREATE OR REPLACE FILE FORMAT FF_XML TYPE = XML STRIP_OUTER_ELEMENT = FALSE;
 
