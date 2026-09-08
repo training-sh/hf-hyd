@@ -15,6 +15,28 @@ then use the schema daily basic
 
 just redo one more time  the movies.md
 
+
+```
+beware of SCHEMA NAME or DB name used in this example, taken from course 
+match to your schema/db name if any
+
+CREATE OR REPLACE FILE FORMAT FF_XML TYPE = XML STRIP_OUTER_ELEMENT = FALSE;
+
+
+CREATE OR REPLACE TABLE RAW.SALES_BHARATLINK (
+ source_file VARCHAR, source_document VARIANT);
+
+
+
+COPY INTO RAW.SALES_BHARATLINK
+FROM (SELECT METADATA$FILENAME, t.$1
+      FROM @RAW.ALTURAWAVE_FILES/sales/bharatlink_sales_2025.xml
+      (FILE_FORMAT => 'RAW.FF_XML') t)
+ON_ERROR = ABORT_STATEMENT;
+
+```
+
+
 ```sql
 
 WITH xml_sales AS (
