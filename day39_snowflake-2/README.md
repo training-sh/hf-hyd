@@ -1,0 +1,4 @@
+- datatypes
+- view types
+- table types [external, native, temp, hybrid], others if streams allowed
+- Rollback, versions
