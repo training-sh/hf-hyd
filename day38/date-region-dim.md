@@ -1,0 +1,32 @@
+sample code snippets on need
+
+```sql
+CREATE OR REPLACE TABLE MART.DIM_DATE (
+ date_key NUMBER PRIMARY KEY,full_date DATE UNIQUE,date_label VARCHAR,
+ day_name VARCHAR,month_number NUMBER,month_name VARCHAR,
+ quarter_number NUMBER,year_number NUMBER,is_weekend BOOLEAN);
+```
+
+```sql
+INSERT INTO MART.DIM_DATE
+SELECT TO_NUMBER(TO_CHAR(d,'YYYYMMDD')),d,TO_CHAR(d,'YYYY-MM-DD'),DAYNAME(d),
+ MONTH(d),MONTHNAME(d),QUARTER(d),YEAR(d),DAYOFWEEKISO(d) IN (6,7)
+FROM (
+ SELECT DATEADD(day,ROW_NUMBER() OVER(ORDER BY SEQ4())-1,'2024-01-01'::DATE)::DATE d
+ FROM TABLE(GENERATOR(ROWCOUNT=>1096))
+)
+UNION ALL SELECT 0,NULL,'Unknown / not supplied',NULL,NULL,NULL,NULL,NULL,NULL
+UNION ALL SELECT -1,NULL,'Not applicable',NULL,NULL,NULL,NULL,NULL,NULL;
+```
+
+```sql
+CREATE OR REPLACE TABLE MART.DIM_REGION (
+ region_key NUMBER PRIMARY KEY,region_code VARCHAR UNIQUE,region_name VARCHAR);
+INSERT INTO MART.DIM_REGION
+SELECT 0,'UNKNOWN','Unknown / not supplied'
+UNION ALL SELECT -1,'NA','Not applicable'
+UNION ALL
+SELECT ROW_NUMBER() OVER(ORDER BY region_code),region_code,region_name
+FROM (SELECT DISTINCT region_code,region_name FROM CORE.COUNTRY_REGION);
+```
+
