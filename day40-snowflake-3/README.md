@@ -1,0 +1,5 @@
+- Views
+- Roles
+- Tags
+- Brief intro on Data Governance
+- Data Masking - likely pushed to Thursday
