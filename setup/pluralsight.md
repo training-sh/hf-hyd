@@ -701,3 +701,75 @@ source ~/awsrefresh
 ```
 sudo systemctl restart jupyter
 ```
+
+## Code Server 
+
+VS code over web
+
+beware of port conflict with 8080 used by spark master ui
+
+```
+cat ~/.config/code-server/config.yaml
+```
+
+```
+cat ~/.config/code-server/config.yaml | grep 8080
+```
+
+```
+sed -i 's/127\.0\.0\.1:8080/127.0.0.1:8888/' ~/.config/code-server/config.yaml
+```
+
+
+```
+cat ~/.config/code-server/config.yaml | grep 8888
+```
+
+```
+sudo systemctl restart code-server@$USER
+```
+
+
+```
+grep bind-addr ~/.config/code-server/config.yaml
+```
+
+```
+sudo tee /etc/nginx/snippets/vscode.conf > /dev/null <<'EOF'
+# Redirect /vscode -> /vscode/
+location = /vscode {
+    return 301 /vscode/;
+}
+
+# VS Code / code-server
+location /vscode/ {
+    proxy_pass http://127.0.0.1:8888/;
+
+    proxy_http_version 1.1;
+
+    # WebSocket support
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+
+    # Preserve original request information
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_set_header Accept-Encoding gzip;
+
+    # Long-running VS Code connections
+    proxy_read_timeout 86400;
+    proxy_send_timeout 86400;
+}
+EOF
+```
+
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+```
+include /etc/nginx/snippets/vscode.conf;
+```
