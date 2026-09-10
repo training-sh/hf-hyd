@@ -707,6 +707,8 @@ sudo systemctl restart jupyter
 VS code over web
 
 beware of port conflict with 8080 used by spark master ui
+port 8888 used by jupyter
+we are running code-server in 8889 on loopback ip. you cannot access 8889 outside machine
 
 ```
 cat ~/.config/code-server/config.yaml
@@ -717,12 +719,12 @@ cat ~/.config/code-server/config.yaml | grep 8080
 ```
 
 ```
-sed -i 's/127\.0\.0\.1:8080/127.0.0.1:8888/' ~/.config/code-server/config.yaml
+sed -i 's/127\.0\.0\.1:8080/127.0.0.1:8889/' ~/.config/code-server/config.yaml
 ```
 
 
 ```
-cat ~/.config/code-server/config.yaml | grep 8888
+cat ~/.config/code-server/config.yaml | grep 8889
 ```
 
 ```
