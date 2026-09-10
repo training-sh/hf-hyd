@@ -745,7 +745,7 @@ location = /vscode {
 
 # VS Code / code-server
 location /vscode/ {
-    proxy_pass http://127.0.0.1:8888/;
+    proxy_pass http://127.0.0.1:8889/;
 
     proxy_http_version 1.1;
 
