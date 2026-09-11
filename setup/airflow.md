@@ -2,6 +2,9 @@
 
 gpt notes only here
 
+```
+wsl
+```
 
 ```
 sudo apt update
