@@ -1,0 +1,4 @@
+order_id,order_date,customer_name,status,order_total
+1001,2026-09-10,Asha,NEW,120.50
+1002,2026-09-10,Ravi,SHIPPED,250.00
+1003,2026-09-11,Meena,NEW,75.25
