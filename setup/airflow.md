@@ -15,9 +15,7 @@ sudo apt install -y python3-venv python3-dev build-essential \
 ```
 mkdir ~/airflow
 cd ~/airflow
-
-python3 -m venv airflowenv
-source airflowenv/bin/activate
+ 
 
 export AIRFLOW_HOME=$HOME/airflow
 ```
