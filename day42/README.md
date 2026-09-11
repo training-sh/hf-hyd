@@ -1,0 +1,5 @@
+- avro
+- iceberg
+- snowflake external table
+- cli?
+- snowflake python?
