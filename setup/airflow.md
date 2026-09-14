@@ -43,7 +43,12 @@ pip install "apache-airflow==${AIRFLOW_VERSION}" \
 
 ```
 pip install "apache-airflow==3.3.1" \
-    apache-airflow-providers-mysql
+    apache-airflow-providers-mysql 
+    
+```
+
+```
+pip install mysqlclient aiomysql pymysql
 ```
 
 ```
@@ -83,5 +88,55 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-# 
+# .bashrc 
+
+```
+echo 'export AIRFLOW_HOME=$HOME/airflow' >> ~/.bashrc
+```
+
+```
+echo "export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN='mysql+mysqldb://airflow:airflow123@localhost:3306/airflow_db'" >> ~/.bashrc
+```
+
+```
+source ~/.bashrc
+```
+
+double underscore used in Airflow is convention, which has specific meaning.
+
+```
+AIRFLOW__CORE__DAGS_FOLDER
+AIRFLOW__CORE__EXECUTOR
+AIRFLOW__LOGGING__BASE_LOG_FOLDER
+AIRFLOW__WEBSERVER__WEB_SERVER_PORT
+```
+
+
+it is equal to a config.ini file, with section.
+
+below is information only, not a command
+
+```
+[core]
+dags_folder = ...
+executor = ...
+
+[logging]
+base_log_folder = ...
+
+[webserver]
+web_server_port = ...
+```
+
+```
+echo $AIRFLOW_HOME
+echo $AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
+```
+
+check this working
+
+```
+airflow config get-value database sql_alchemy_conn
+```
+
 
