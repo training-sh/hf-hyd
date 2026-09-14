@@ -237,4 +237,31 @@ sudo systemctl restart nginx
 
 access airflow in /airflow path
 
+```
+cat >> ~/.bashrc <<'EOF'
 
+# Apache Airflow
+export AIRFLOW_HOME="$HOME/airflow"
+
+export AIRFLOW__API__HOST="127.0.0.1"
+export AIRFLOW__API__PORT="8090"
+
+export AIRFLOW_FQDN="$(hostname -f)"
+export AIRFLOW__API__BASE_URL="https://${AIRFLOW_FQDN}/airflow"
+export AIRFLOW__CORE__EXECUTION_API_SERVER_URL="https://${AIRFLOW_FQDN}/airflow/execution/"
+EOF
+```
+
+```
+source ~/.bashrc
+```
+
+```
+echo "$AIRFLOW_FQDN"
+echo "$AIRFLOW__API__BASE_URL"
+
+airflow config get-value api host
+airflow config get-value api port
+airflow config get-value api base_url
+airflow config get-value core execution_api_server_url
+```
