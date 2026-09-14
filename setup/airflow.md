@@ -54,4 +54,10 @@ pip install \
   apache-airflow-providers-snowflake
 ```
 
+For EMR, for livy
+
+```
+pip install apache-airflow-providers-apache-livy
+```
+
 
