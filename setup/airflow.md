@@ -139,4 +139,21 @@ check this working
 airflow config get-value database sql_alchemy_conn
 ```
 
+```
+mkdir -p "$AIRFLOW_HOME"/{dags,logs,plugins,scripts}
+```
+
+```
+airflow db migrate
+```
+
+```
+airflow db check
+```
+
+```
+airflow config get-value core dags_folder
+```
+
+
 
