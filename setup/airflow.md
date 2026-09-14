@@ -60,4 +60,28 @@ For EMR, for livy
 pip install apache-airflow-providers-apache-livy
 ```
 
+# MYSQL DB
+
+```
+mysql -u root -p 
+```
+
+```
+CREATE DATABASE airflow_db
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+CREATE USER 'airflow'@'localhost'
+  IDENTIFIED BY 'airflow123';
+
+GRANT ALL PRIVILEGES
+ON airflow_db.*
+TO 'airflow'@'localhost';
+
+FLUSH PRIVILEGES;
+
+EXIT;
+```
+
+# 
 
