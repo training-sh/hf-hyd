@@ -107,6 +107,13 @@ echo "export AIRFLOW__API__PORT=8090" >> ~/.bashrc
 ```
 
 ```
+echo "export AIRFLOW__API__HOST='127.0.0.1'" >> ~/.bashrc
+```
+
+also bind to loopback/localhost, else it will listen on 0.0.0.0
+ 
+
+```
 source ~/.bashrc
 ```
 
