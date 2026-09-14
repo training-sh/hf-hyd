@@ -172,6 +172,62 @@ airflow config get-value core dags_folder
 airflow standalone
 ```
 
-it runs on port. we try to use a port other than 8080, which is default
+it runs on port. we try to use a port other than 8080, which is default.
+
+We have configured airflow for `8090`
+
+
+### Nginx proxy
+
+if only for plural sight, not needed for localhost/wsl
+
+
+sudo tee /etc/nginx/snippets/airflow.conf > /dev/null <<'EOF'
+location = /airflow {
+    return 301 /airflow/;
+}
+
+location /airflow/ {
+    proxy_pass http://127.0.0.1:8090/;
+
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_set_header X-Forwarded-Prefix /airflow;
+
+    proxy_redirect off;
+
+    proxy_buffering off;
+    proxy_read_timeout 300;
+    proxy_send_timeout 300;
+}
+EOF
+
+
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+paste below with other include session
+
+```
+    include /etc/nginx/snippets/airflow.conf;
+```
+
+```
+sudo nginx -t
+```
+
+```
+sudo systemctl restart nginx
+```
+
+access airflow in /airflow path
 
 
