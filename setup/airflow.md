@@ -9,8 +9,10 @@ wsl
 ```
 sudo apt update
 sudo apt install -y  python3-dev build-essential \
-    default-libmysqlclient-dev pkg-config
+    default-libmysqlclient-dev pkg-config graphviz
 ```
+
+ pip install graphviz
 
 ```
 mkdir ~/airflow
@@ -48,7 +50,7 @@ pip install "apache-airflow==3.3.1" \
 ```
 
 ```
-pip install mysqlclient aiomysql pymysql
+pip install mysqlclient aiomysql pymysql graphviz
 ```
 
 ```
