@@ -181,7 +181,7 @@ We have configured airflow for `8090`
 
 if only for plural sight, not needed for localhost/wsl
 
-
+```
 sudo tee /etc/nginx/snippets/airflow.conf > /dev/null <<'EOF'
 location = /airflow {
     return 301 /airflow/;
@@ -208,7 +208,7 @@ location /airflow/ {
     proxy_send_timeout 300;
 }
 EOF
-
+```
 
 ```
 sudo nano /etc/nginx/sites-available/default
