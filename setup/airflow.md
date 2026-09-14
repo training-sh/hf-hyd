@@ -111,6 +111,12 @@ echo "export AIRFLOW__API__HOST='127.0.0.1'" >> ~/.bashrc
 ```
 
 also bind to loopback/localhost, else it will listen on 0.0.0.0
+
+note, we don't learn user/permission/auth/acl with airflow. this is not guide for complete airflow. we expose airflow with admin, no password at all
+
+```
+echo 'export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True' >> ~/.bashrc
+```
  
 
 ```
