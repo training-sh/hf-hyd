@@ -1,0 +1,5 @@
+- Python UDF
+- Python UDF with pandas
+- Great Expectation for Data Quality
+- Duplicate detection
+- 
