@@ -100,6 +100,12 @@ echo 'export AIRFLOW_HOME=$HOME/airflow' >> ~/.bashrc
 echo "export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN='mysql+mysqldb://airflow:airflow123@localhost:3306/airflow_db'" >> ~/.bashrc
 ```
 
+we configure airflow on port 8090
+
+```
+echo "export AIRFLOW__API__PORT=8090" >> ~/.bashrc
+```
+
 ```
 source ~/.bashrc
 ```
@@ -157,5 +163,15 @@ airflow db check
 airflow config get-value core dags_folder
 ```
 
+
+```
+ airflow config get-value api port
+ ```
+
+```
+airflow standalone
+```
+
+it runs on port. we try to use a port other than 8080, which is default
 
 
