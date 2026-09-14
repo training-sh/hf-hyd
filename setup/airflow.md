@@ -271,3 +271,150 @@ airflow config get-value api port
 airflow config get-value api base_url
 airflow config get-value core execution_api_server_url
 ```
+
+
+
+```
+cat > ~/.airflow.env <<'EOF'
+AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=mysql+mysqldb://airflow:airflow123@localhost:3306/airflow_db
+EOF
+
+chmod 600 ~/.airflow.env
+```
+
+
+```
+mkdir -p ~/airflow/scripts
+
+cat > ~/airflow/scripts/start-airflow.sh <<'EOF'
+#!/bin/bash
+set -e
+
+AIRFLOW_FQDN="$(hostname -f)"
+
+export AIRFLOW__API__BASE_URL="https://${AIRFLOW_FQDN}/airflow"
+export AIRFLOW__CORE__EXECUTION_API_SERVER_URL="https://${AIRFLOW_FQDN}/airflow/execution/"
+
+exec /home/cloud_user/dataengenv/bin/airflow standalone
+EOF
+
+chmod +x ~/airflow/scripts/start-airflow.sh
+```
+
+```
+sudo tee /etc/systemd/system/airflow.service >/dev/null <<'EOF'
+[Unit]
+Description=Apache Airflow
+Wants=network-online.target
+After=network-online.target mysql.service
+
+[Service]
+Type=simple
+
+User=cloud_user
+Group=cloud_user
+
+WorkingDirectory=/home/cloud_user/airflow
+
+EnvironmentFile=/home/cloud_user/.airflow.env
+
+Environment="HOME=/home/cloud_user"
+Environment="AIRFLOW_HOME=/home/cloud_user/airflow"
+
+# ----------------------------------------------------------
+# Airflow Web/API
+# ----------------------------------------------------------
+Environment="AIRFLOW__API__HOST=127.0.0.1"
+Environment="AIRFLOW__API__PORT=8090"
+Environment="AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True"
+
+# ----------------------------------------------------------
+# Java
+# ----------------------------------------------------------
+Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"
+
+# ----------------------------------------------------------
+# Hadoop / HDFS / YARN
+# ----------------------------------------------------------
+Environment="HADOOP_HOME=/opt/hadoop"
+Environment="HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop"
+Environment="YARN_CONF_DIR=/opt/hadoop/etc/hadoop"
+
+# ----------------------------------------------------------
+# Apache Hive
+# ----------------------------------------------------------
+Environment="HIVE_HOME=/opt/hive"
+Environment="HIVE_CONF_DIR=/opt/hive/conf"
+
+# ----------------------------------------------------------
+# Apache Spark
+# ----------------------------------------------------------
+Environment="SPARK_HOME=/opt/spark"
+
+Environment="PYSPARK_PYTHON=/home/cloud_user/dataengenv/bin/python"
+Environment="PYSPARK_DRIVER_PYTHON=/home/cloud_user/dataengenv/bin/python"
+
+Environment="PYTHONPATH=/opt/spark/python:/opt/spark/python/lib/py4j-0.10.9.7-src.zip"
+
+# ----------------------------------------------------------
+# Apache Livy
+# ----------------------------------------------------------
+Environment="LIVY_HOME=/opt/livy"
+
+# ----------------------------------------------------------
+# PATH
+# ----------------------------------------------------------
+Environment="PATH=/home/cloud_user/dataengenv/bin:/opt/spark/bin:/opt/spark/sbin:/opt/hive/bin:/opt/hadoop/bin:/opt/hadoop/sbin:/opt/livy/bin:/usr/local/bin:/usr/bin:/bin"
+
+ExecStart=/home/cloud_user/airflow/scripts/start-airflow.sh
+
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable --now airflow
+```
+
+```
+sudo systemctl status airflow --no-pager
+```
+
+```
+sudo systemctl status airflow --no-pager
+```
+
+```
+sudo journalctl -u airflow -f
+```
+
+```
+sudo ss -ltnp | grep 8090
+```
+
+verify runtime that airflow inherits
+
+```
+sudo -u cloud_user env \
+  JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 \
+  HADOOP_HOME=/opt/hadoop \
+  HIVE_HOME=/opt/hive \
+  SPARK_HOME=/opt/spark \
+  PATH=/home/cloud_user/dataengenv/bin:/opt/spark/bin:/opt/spark/sbin:/opt/hive/bin:/opt/hadoop/bin:/opt/hadoop/sbin:/opt/livy/bin:/usr/local/bin:/usr/bin:/bin \
+  bash -c '
+    echo "java:         $(command -v java)"
+    echo "hdfs:         $(command -v hdfs)"
+    echo "yarn:         $(command -v yarn)"
+    echo "hive:         $(command -v hive)"
+    echo "spark-submit: $(command -v spark-submit)"
+    echo "airflow:      $(command -v airflow)"
+  '
+
+
+```
