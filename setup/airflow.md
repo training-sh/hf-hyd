@@ -8,7 +8,7 @@ wsl
 
 ```
 sudo apt update
-sudo apt install -y python3-venv python3-dev build-essential \
+sudo apt install -y  python3-dev build-essential \
     default-libmysqlclient-dev pkg-config
 ```
 
@@ -44,6 +44,14 @@ pip install "apache-airflow==${AIRFLOW_VERSION}" \
 ```
 pip install "apache-airflow==3.3.1" \
     apache-airflow-providers-mysql
+```
+
+```
+pip install \
+  apache-airflow-providers-apache-spark \
+  apache-airflow-providers-apache-hive \
+  apache-airflow-providers-apache-hdfs \
+  apache-airflow-providers-snowflake
 ```
 
 
