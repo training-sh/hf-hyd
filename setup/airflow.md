@@ -170,6 +170,8 @@ export AIRFLOW_FQDN="$(hostname -f)"
 export AIRFLOW__API__BASE_URL="https://${AIRFLOW_FQDN}/airflow"
 export AIRFLOW__CORE__EXECUTION_API_SERVER_URL="https://${AIRFLOW_FQDN}/airflow/execution/"
 
+export AIRFLOW__CORE__LOAD_EXAMPLES="False"
+
 EOF
 ```
 
