@@ -6,6 +6,19 @@ Open Command Prompt, run
 wsl
 ```
 
+
+Airflow start command
+
+```
+cd $AIRFLOW_HOME
+```
+
+```
+airflow standalone
+```
+
+
+
 Hadoop/hive start commands
 
 ```
@@ -45,10 +58,13 @@ beeline -u 'jdbc:hive2://localhost:10000/default' -n "$USER"
 
 ## Web interfaces
 
+
+
 Open these URLs in the Windows browser while Hadoop is running in WSL:
 
 | Interface | URL | What to inspect |
 |---|---|---|
+|Airflow| [http://localhost:8090/airflow] (http://localhost:8090/airflow) | Airflow |
 |Spark UI | [http://localhost:8080](http://localhost:8080) | Spark UI |
 | ResourceManager | [http://localhost:8088](http://localhost:8088) | Applications, states, queues, nodes, memory, and vCores |
 | ResourceManager applications | [http://localhost:8088/cluster/apps](http://localhost:8088/cluster/apps) | Running, completed, and failed applications |
