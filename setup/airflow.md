@@ -24,6 +24,7 @@ sudo apt install -y \
     graphviz \
     graphviz-dev \
     libgraphviz-dev \
+    libkrb5-dev \
     wget \
     curl
 ```
