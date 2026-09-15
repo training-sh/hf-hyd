@@ -1,4 +1,4 @@
-## Airflow setup for Linux 
+## Airflow 3.3.1 setup for Linux 
 
 *Instruction are here to demonstrate airflow for BigData, without considering ACL/Permission/Security.
 Do not expose Airflow to open network, always limit within loopback 127.0.0.1 IP only.*
@@ -8,16 +8,12 @@ wsl
 ```
 
 
-# ============================================================
-# Apache Airflow 3.3.1 - Big Data Training Environment
-# ============================================================
+#### 1. Linux dependencies
 
-# ------------------------------------------------------------
-# 1. Linux dependencies
-# ------------------------------------------------------------
-
+```
 sudo apt update
-
+```
+```
 sudo apt install -y \
     python3-dev \
     python3-pip \
@@ -30,66 +26,65 @@ sudo apt install -y \
     libgraphviz-dev \
     wget \
     curl
+```
 
 
-# ------------------------------------------------------------
-# 2. Create Airflow directory
-# ------------------------------------------------------------
+####  2. Create Airflow directory
 
+```
 mkdir -p ~/airflow
 cd ~/airflow
+```
 
+```
 export AIRFLOW_HOME="$HOME/airflow"
+```
 
+#### 3. Activate your Python environment
 
-# ------------------------------------------------------------
-# 3. Activate your Python environment
-#
-# Your existing environment:
-# /home/cloud_user/dataengenv
-# ------------------------------------------------------------
+we have python virtual activated in bash itself
 
-source ~/dataengenv/bin/activate
-
+```
 python --version
 pip --version
+```
 
+#### 4. Airflow version and official constraints
 
-# ------------------------------------------------------------
-# 4. Airflow version and official constraints
-# ------------------------------------------------------------
-
+```
 AIRFLOW_VERSION=3.3.1
+```
 
+```
 PYTHON_VERSION="$(python -c \
 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')"
+```
 
+```
 CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
-
+```
+```
 echo "Airflow version : ${AIRFLOW_VERSION}"
 echo "Python version  : ${PYTHON_VERSION}"
 echo "Constraints URL : ${CONSTRAINT_URL}"
+```
 
 
-# ------------------------------------------------------------
-# 5. Download constraints
-#
-# --no-check-certificate is used here because this training
-# environment may be behind an SSL-inspecting proxy.
-# ------------------------------------------------------------
+#### 5. Download constraints
 
+ --no-check-certificate is used here because this training
+ environment may be behind an SSL-inspecting proxy.
+
+```
 wget --no-check-certificate \
     "$CONSTRAINT_URL" \
     -O airflow-constraints.txt
+```
 
+#### 6. Install Airflow + Big Data providers + Python dependencies
+Install everything against the SAME Airflow constraints file.
 
-# ------------------------------------------------------------
-# 6. Install Airflow + Big Data providers + Python dependencies
-#
-# IMPORTANT:
-# Install everything against the SAME Airflow constraints file.
-# ------------------------------------------------------------
-
+```
 pip install \
     "apache-airflow==${AIRFLOW_VERSION}" \
     apache-airflow-providers-mysql \
@@ -103,18 +98,20 @@ pip install \
     pymysql \
     graphviz \
     --constraint airflow-constraints.txt
+```
 
 
-# ------------------------------------------------------------
-# 7. Validate installation
-# ------------------------------------------------------------
+#### 7. Validate installation
 
+```
 airflow version
-
+```
+```
 pip check
-
+```
+```
 airflow providers list
-
+```
 
 
 
