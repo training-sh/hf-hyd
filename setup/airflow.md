@@ -1,6 +1,7 @@
-## NOT TESTED BEFORE ON LINUX
+## Airflow setup for Linux 
 
-gpt notes only here
+*Instruction are here to demonstrate airflow for BigData, without considering ACL/Permission/Security.
+Do not expose Airflow to open network, always limit within loopback 127.0.0.1 IP only.*
 
 ```
 wsl
