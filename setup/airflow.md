@@ -223,6 +223,8 @@ airflow config get-value core dags_folder
 airflow standalone
 ```
 
+check on browser, http://localhost:8090/airflow
+
 
 
 # DO NOT FOLLOW BELOW NOTE, we have airflow linux service.
