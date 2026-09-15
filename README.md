@@ -13,6 +13,13 @@ Airflow start command
 cd $AIRFLOW_HOME
 ```
 
+
+to disable examples DAG loading, added later..
+
+```
+export AIRFLOW__CORE__LOAD_EXAMPLES="False"
+```
+
 ```
 airflow standalone
 ```
