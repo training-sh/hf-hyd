@@ -13,6 +13,27 @@ sudo apt install -y  python3-dev build-essential \
     default-libmysqlclient-dev pkg-config graphviz
 ```
 
+ 
+#### 1. Linux dependencies
+
+```
+sudo apt update
+```
+```
+sudo apt install -y \
+    python3-dev \
+    python3-pip \
+    python3-venv \
+    build-essential \
+    default-libmysqlclient-dev \
+    pkg-config \
+    graphviz \
+    graphviz-dev \
+    libgraphviz-dev \
+    wget \
+    curl
+```
+
  pip install graphviz
 
 ```
