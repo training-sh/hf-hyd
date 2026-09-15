@@ -31,13 +31,15 @@ sudo apt install -y \
 
 ####  2. Create Airflow directory
 
+
+
 ```
-mkdir -p ~/airflow
-cd ~/airflow
+export AIRFLOW_HOME="/mnt/c/training/airflow"
 ```
 
 ```
-export AIRFLOW_HOME="$HOME/airflow"
+mkdir -p $AIRFLOW_HOME
+cd $AIRFLOW_HOME
 ```
 
 #### 3. Activate your Python environment
@@ -148,7 +150,7 @@ cat >> ~/.bashrc <<'EOF'
 # ============================================================
 
 # Airflow home
-export AIRFLOW_HOME="$HOME/airflow"
+export AIRFLOW_HOME="/mnt/c/training/airflow"
 
 # Metadata database
 export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN="mysql+mysqldb://airflow:airflow123@localhost:3306/airflow_db"
