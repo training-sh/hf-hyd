@@ -3,6 +3,8 @@
 ```
 You have movielens content in /mnt/c/data/..
 
+Copy movielens local data into hadoop directory..
+
 in hdfs,
 
 use bashoperaetor..
