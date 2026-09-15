@@ -221,6 +221,13 @@ airflow config get-value core dags_folder
  airflow config get-value api port
  ```
 
+to disable examples loading, added later..
+
+```
+export AIRFLOW__CORE__LOAD_EXAMPLES="False"
+```
+
+
 ```
 airflow standalone
 ```
