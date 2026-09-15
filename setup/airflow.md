@@ -469,6 +469,7 @@ Environment="AIRFLOW_HOME=/home/cloud_user/airflow"
 Environment="AIRFLOW__API__HOST=127.0.0.1"
 Environment="AIRFLOW__API__PORT=8090"
 Environment="AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS=True"
+Environment="AIRFLOW__CORE__LOAD_EXAMPLES=False"
 
 # ----------------------------------------------------------
 # Java
