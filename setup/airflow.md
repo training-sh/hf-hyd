@@ -138,7 +138,94 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-# .bashrc 
+## Bashrc
+
+```
+cat >> ~/.bashrc <<'EOF'
+
+# ============================================================
+# Apache Airflow 3.3.1
+# ============================================================
+
+# Airflow home
+export AIRFLOW_HOME="$HOME/airflow"
+
+# Metadata database
+export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN="mysql+mysqldb://airflow:airflow123@localhost:3306/airflow_db"
+
+# Airflow API/Web server
+# Keep Airflow bound to loopback only.
+export AIRFLOW__API__HOST="127.0.0.1"
+export AIRFLOW__API__PORT="8090"
+
+# Simple Auth Manager
+# TRAINING ONLY: all authenticated/simple-auth users are admins.
+export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS="True"
+
+# Nginx reverse-proxy configuration
+export AIRFLOW_FQDN="$(hostname -f)"
+export AIRFLOW__API__BASE_URL="https://${AIRFLOW_FQDN}/airflow"
+export AIRFLOW__CORE__EXECUTION_API_SERVER_URL="https://${AIRFLOW_FQDN}/airflow/execution/"
+
+EOF
+```
+
+```
+source ~/.bashrc
+```
+
+
+
+```
+echo "$AIRFLOW_FQDN"
+echo "$AIRFLOW__API__BASE_URL"
+
+airflow config get-value api host
+airflow config get-value api port
+airflow config get-value api base_url
+airflow config get-value core execution_api_server_url
+```
+
+ 
+
+```
+airflow config get-value database sql_alchemy_conn
+```
+
+```
+mkdir -p "$AIRFLOW_HOME"/{dags,logs,plugins,scripts}
+```
+
+## Setup Airflow DB
+
+```
+airflow db migrate
+```
+
+Check db
+```
+airflow db check
+```
+
+```
+airflow config get-value core dags_folder
+```
+
+
+```
+ airflow config get-value api port
+ ```
+
+```
+airflow standalone
+```
+
+
+
+# DO NOT FOLLOW BELOW NOTE, we have airflow linux service.
+
+ 
+### .bashrc 
 
 ```
 echo 'export AIRFLOW_HOME=$HOME/airflow' >> ~/.bashrc
