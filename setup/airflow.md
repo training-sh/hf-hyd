@@ -159,16 +159,16 @@ export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN="mysql+mysqldb://airflow:airflow123@l
 # Airflow API/Web server
 # Keep Airflow bound to loopback only.
 export AIRFLOW__API__HOST="127.0.0.1"
-export AIRFLOW__API__PORT="8090"
+export AIRFLOW__API__PORT="8080"
 
 # Simple Auth Manager
 # TRAINING ONLY: all authenticated/simple-auth users are admins.
 export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS="True"
 
 # Nginx reverse-proxy configuration
-export AIRFLOW_FQDN="$(hostname -f)"
-export AIRFLOW__API__BASE_URL="https://${AIRFLOW_FQDN}/airflow"
-export AIRFLOW__CORE__EXECUTION_API_SERVER_URL="https://${AIRFLOW_FQDN}/airflow/execution/"
+# export AIRFLOW_FQDN="$(hostname -f)"
+# export AIRFLOW__API__BASE_URL="https://${AIRFLOW_FQDN}/airflow"
+# export AIRFLOW__CORE__EXECUTION_API_SERVER_URL="https://${AIRFLOW_FQDN}/airflow/execution/"
 
 export AIRFLOW__CORE__LOAD_EXAMPLES="False"
 
