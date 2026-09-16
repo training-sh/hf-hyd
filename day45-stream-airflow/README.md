@@ -47,6 +47,28 @@ Whenever is there change in table state change, you stream the output, table cha
 (apple, 6)
 ```
 
+```
+
+(IN, 10, 16-09-2026 14:10 PM)
+(IN, 15, 16-09-2026 14:45 PM)
+(IN, 30, 16-09-2026 15:30 PM)
+(USA, 45, 16-09-2026 15:30 PM)
+
+table 1: country - from beginning upto now, total will be kept per country , no day/time window
+
+country    total_sales_amount GROUP BY .groupBy(country)
+IN              55
+USA             45
+
+table 2 (time window + country) hourly   .groupBy(window(country, time, 1 hour))
+
+country     start_time                    end_time                   total_sales_amount
+IN          16-09-2026 14:00            16-09-2026 15:00               25 (was 10/insert, was 15, sum 10 +)
+IN          16-09-2026 15:00            16-09-2026 16:00               30 (insert)
+USA         16-09-2026 15:00            16-09-2026 16:00               45 (insert)
+
+```
+
 
 
 
