@@ -1,0 +1,3 @@
+- First half day cover spark streaming introduction
+- Spark Streaming hands-on with Ecomm data
+- Second half, we will continue airflow with map-reduce, yarn, spark submit over WSL
