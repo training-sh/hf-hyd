@@ -18,6 +18,12 @@ wget -O apache-hive-4.0.0-bin.tar.gz \
 ```
 
 ```
+aria2c -x 16 -s 16 -k 1M -c --check-certificate=false \
+  -o apache-hive-4.0.0-bin.tar.gz \
+  "https://archive.apache.org/dist/hive/hive-4.0.0/apache-hive-4.0.0-bin.tar.gz"
+```
+
+```
 sudo tar -xzf /tmp/apache-hive-4.0.0-bin.tar.gz -C /opt
 ```
 
