@@ -18,7 +18,7 @@ InvoiceNo,TotalAmount,TotalItems,customer_id
 
 If you need to debug to print to console, use below examples
 
-```
+```python
 
 country_sales_query_console = (country_hourly_sales_df.writeStream
     .outputMode("update")
