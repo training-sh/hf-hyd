@@ -3,6 +3,12 @@
 - Second half, we will continue airflow with map-reduce, yarn, spark submit over WSL
 
 
+File rename fix for hdfs/rename space with -
+
+```
+for f in *" "*; do mv -- "$f" "${f// /-}"; done
+```
+
 notes..
 
 ```
