@@ -3,6 +3,31 @@
 - Second half, we will continue airflow with map-reduce, yarn, spark submit over WSL
 
 
+```python
+COUNTRY_PARQUET_PATH = HDFS_ROOT + "/gold/ecomm/country_hourly_sales-parquet"
+COUNTRY_PARQUET_CHECKPOINT = HDFS_ROOT + "/checkpoints/ecomm/parquet-country-sales"
+# create respective hdfs directory
+
+country_hourly_sales_df2 = (silver_df
+    .withWatermark("InvoiceDate", "20 years") # we have too old dataset
+    .groupBy(F.window("InvoiceDate", "1 hour"), "Country") # order does not matter, consider both columsn
+    # .groupBy( "Country", F.window("InvoiceDate", "1 hour")) # order does not matter, consider both columsn
+    .agg(F.sum("Amount").alias("TotalSales"))
+    .select(F.col("window.start").alias("HourStart"),
+            F.col("window.end").alias("HourEnd"), "Country", "TotalSales")
+                            )
+ 
+
+ecomm_country_hourly_parquet = (country_hourly_sales_df2
+    .writeStream
+    .format("parquet")
+    .outputMode("append")
+    .option("checkpointLocation", COUNTRY_PARQUET_CHECKPOINT)
+    .trigger(processingTime="1 minute")
+    .queryName("ecomm_country_hourly_parquet")
+    .start(COUNTRY_PARQUET_PATH))
+```
+
 File rename fix for hdfs/rename space with -
 
 ```
