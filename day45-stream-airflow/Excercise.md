@@ -15,3 +15,17 @@ final output like,
 
 InvoiceNo,TotalAmount,TotalItems,customer_id
 ```
+
+If you need to debug to print to console, use below examples
+
+```
+
+country_sales_query_console = (country_hourly_sales_df.writeStream
+    .outputMode("update")
+    .format("console")
+    .trigger(processingTime="1 minute")
+    .queryName("ecomm_country_hourly_console")
+    .start())
+
+# country_sales_query_console.stop() # to stop the query
+```
