@@ -1,0 +1,6 @@
+- Kafka starter
+- Setup
+- Topics
+- Consumer and producers
+- Python producer and consumers
+- Exam-preparation
