@@ -8,14 +8,14 @@ import time
 # pip install confluent-kafka
 
 # Create topic:
-# kafka-topics --create \
+# kafka-topics.sh --create \
 #   --bootstrap-server localhost:9092 \
 #   --replication-factor 1 \
 #   --partitions 4 \
 #   --topic  invoices
 
 # Test messages:
-# kafka-console-consumer \
+# kafka-console-consumer.sh \
 #   --bootstrap-server localhost:9092 \
 #   --topic invoices \
 #   --from-beginning
