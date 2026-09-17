@@ -110,6 +110,23 @@ curl -k --fail --location --retry 5 --continue-at - \
 ```
 
 
+## MySQL
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/mysql-connector-j-8.4.0.jar" \
+  https://repo.maven.apache.org/maven2/com/mysql/mysql-connector-j/8.4.0/mysql-connector-j-8.4.0.jar
+```
+
+## PostgreSQL
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/postgresql-42.7.8.jar" \
+  https://repo.maven.apache.org/maven2/org/postgresql/postgresql/42.7.8/postgresql-42.7.8.jar
+```
+
+
 ```
 source "$HOME/.bashrc"
 ```
