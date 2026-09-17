@@ -70,7 +70,9 @@ curl -k --fail --location --retry 5 --continue-at - \
   https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12/1.10.0/iceberg-spark-runtime-3.5_2.12-1.10.0.jar
 ```
 
-Kafka Connectors
+# Kafka Connectors
+
+For spark kafka connectors
 
 ```
 curl -k --fail --location --retry 5 --continue-at - \
