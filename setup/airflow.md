@@ -161,6 +161,8 @@ export AIRFLOW__DATABASE__SQL_ALCHEMY_CONN="mysql+mysqldb://airflow:airflow123@l
 export AIRFLOW__API__HOST="127.0.0.1"
 export AIRFLOW__API__PORT="8080"
 
+export AIRFLOW__CORE__TEST_CONNECTION=Enabled
+
 # Simple Auth Manager
 # TRAINING ONLY: all authenticated/simple-auth users are admins.
 export AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS="True"
