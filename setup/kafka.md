@@ -42,3 +42,9 @@ cd ~
 source "$HOME/.bashrc" 
 ```
 
+
+```
+echo "$KAFKA_HOME"
+kafka-topics.sh --version
+```
+
