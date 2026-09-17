@@ -70,6 +70,46 @@ curl -k --fail --location --retry 5 --continue-at - \
   https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12/1.10.0/iceberg-spark-runtime-3.5_2.12-1.10.0.jar
 ```
 
+Kafka Connectors
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/spark-sql-kafka-0-10_2.12-3.5.9.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.9/spark-sql-kafka-0-10_2.12-3.5.9.jar
+```
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/kafka-clients-3.4.1.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar
+```
+
+used for consumer poll by spark
+
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/commons-pool2-2.11.1.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar
+```
+
+if avro used..
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/spark-avro_2.12-3.5.9.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/spark/spark-avro_2.12/3.5.9/spark-avro_2.12-3.5.9.jar
+```
+
+optional for local developemnt, only for kafka in secured mode, like aws/azure managed kafka, auth/sasl/ configuration
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/spark-token-provider-kafka-0-10_2.12-3.5.9.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.9/spark-token-provider-kafka-0-10_2.12-3.5.9.jar
+```
+
+
 ```
 source "$HOME/.bashrc"
 ```
