@@ -7,6 +7,13 @@ Do not expose Airflow to open network, always limit within loopback 127.0.0.1 IP
 wsl
 ```
 
+jupyter duplicate issue, you need customize it, as jupyter duplicate the notebook/python file
+
+```
+echo '.ipynb_checkpoints/' >> ~/training/airflow/dags/.airflowignore
+echo '__pycache__/' >> ~/training/airflow/dags/.airflowignore
+```
+
 
 #### 1. Linux dependencies
 
