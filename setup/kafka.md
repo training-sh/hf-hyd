@@ -25,3 +25,20 @@ sudo chown -R "$USER:$(id -gn)" /opt/kafka
 ```
 
 
+```
+tee -a "$HOME/.bashrc" > /dev/null <<'EOF'
+
+# Kafka environment
+export KAFKA_HOME=/opt/kafka
+export PATH="$PATH:$KAFKA_HOME/bin"
+EOF
+```
+
+```
+cd ~
+```
+
+```
+source "$HOME/.bashrc" 
+```
+
