@@ -1,0 +1,6 @@
+- MySQL CDC with binlog
+- SCD1 and SCD 2 with IceBerg and Spark
+- Snowflake cli integration
+- Snowflake Airflow Integration
+- Snowflake Python connector
+- Airflow with Hive, HDFS, YARN, Spark Summit
