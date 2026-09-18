@@ -1,4 +1,14 @@
 
+
+for airflow, extra json fields
+
+
+
+```
+  "authenticator": "externalbrowser"
+```
+
+
 ```
 nano ~/.config/snowflake/config.toml 
 ```
