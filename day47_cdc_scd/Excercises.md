@@ -1,0 +1,3 @@
+- Implement SCD1 on SnowFlake using batches data.
+- Upload batches json data into @stage/bronze/products-json/product_cdc_001.json, @stage/bronze/products-json/product_cdc_002.json, ..
+- 
