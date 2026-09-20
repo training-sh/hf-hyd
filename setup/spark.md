@@ -137,6 +137,19 @@ curl -k --fail --location --retry 5 --continue-at - \
   https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-aws-bundle/1.10.0/iceberg-aws-bundle-1.10.0.jar
 ```
 
+
+# Hadoop S3A connector
+
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/hadoop-aws-3.3.6.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/hadoop/hadoop-aws/3.3.6/hadoop-aws-3.3.6.jar
+
+# Exact AWS SDK bundle Hadoop 3.3.6 was built against
+
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/aws-java-sdk-bundle-1.12.367.jar" \
+  https://repo.maven.apache.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.367/aws-java-sdk-bundle-1.12.367.jar
+
 ```
 source "$HOME/.bashrc"
 ```
