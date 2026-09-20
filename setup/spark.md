@@ -129,6 +129,14 @@ curl -k --fail --location --retry 5 --continue-at - \
 ```
 
 
+## For Polaris REST catalog, S3 not for intern batch
+
+```
+curl -k --fail --location --retry 5 --continue-at - \
+  --output "$SPARK_HOME/jars/iceberg-aws-bundle-1.10.0.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-aws-bundle/1.10.0/iceberg-aws-bundle-1.10.0.jar
+```
+
 ```
 source "$HOME/.bashrc"
 ```
