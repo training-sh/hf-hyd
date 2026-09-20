@@ -142,18 +142,18 @@ curl -k --fail --location --retry 5 --continue-at - \
 
 ```
 curl -k --fail --location --retry 5 --continue-at - \
-  --output "$SPARK_HOME/jars/hadoop-aws-3.3.6.jar" \
-  https://repo.maven.apache.org/maven2/org/apache/hadoop/hadoop-aws/3.3.6/hadoop-aws-3.3.6.jar
+  --output "$SPARK_HOME/jars/hadoop-aws-3.3.4.jar" \
+  https://repo.maven.apache.org/maven2/org/apache/hadoop/hadoop-aws/3.3.4/hadoop-aws-3.3.4.jar
 ```
-
-# Exact AWS SDK bundle Hadoop 3.3.6 was built against
 
 ```
 curl -k --fail --location --retry 5 --continue-at - \
-  --output "$SPARK_HOME/jars/aws-java-sdk-bundle-1.12.367.jar" \
-  https://repo.maven.apache.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.367/aws-java-sdk-bundle-1.12.367.jar
+  --output "$SPARK_HOME/jars/aws-java-sdk-bundle-1.12.262.jar" \
+  https://repo.maven.apache.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.12.262/aws-java-sdk-bundle-1.12.262.jar
 ```
 
+ 
+ 
 ```
 source "$HOME/.bashrc"
 ```
