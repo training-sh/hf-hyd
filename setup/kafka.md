@@ -3,6 +3,13 @@
 wget --no-check-certificate \
   https://archive.apache.org/dist/kafka/3.9.1/kafka_2.13-3.9.1.tgz
 ```
+or 
+
+```
+aria2c -x 16 -s 16 -k 1M -c --check-certificate=false \
+  -o kafka_2.13-3.9.1.tgz \
+  "https://archive.apache.org/dist/kafka/3.9.1/kafka_2.13-3.9.1.tgz"
+```
 
 ```
 wsl
