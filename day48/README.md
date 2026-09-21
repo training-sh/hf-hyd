@@ -1,5 +1,28 @@
 # Day 48 — Practical Spark data quality
 
+for import statement, spark session creation
+
+```python
+import sys
+import subprocess
+
+import great_expectations as gx
+from pyspark.sql import types as T
+
+import pyspark
+from pyspark.sql import SparkSession, Window, functions as F
+
+active = SparkSession.getActiveSession()
+ 
+spark = (SparkSession.builder.master("local[2]").appName("GE")
+    .getOrCreate())
+spark.sparkContext.setLogLevel("ERROR")
+ 
+print("Spark:", spark.version)
+
+```
+
+
 Twelve instructor-led notebooks covering ingestion, schema contracts, record validation, business rules, quarantine, reconciliation, exception handling, quality gates and monitoring. **S3/EMR is the primary deployment route**, with an HDFS route for `student@spark-host` and an optional AWS Glue notebook. No Hive catalog, crawler or persistent SQL table is required.
 
 ## Start here
