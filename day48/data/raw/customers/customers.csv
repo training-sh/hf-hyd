@@ -1,0 +1,4 @@
+customer_id,customer_name,email,phone
+C001,Anita Rao,anita@example.com,+919876543210
+C002, ,bad-email,123
+C002,Ravi,,+919876543211

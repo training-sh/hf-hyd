@@ -1,0 +1,5 @@
+{"id":"A","quantity":2,"address":{"city":"Chennai"}}
+{"id":"B","quantity":"two"}
+{"id":"C"}
+{"id":"D","quantity":3,"temporary_field":true}
+{bad json

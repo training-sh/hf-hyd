@@ -1,0 +1,6 @@
+id,quantity,price
+A,2,12.50
+B,two,9.50
+C,3
+D,4,10.00,EXTRA
+E,-1,5.00
