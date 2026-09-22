@@ -1,5 +1,18 @@
 AWS Cli, S3 Sync, other Automation scripts due to lab cleanup
 
+PS VM
+```
+cd training
+
+mkdir -p AWS_Setup
+
+cd AWS_Setup
+```
+
+```
+wget https://raw.githubusercontent.com/training-sh/hf-hyd/refs/heads/main/AWS_Setup/S05_EMRSetup.ipynb
+```
+
 
 ```
 S3_BUCKET_NAME="gksdatalake"
