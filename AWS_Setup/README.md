@@ -2,7 +2,7 @@ AWS Cli, S3 Sync, other Automation scripts due to lab cleanup
 
 PS VM
 ```
-cd training
+cd dataeng
 
 mkdir -p AWS_Setup
 
