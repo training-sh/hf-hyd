@@ -7,6 +7,10 @@ wsl
 ```
 
 
+```
+aws configure --profile training
+```
+
 Airflow start command
 
 ```
