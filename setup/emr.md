@@ -417,3 +417,16 @@ confirm livy reachable
 ```
 curl -sS http://127.0.0.1:18998/sessions | python -m json.tool
 ```
+
+Start notebook with configure block to reduce memory and core requirements.
+
+```
+%%configure -f
+{
+    "driverMemory": "1g",
+    "driverCores": 1,
+    "executorMemory": "1g",
+    "executorCores": 1,
+    "numExecutors": 1
+}
+```
