@@ -278,6 +278,19 @@ spark-submit \
   /opt/spark/examples/src/main/python/pi.py 10
 ```
 
+# submit on EMR S3 
+
+```
+spark-submit \
+  --master yarn \
+  --total-executor-cores 1 \
+  --executor-memory 1g \
+  --deploy-mode client \
+  s3://BUCKET_NAME/src/Movies-Bronze-To-Silver.py  \
+  --input s3://BUCKET_NAME/movielens/movies/  \
+  --output s3://BUCKET_NAME/movielens/silver-emr/movies/
+```
+
   
 
 
