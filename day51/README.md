@@ -1,0 +1,5 @@
+- livy
+- cloud watch
+- lambda
+- cluster automation
+- emr proxy
