@@ -11,6 +11,17 @@ wsl
 aws configure --profile training
 ```
 
+
+```
+ssh -i ~/.ssh/ec2emrkey.pem \
+  -o ServerAliveInterval=20 \
+  -o ServerAliveCountMax=6 \
+  -o TCPKeepAlive=yes \
+  -o ConnectTimeout=15 \
+  -o Compression=yes \
+  hadoop@ec2-3-236-146-165.compute-1.amazonaws.com
+```
+
 Airflow start command
 
 ```
