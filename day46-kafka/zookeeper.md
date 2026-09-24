@@ -5,7 +5,7 @@
 Open a **new terminal/command prompt** and connect to ZooKeeper:
 
 ```bash
-zookeeper-shell localhost:2181
+zookeeper-shell.sh localhost:2181
 ```
 
 The above command connects to the ZooKeeper server running on port `2181`.
