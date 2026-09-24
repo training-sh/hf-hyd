@@ -206,12 +206,7 @@ whoami
 ---
 
 ## 7. Install the Snowflake Python Connector
-
-Activate the Python virtual environment being used:
-
-```bash
-source /path/to/virtualenv/bin/activate
-```
+ 
 
 Install the connector:
 
@@ -302,10 +297,7 @@ This confirms that Snowflake key-pair authentication works independently of Airf
 ## 9. Install the Airflow Snowflake Provider
 
 Activate the Python environment where Airflow is installed:
-
-```bash
-source /path/to/airflow_virtualenv/bin/activate
-```
+ 
 
 Install the Snowflake provider:
 
@@ -363,7 +355,9 @@ Example:
 /home/linux_username/.ssh/snowflake/snowflake_key.p8
 ```
 
-In the Airflow connection's **Extra** field, configure:
+In the Airflow 3, You can see private key file path in input box. else connection's **Extra** field, configure:
+
+note, for interns, you don't need to add this to extra fields, instead UI itself has input box for private key file path. use that.
 
 ```json
 {
