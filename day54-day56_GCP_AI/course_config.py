@@ -1,8 +1,13 @@
 """Edit these settings when your temporary sandbox changes. No secrets here."""
 import os
 
+import httpx
+import google.auth
 
-PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT", "gcp-ai-sandb-403-96741179")
+from google import genai
+from google.genai import types
+
+PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT", "gcp-ai-sandb-403-854ad176")
 LOCATION = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
 EMBEDDING_LOCATION = os.getenv("EMBEDDING_LOCATION", "us-central1")
 MODEL_ID = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
@@ -14,6 +19,9 @@ EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "gemini-embedding-001")
 #     return genai.Client(vertexai=True, project=PROJECT_ID,
 #                         location=location or LOCATION,
 #                         http_options=types.HttpOptions(api_version="v1"))
+
+# for corporate proxy ssl cert error
+
 
 def make_client(location=None):
     # Equivalent idea to requests.Session(verify=False)
