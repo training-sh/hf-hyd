@@ -16,3 +16,11 @@ sudo apt-get \
   -o Acquire::https::Verify-Host=false \
   install google-cloud-cli
 ```
+
+## ssl skip
+
+not sure
+
+```
+gcloud config set auth/disable_ssl_validation true
+```
