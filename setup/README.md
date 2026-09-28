@@ -49,4 +49,13 @@ ssh -o BatchMode=yes localhost 'echo "SSH working as $(whoami)"'
 
 Re-run hdfs commands, get/put, rerun word count again to ensure setup is working
 
+```
+wget https://openvsx.eclipsecontent.org/Continue/continue/linux-x64/2.1.0/Continue.continue-2.1.0@linux-x64.vsix
+```
+
+```
+code-server --install-extension Continue.continue-2.1.0@linux-x64.vsix
+
+
+```
 
