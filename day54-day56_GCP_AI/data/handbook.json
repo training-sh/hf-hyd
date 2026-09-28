@@ -1,0 +1,7 @@
+[
+  {"id":"leave", "text":"Fictional Northstar Learning handbook. Full-time employees receive 22 days of annual leave per calendar year. Up to 5 unused days can carry forward until March 31. Leave requests go to the employee's manager at least 7 days before the planned absence."},
+  {"id":"expenses", "text":"Fictional Northstar Learning expense policy. Submit expense claims within 30 days of purchase. A receipt is required for purchases above 25 credits. The learning allowance is 600 credits per employee per year. A manager must approve a course before purchase."},
+  {"id":"remote", "text":"Fictional Northstar Learning remote-work policy. Employees may work remotely up to 3 days per week. Team collaboration hours are 10:00 to 15:00 in the team's local timezone. Working from another country requires written HR approval before travel."},
+  {"id":"security", "text":"Fictional Northstar Learning security policy. Never share passwords or access tokens. Report a lost company laptop to the service desk immediately. Company laptops must use disk encryption. Customer information may only be stored in approved company systems."},
+  {"id":"support", "text":"Fictional Northstar Learning support guide. The service desk operates Monday through Friday from 08:00 to 18:00 local time. Urgent incidents involving lost devices use the on-call hotline outside these hours. Standard software requests are normally reviewed within 2 business days."}
+]
