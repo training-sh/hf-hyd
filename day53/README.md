@@ -1,3 +1,13 @@
+## for update
+
+```
+sudo apt-get \
+  -o Acquire::https::Verify-Peer=false \
+  -o Acquire::https::Verify-Host=false \
+  update
+```
+
+
 ## Fix for apt install
 
 ```
