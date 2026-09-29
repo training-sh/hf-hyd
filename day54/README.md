@@ -1,0 +1,4 @@
+- AI starter
+- Tokens, vector db intro.
+- Odoo explanation
+- Odoo setup
