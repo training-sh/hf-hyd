@@ -1,3 +1,13 @@
+### Odoo
+
+Refer 
+
+https://github.com/training-sh/odoo-pg-docker
+
+
+
+
+
 ### WSL 
 
 Open Command Prompt, run
