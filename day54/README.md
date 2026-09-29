@@ -1,4 +1,5 @@
 - AI starter
 - Tokens, vector db intro.
+- Capstone summary
 - Odoo explanation
 - Odoo setup
