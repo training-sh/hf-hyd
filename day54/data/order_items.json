@@ -1,0 +1,128 @@
+[
+  {
+    "order_item_id": "I001",
+    "order_id": "O1001",
+    "product_id": "P001",
+    "quantity": 1,
+    "unit_price": "1500.00"
+  },
+  {
+    "order_item_id": "I002",
+    "order_id": "O1001",
+    "product_id": "P014",
+    "quantity": 1,
+    "unit_price": "999.00"
+  },
+  {
+    "order_item_id": "I003",
+    "order_id": "O1002",
+    "product_id": "P018",
+    "quantity": 2,
+    "unit_price": "500.00"
+  },
+  {
+    "order_item_id": "I004",
+    "order_id": "O1002",
+    "product_id": "P009",
+    "quantity": 1,
+    "unit_price": "500.50"
+  },
+  {
+    "order_item_id": "I005",
+    "order_id": "O1003",
+    "product_id": "P018",
+    "quantity": 1,
+    "unit_price": "799.00"
+  },
+  {
+    "order_item_id": "I006",
+    "order_id": "O1004",
+    "product_id": "P011",
+    "quantity": 1,
+    "unit_price": "3299.00"
+  },
+  {
+    "order_item_id": "I007",
+    "order_id": "O1005",
+    "product_id": "P018",
+    "quantity": 2,
+    "unit_price": "599.50"
+  },
+  {
+    "order_item_id": "I008",
+    "order_id": "O1006",
+    "product_id": "P007",
+    "quantity": 1,
+    "unit_price": "2199.00"
+  },
+  {
+    "order_item_id": "I009",
+    "order_id": "O1007",
+    "product_id": "P007",
+    "quantity": 1,
+    "unit_price": "1800.00"
+  },
+  {
+    "order_item_id": "I010",
+    "order_id": "O1007",
+    "product_id": "P006",
+    "quantity": 1,
+    "unit_price": "2000.00"
+  },
+  {
+    "order_item_id": "I011",
+    "order_id": "O1007",
+    "product_id": "P018",
+    "quantity": 2,
+    "unit_price": "350.00"
+  },
+  {
+    "order_item_id": "I012",
+    "order_id": "O1008",
+    "product_id": "P014",
+    "quantity": 1,
+    "unit_price": "999.00"
+  },
+  {
+    "order_item_id": "I013",
+    "order_id": "O1009",
+    "product_id": "P006",
+    "quantity": 1,
+    "unit_price": "2500.00"
+  },
+  {
+    "order_item_id": "I014",
+    "order_id": "O1009",
+    "product_id": "P007",
+    "quantity": 1,
+    "unit_price": "2000.00"
+  },
+  {
+    "order_item_id": "I015",
+    "order_id": "O1009",
+    "product_id": "P018",
+    "quantity": 2,
+    "unit_price": "500.00"
+  },
+  {
+    "order_item_id": "I016",
+    "order_id": "O1009",
+    "product_id": "P014",
+    "quantity": 1,
+    "unit_price": "499.00"
+  },
+  {
+    "order_item_id": "I017",
+    "order_id": "O1010",
+    "product_id": "P016",
+    "quantity": 1,
+    "unit_price": "1100.00"
+  },
+  {
+    "order_item_id": "I018",
+    "order_id": "O1010",
+    "product_id": "P018",
+    "quantity": 1,
+    "unit_price": "799.00"
+  }
+]

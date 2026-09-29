@@ -1,0 +1,7 @@
+google-genai==2.25.0
+sentencepiece==0.2.1
+protobuf>=5,<8
+faiss-cpu==1.13.2
+numpy>=1.26,<3
+mysql-connector-python>=9,<10
+pandas>=2.2,<4

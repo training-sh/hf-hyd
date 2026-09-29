@@ -1,0 +1,72 @@
+[
+  {
+    "order_id": "O1001",
+    "customer_id": "C001",
+    "customer_email": "ananya@example.com",
+    "total_amount": "2499.00",
+    "items_count": 2
+  },
+  {
+    "order_id": "O1002",
+    "customer_id": "C001",
+    "customer_email": "ananya@example.com",
+    "total_amount": "1500.50",
+    "items_count": 3
+  },
+  {
+    "order_id": "O1003",
+    "customer_id": "C001",
+    "customer_email": "ananya@example.com",
+    "total_amount": "799.00",
+    "items_count": 1
+  },
+  {
+    "order_id": "O1004",
+    "customer_id": "C002",
+    "customer_email": "bala@example.com",
+    "total_amount": "3299.00",
+    "items_count": 1
+  },
+  {
+    "order_id": "O1005",
+    "customer_id": "C002",
+    "customer_email": "bala@example.com",
+    "total_amount": "1199.00",
+    "items_count": 2
+  },
+  {
+    "order_id": "O1006",
+    "customer_id": "C003",
+    "customer_email": "charu@example.com",
+    "total_amount": "2199.00",
+    "items_count": 1
+  },
+  {
+    "order_id": "O1007",
+    "customer_id": "C003",
+    "customer_email": "charu@example.com",
+    "total_amount": "4500.00",
+    "items_count": 4
+  },
+  {
+    "order_id": "O1008",
+    "customer_id": "C004",
+    "customer_email": "deepa@example.com",
+    "total_amount": "999.00",
+    "items_count": 1
+  },
+  {
+    "order_id": "O1009",
+    "customer_id": "C005",
+    "customer_email": "esha@example.com",
+    "total_amount": "5999.00",
+    "items_count": 5
+  },
+  {
+    "order_id": "O1010",
+    "customer_id": "C006",
+    "customer_email": "farhan@example.com",
+    "total_amount": "1899.00",
+    "items_count": 2
+  }
+]

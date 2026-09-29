@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "source": "staged fictional conversation, not a recorded model response",
+  "conversations": [
+    {
+      "customer_id": "C001",
+      "turns": [
+        {
+          "question": "I need a waterproof backpack for hiking in the rain.",
+          "answer": "We can compare catalogue descriptions; past purchases do not establish waterproofing.",
+          "decision": "ALLOW"
+        }
+      ]
+    },
+    {
+      "customer_id": "C002",
+      "turns": [
+        {
+          "question": "Can I compare a weekend bag and a small school bag?",
+          "answer": "Use product details to compare their capacity and intended use.",
+          "decision": "ALLOW"
+        }
+      ]
+    },
+    {
+      "customer_id": "C003",
+      "turns": [
+        {
+          "question": "Which hiking packs are light enough for a day walk?",
+          "answer": "Compare weight and descriptions for the hiking catalogue.",
+          "decision": "ALLOW"
+        }
+      ]
+    },
+    {
+      "customer_id": "C004",
+      "turns": [
+        {
+          "question": "I prefer a foldable bag for sightseeing.",
+          "answer": "The catalogue includes packable travel bags.",
+          "decision": "ALLOW"
+        }
+      ]
+    },
+    {
+      "customer_id": "C005",
+      "turns": [
+        {
+          "question": "Can I compare rain protection and capacity for hiking bags?",
+          "answer": "Check the catalogue descriptions and measurements.",
+          "decision": "ALLOW"
+        }
+      ]
+    },
+    {
+      "customer_id": "C006",
+      "turns": [
+        {
+          "question": "I need affordable bags for school.",
+          "answer": "Compare school products and their current catalogue prices.",
+          "decision": "ALLOW"
+        }
+      ]
+    }
+  ]
+}
