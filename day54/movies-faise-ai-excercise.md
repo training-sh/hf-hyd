@@ -1,0 +1,6 @@
+- load movies.csv
+- load ratings
+- apply group by over movieid, calculate avg ratings, total count for each movie
+- Save the result as csv or json
+- load this data into faiss vector db with embedding
+- search documents with free queries, show top 5 results
