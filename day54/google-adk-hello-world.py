@@ -110,3 +110,12 @@ runner = InMemoryRunner(
 
 
 print("\nADK calculator agent ready.")
+
+question = "What is 25 plus 17?"
+
+print("Question:", question)
+
+response = await runner.run_debug(
+    question
+)
+
