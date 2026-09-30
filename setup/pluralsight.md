@@ -711,6 +711,14 @@ port 8888 used by jupyter
 we are running code-server in 8889 on loopback ip. you cannot access 8889 outside machine
 
 ```
+curl -fsSL https://code-server.dev/install.sh | sh
+```
+
+```
+sudo systemctl enable --now code-server@$USER
+```
+
+```
 cat ~/.config/code-server/config.yaml
 ```
 
