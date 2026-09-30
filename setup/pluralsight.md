@@ -783,3 +783,12 @@ sudo nano /etc/nginx/sites-available/default
 ```
 include /etc/nginx/snippets/vscode.conf;
 ```
+
+```
+sudo nginx -t
+```
+
+```
+sudo systemctl restart nginx
+```
+
