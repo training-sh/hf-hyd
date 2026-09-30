@@ -779,10 +779,12 @@ EOF
 ```
 sudo nano /etc/nginx/sites-available/default
 ```
-
+paste below
 ```
 include /etc/nginx/snippets/vscode.conf;
 ```
+
+save file and exit
 
 ```
 sudo nginx -t
@@ -790,5 +792,18 @@ sudo nginx -t
 
 ```
 sudo systemctl restart nginx
+```
+
+
+download continue dev plugin for AI based code generation
+
+```
+wget https://openvsx.eclipsecontent.org/Continue/continue/linux-x64/2.1.0/Continue.continue-2.1.0@linux-x64.vsix
+```
+
+```
+code-server --install-extension Continue.continue-2.1.0@linux-x64.vsix
+
+
 ```
 
