@@ -1,7 +1,7 @@
 Too many things, done, not sure, what exactly fix the issue. first try  this on wsl
 
 ```
-pip install pip-system-certs uv
+pip install pip-system-certs uv truststore
 ```
 
 ```
