@@ -3,6 +3,11 @@
 
 # implement power function lambnda n: n * n
 # implement gst function that accept 3 parameters, amount float, discount int, tax int
-#    return       (amount * (100 - disocunt) ) + (100 + tax)
+
+def gst(amount, discount, tax):
+    discounted_amount = amount * (1 - discount / 100)
+    return discounted_amount * (1 + tax / 100)
 
 ```
+
+
