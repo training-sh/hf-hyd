@@ -1,4 +1,8 @@
 ```
+https://docs.cloud.google.com/sdk/docs/downloads-versioned-archives
+```
+
+```
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
