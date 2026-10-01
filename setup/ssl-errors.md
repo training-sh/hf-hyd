@@ -1,6 +1,29 @@
+Too many things, done, not sure, what exactly fix the issue. first try  this on wsl
+
+```
+pip install pip-system-certs uv
+```
+
+```
+gcloud auth application-default login
+```
+
+put this on first cell
+
+```
+import truststore
+
+truststore.inject_into_ssl()
+```
+
+-----------
+
+
 ```
 https://docs.cloud.google.com/sdk/docs/downloads-versioned-archives
 ```
+
+UV Install
 
 ```
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
