@@ -1,0 +1,21 @@
+{
+  "customers": [
+    {"customer_id": "C101", "name": "Asha", "tier": "gold", "city": "Chennai"},
+    {"customer_id": "C102", "name": "Ravi", "tier": "standard", "city": "Pune"}
+  ],
+  "products": [
+    {"product_id": "P101", "name": "USB-C Hub", "price": 1299, "currency": "INR", "stock": 12},
+    {"product_id": "P102", "name": "Laptop Stand", "price": 899, "currency": "INR", "stock": 5},
+    {"product_id": "P103", "name": "Wireless Mouse", "price": 599, "currency": "INR", "stock": 0}
+  ],
+  "orders": [
+    {"order_id": "O1001", "customer_id": "C101", "status": "delivered", "days_since_delivery": 5, "items": [{"product_id": "P101", "quantity": 2, "unit_price": 1299}, {"product_id": "P102", "quantity": 1, "unit_price": 899}], "subtotal": 3497, "tax": 629.46, "total": 4126.46, "currency": "INR", "invoice_id": "INV1001"},
+    {"order_id": "O1002", "customer_id": "C102", "status": "processing", "days_since_delivery": null, "items": [{"product_id": "P102", "quantity": 1, "unit_price": 899}], "subtotal": 899, "tax": 161.82, "total": 1060.82, "currency": "INR", "invoice_id": "INV1002"}
+  ],
+  "policies": [
+    {"id": "returns", "text": "Returns and refunds: unused products can be returned within 7 days of delivery. Gold members have 14 days. The original invoice is required. Shipping fees are not refundable."},
+    {"id": "shipping", "text": "Shipping and delivery: standard delivery takes 3 to 5 business days. Orders above INR 2000 receive free standard shipping."},
+    {"id": "warranty", "text": "Warranty: USB-C hubs and wireless mice have a 12 month warranty for manufacturing defects. Accidental damage is excluded."},
+    {"id": "invoice", "text": "Invoices: prices exclude GST. The demo GST rate is 18 percent. Invoices include customer ID, order ID, line items, subtotal, tax and total in INR."}
+  ]
+}

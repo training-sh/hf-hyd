@@ -1,0 +1,11 @@
+{
+  "project_id": "gen-lang-client-0367558705",
+  "location": "global",
+  "model": "gemini-2.5-flash-lite",
+  "max_output_tokens": 768,
+  "max_llm_calls": 10,
+  "skip_ssl_validation": true,
+  "ca_bundle": null,
+  "enable_optional_cloud_demos": false,
+  "live_model": null
+}

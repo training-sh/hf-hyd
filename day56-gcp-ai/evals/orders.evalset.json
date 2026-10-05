@@ -1,0 +1,15 @@
+{
+  "eval_set_id": "orders_regression",
+  "name": "Order status regression",
+  "description": "One tiny synthetic order case; no LLM judge required.",
+  "eval_cases": [{
+    "eval_id": "delivered_order",
+    "conversation": [{
+      "invocation_id": "expected_order_lookup",
+      "user_content": {"role": "user", "parts": [{"text": "What is the status of O1001?"}]},
+      "final_response": {"role": "model", "parts": [{"text": "Order O1001 is delivered."}]},
+      "intermediate_data": {"tool_uses": [{"name": "get_order", "args": {"order_id": "O1001"}}]}
+    }],
+    "session_input": {"app_name": "shop_app", "user_id": "evaluation_customer", "state": {}}
+  }]
+}
