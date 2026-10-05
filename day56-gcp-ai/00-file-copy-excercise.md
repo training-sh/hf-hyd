@@ -1,0 +1,7 @@
+- two agentic functions using google adk
+- one copy file from one location to another location, ensure only full path
+- add copy suffix as optional parameter, suffix -copy, (0), -1, -2, LMM to find the name
+- add a 3rd function, -is_exists  to check source or target file exists or not, return bool
+- other one to delete the file if exists
+- both throw error if if not exists
+- use co-pilot to generate code with function description doc, arg documentation 
