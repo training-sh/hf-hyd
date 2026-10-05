@@ -16,6 +16,11 @@ Open Command Prompt, run
 wsl
 ```
 
+Google ADC login
+
+```
+gcloud auth application-default login
+```
 
 ```
 aws configure --profile training
