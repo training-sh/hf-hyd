@@ -47,8 +47,7 @@ payments/allocations: allocation 8108, amount=204.62
 Invoice: payment_state=paid | amount_residual=0
 ```
 
-
-```
+ 
 | What to inspect | File path and starting line | Reference |
 | --- | --- | --- |
 | Initial quotation | `api-001/jsonl/sales/orders/2026-10-07_13_36.jsonl` — line `8077` | `id=8303`, `state=draft` |
@@ -62,4 +61,4 @@ Invoice: payment_state=paid | amount_residual=0
 | Payment | `api-007/jsonl/payments/payments/2026-10-07_14_38.jsonl` — line `1` | `id=8106`, `move_id[0]=16291` |
 | Payment allocation | `api-007/jsonl/payments/allocations/2026-10-07_14_38.jsonl` — line `3` | `id=8108` |
 
-```
+ 
