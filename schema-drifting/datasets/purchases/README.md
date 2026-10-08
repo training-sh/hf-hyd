@@ -1,1 +1,0 @@
-Two included Spark-generated Parquet files live in the missing_supplier and required_value subdirectories. One omits nullable supplier_id; the other includes supplier_id and one null required purchase_id. Both use decimal(12,2) cost. The purchases notebook processes only these two files.
