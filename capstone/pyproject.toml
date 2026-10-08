@@ -1,0 +1,19 @@
+# Install ruff from VS Code extension
+# Install pylance from vs code extension
+
+[tool.ruff]
+# Maximum allowed line length.
+# Ruff formatter and some lint rules use this value.
+line-length = 100
+
+[tool.ruff.lint]
+# Enable selected groups of linting rules.
+select = [
+    "E",   # pycodestyle errors - mainly PEP 8 style violations
+    "W",   # pycodestyle warnings - additional PEP 8 style warnings
+    "F",   # Pyflakes - unused imports, undefined variables, etc.
+    "I",   # isort rules - checks and sorts Python imports
+    "N",   # pep8-naming - function, class, variable naming conventions
+    "UP",  # pyupgrade - recommends modern Python syntax
+    "B",   # flake8-bugbear - detects common bugs and risky coding patterns
+]
