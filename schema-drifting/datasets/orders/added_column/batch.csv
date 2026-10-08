@@ -1,0 +1,4 @@
+order_id,customer_id,amount,sales_channel
+1,101,42.50,web
+2,102,19.00,store
+bad-id,103,75.25,web
