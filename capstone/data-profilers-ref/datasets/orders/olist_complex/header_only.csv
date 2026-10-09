@@ -1,0 +1,1 @@
+id,name,partner_id,date_order,state,amount_untaxed,amount_total,currency_id,create_date,write_date,company_id,user_id,team_id,client_order_ref,ops_order_at,ops_confirmed_at,ops_unmet_demand,ops_closed

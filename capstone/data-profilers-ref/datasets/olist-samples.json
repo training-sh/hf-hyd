@@ -1,0 +1,58 @@
+{
+  "orders": {
+    "source_dataset": "api/sales/orders",
+    "source_file": "C:\\Course\\DataEng\\odoo-local\\landing-zone\\api-00070\\jsonl\\sales\\orders\\2026-10-08_20_22.jsonl",
+    "source_sha256": "06c77ce44e1f8a1d40220d1bab6613527cd08558810aeff81840f901af8ebf68",
+    "source_ids": [
+      17431,
+      17548,
+      17616,
+      17691,
+      17789,
+      17913
+    ],
+    "clean_rows": 6,
+    "expected_rows": 12,
+    "expected_good": 9,
+    "expected_bad": 3,
+    "expected_files": 3,
+    "csv_source_file": "C:\\Course\\DataEng\\odoo-local\\landing-zone\\api-00070\\csv\\sales\\orders\\2026-10-08_20_22.csv",
+    "csv_source_sha256": "bb855db7dedff77969bda725874e6688d55767d8252b7fa5a1a9e849725c131a"
+  },
+  "order_lines": {
+    "source_dataset": "api/sales/order_lines",
+    "source_file": "C:\\Course\\DataEng\\odoo-local\\landing-zone\\api-00070\\jsonl\\sales\\order-lines\\2026-10-08_20_22.jsonl",
+    "source_sha256": "20f4e5f636e587ca10cba4e6d4b3a058bce91c7388d03062db79141c59fe7014",
+    "source_ids": [
+      357216,
+      357217,
+      357218,
+      357219,
+      357220,
+      357221
+    ],
+    "clean_rows": 6,
+    "expected_rows": 13,
+    "expected_good": 9,
+    "expected_bad": 4,
+    "expected_files": 2
+  },
+  "purchases": {
+    "source_dataset": "api/purchase/orders",
+    "source_file": "C:\\Course\\DataEng\\odoo-local\\landing-zone\\api-00068\\jsonl\\purchase\\orders\\2026-10-08_17_54.jsonl",
+    "source_sha256": "4a78c37e861d9c9cb9b5b44c676c7192a739c5156439cc18e1575b805b5e9cf9",
+    "source_ids": [
+      2197,
+      2209,
+      2245,
+      2246,
+      2250,
+      2261
+    ],
+    "clean_rows": 6,
+    "expected_rows": 12,
+    "expected_good": 11,
+    "expected_bad": 1,
+    "expected_files": 2
+  }
+}
