@@ -4,7 +4,8 @@
 ```
 wget https://raw.githubusercontent.com/training-sh/hf-hyd/refs/heads/main/odoo/download_odoo_backup.py
 ```
+ 
 
 ```
-python3 download_odoo_backup.py --directory ./odoo-clone
+python3 download_odoo_backup.py --directory ./odoo
 ```
