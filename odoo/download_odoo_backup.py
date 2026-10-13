@@ -1,6 +1,6 @@
 """Download, extract, restore and start the tested Odoo Docker environment.
 
-Requires Python 3.11+ and an installed, running Docker Engine with Compose.
+Requires Python 3.8+ and an installed, running Docker Engine with Compose.
 
 For protected links, SHAREPOINT_ACCESS_TOKEN must be a token issued for this
 SharePoint tenant (not a Microsoft Graph token). A file sharing/download URL
@@ -25,11 +25,26 @@ SHA256 = '118f5a82e29fc6a595350b7f1c299e1c95a69f36f60596b4dbf93476f9ddd284'
 DEFAULT = ('https://gopalakrishnan-my.sharepoint.com/:u:/g/personal/gs_training_sh/'
            'IQBQvGC6WY2nSoJ7bp9JF2G4AdiqATei758LPec0GyReHJ0?e=FDc6xU&download=1')
 
+def file_sha256(path):
+    """Stream checksums without requiring Python 3.11's hashlib.file_digest."""
+    digest = hashlib.sha256()
+    with path.open('rb') as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+def inside_directory(path, root):
+    """Python 3.8-compatible equivalent of Path.is_relative_to."""
+    try:
+        path.resolve().relative_to(root.resolve())
+        return True
+    except ValueError:
+        return False
+
 def download(args):
     if args.output.exists():
-        with args.output.open('rb') as handle:
-            if hashlib.file_digest(handle, 'sha256').hexdigest() != SHA256:
-                raise RuntimeError(f'Existing archive does not match the backup: {args.output}')
+        if file_sha256(args.output) != SHA256:
+            raise RuntimeError(f'Existing archive does not match the backup: {args.output}')
         print('Using existing verified backup:', args.output)
         return
     partial = args.output.with_name(args.output.name + '.part')
@@ -83,9 +98,8 @@ def verify_files(root):
         # Network bindings and passwords may be changed for this destination.
         if item['path'] == '.env':
             continue
-        with (root/item['path']).open('rb') as handle:
-            if hashlib.file_digest(handle, 'sha256').hexdigest() != item['sha256']:
-                raise RuntimeError('Bundle file checksum mismatch: ' + item['path'])
+        if file_sha256(root/item['path']) != item['sha256']:
+            raise RuntimeError('Bundle file checksum mismatch: ' + item['path'])
 
 def extract(archive, root):
     root.mkdir(parents=True, exist_ok=True)
@@ -100,7 +114,7 @@ def extract(archive, root):
             if not (member.isfile() or member.isdir()):
                 raise RuntimeError('Unsupported archive entry: ' + member.name)
             destination = root.joinpath(*parts[1:])
-            if not destination.resolve().is_relative_to(root.resolve()):
+            if not inside_directory(destination, root):
                 raise RuntimeError('Unsafe extraction path: ' + member.name)
             if destination.exists():
                 raise RuntimeError(f'Refusing to overwrite {destination}. Use a fresh directory.')
@@ -184,8 +198,8 @@ def main():
     parser.add_argument('--download-only', action='store_true', help='Download without extracting or restoring')
     parser.add_argument('--prepare-only', action='store_true', help='Download and extract without restoring')
     args = parser.parse_args()
-    if sys.version_info < (3, 11):
-        raise RuntimeError('Python 3.11 or newer is required')
+    if sys.version_info < (3, 8):
+        raise RuntimeError('Python 3.8 or newer is required (including 3.10, 3.11 and 3.12).')
     root = args.directory.resolve()
     if (root/'.setup-restore-complete.json').exists():
         print('Setup already completed; database was not restored again.')
