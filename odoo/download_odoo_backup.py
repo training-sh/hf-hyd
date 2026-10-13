@@ -2,6 +2,10 @@
 
 Requires Python 3.8+ and an installed, running Docker Engine with Compose.
 
+Fresh directories receive isolated Compose projects. Rerunning in a prepared
+directory verifies and reuses a complete olist6 database without overwriting it.
+For a second clone on the same host, choose unused --odoo-port and --pg-port.
+
 For protected links, SHAREPOINT_ACCESS_TOKEN must be a token issued for this
 SharePoint tenant (not a Microsoft Graph token). A file sharing/download URL
 can also be supplied with --url.
@@ -11,6 +15,7 @@ import hashlib
 import http.cookiejar
 import json
 import os
+import re
 from pathlib import Path, PurePosixPath
 import subprocess
 import sys
@@ -129,10 +134,31 @@ def extract(archive, root):
     verify_files(root)
     print('Extracted and verified Compose files in', root)
 
+def configure_destination(root, args, fresh):
+    """Keep credentials intact; isolate fresh clones and apply explicit bindings."""
+    path = root / '.env'
+    lines = path.read_text().splitlines()
+    updates = {}
+    for key, value in [('ODOO_PORT', args.odoo_port), ('PG_PORT', args.pg_port),
+                       ('ODOO_BIND', args.bind)]:
+        if value is not None:
+            updates[key] = str(value)
+    if args.project_name:
+        updates['COMPOSE_PROJECT_NAME'] = args.project_name
+    elif fresh:
+        label = re.sub(r'[^a-z0-9-]+', '-', root.name.lower()).strip('-') or 'clone'
+        suffix = hashlib.sha256(str(root).encode('utf-8')).hexdigest()[:8]
+        updates['COMPOSE_PROJECT_NAME'] = 'odoo-olist6-' + label[:35] + '-' + suffix
+    for key, value in updates.items():
+        lines = [line for line in lines if not line.startswith(key + '=')]
+        lines.append(key + '=' + value)
+    if updates:
+        path.write_text('\n'.join(lines) + '\n')
+
 def restore(root):
-    def compose(*args, capture=False):
+    def compose(*args, capture=False, input=None):
         return subprocess.run(['docker', 'compose', *args], cwd=root,
-                              check=True, text=True, capture_output=capture)
+                              check=True, text=True, capture_output=capture, input=input)
     compose('config', '--quiet')
     compose('up', '-d', 'db')
     for attempt in range(60):
@@ -146,23 +172,40 @@ def restore(root):
         raise RuntimeError('PostgreSQL did not become ready')
     exists = compose('exec','-T','db','psql','-U','team','-d','postgres','-At','-c',
                      "SELECT count(*) FROM pg_database WHERE datname='olist6';",capture=True).stdout.strip()
-    if exists != '0':
-        raise RuntimeError('olist6 already exists in these Compose volumes; refusing to overwrite it.')
-    compose('exec','-T','db','psql','-U','team','-d','postgres','-v','ON_ERROR_STOP=1','-c',
-            "DO $$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname='training_reader') "
-            "THEN CREATE ROLE training_reader NOLOGIN; END IF; END $$;")
-    compose('exec','-T','db','pg_restore','-U','team','-d','postgres','--create',
-            '--exit-on-error','/backup/olist6.dump')
-    compose('run','--rm','--no-deps','filestore-restore')
+    restored = exists == '0'
+    if restored:
+        compose('exec','-T','db','psql','-U','team','-d','postgres','-v','ON_ERROR_STOP=1','-c',
+                "DO $$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname='training_reader') "
+                "THEN CREATE ROLE training_reader NOLOGIN; END IF; END $$;")
+        compose('exec','-T','db','pg_restore','-U','team','-d','postgres','--create',
+                '--exit-on-error','/backup/olist6.dump')
+        compose('run','--rm','--no-deps','filestore-restore')
+    else:
+        print('olist6 already exists; checking the completed baseline without overwriting it.')
     expected = json.loads((root/'expected-state.json').read_text())['counts']
     for table, count in expected.items():
+        if not re.fullmatch(r'[a-z_][a-z0-9_]*', table):
+            raise RuntimeError('Invalid expected table name: ' + table)
         actual = compose('exec','-T','db','psql','-U','team','-d','olist6','-At','-c',
                          'SELECT count(*) FROM '+table+';',capture=True).stdout.strip()
         if int(actual) != count:
-            raise RuntimeError('Restored record count differs: ' + table)
+            raise RuntimeError('Existing/restored database does not match the complete backup: '
+                               + table + ' expected ' + str(count) + ', found ' + actual
+                               + '. Data was not overwritten. For a separate clone use a fresh '
+                               'directory and unused --odoo-port / --pg-port values.')
+    module = compose('exec','-T','db','psql','-U','team','-d','olist6','-At','-c',
+                     "SELECT state FROM ir_module_module WHERE name='training_ops';",capture=True).stdout.strip()
+    if module != 'installed':
+        raise RuntimeError('Existing database lacks the installed training addon; it was not overwritten.')
+    files = compose('exec','-T','db','psql','-U','team','-d','olist6','-At','-c',
+                    'SELECT store_fname FROM ir_attachment WHERE store_fname IS NOT NULL;',capture=True).stdout
+    check = "import pathlib,sys; root=pathlib.Path('/var/lib/odoo/filestore/olist6'); missing=[f for f in sys.stdin.read().splitlines() if not (root/f).is_file()]; print('Missing stored attachments:',len(missing)); sys.exit(bool(missing))"
+    compose('run','--rm','-T','--no-deps','--entrypoint','python3','odoo','-c',check,
+            input=files)
     (root/'.setup-restore-complete.json').write_text(json.dumps(
-        {'database':'olist6','backup_sha256':SHA256,'counts_verified':expected},indent=2))
-    print('Database and filestore restored; all 13 checked record counts match.')
+        {'database':'olist6','backup_sha256':SHA256,'counts_verified':expected,
+         'database_restored_this_run':restored,'attachments_verified':len(files.splitlines())},indent=2))
+    print('Database and filestore verified; all 13 checked record counts match.')
 
 def start_odoo(root):
     """Start the restored environment and check HTTP inside its Odoo container."""
@@ -197,22 +240,34 @@ def main():
     parser.add_argument('--directory', type=Path, default=Path.cwd(), help='Fresh destination; defaults to current directory')
     parser.add_argument('--download-only', action='store_true', help='Download without extracting or restoring')
     parser.add_argument('--prepare-only', action='store_true', help='Download and extract without restoring')
+    parser.add_argument('--odoo-port', type=int, help='Odoo host port for this clone')
+    parser.add_argument('--pg-port', type=int, help='PostgreSQL localhost port for this clone')
+    parser.add_argument('--bind', help='Odoo listening address (default from bundle: 127.0.0.1)')
+    parser.add_argument('--project-name', help='Explicit Docker Compose project name')
     args = parser.parse_args()
     if sys.version_info < (3, 8):
         raise RuntimeError('Python 3.8 or newer is required (including 3.10, 3.11 and 3.12).')
     root = args.directory.resolve()
-    if (root/'.setup-restore-complete.json').exists():
-        print('Setup already completed; database was not restored again.')
-        if not (args.download_only or args.prepare_only):
-            start_odoo(root)
-        return
+    for port in (args.odoo_port, args.pg_port):
+        if port is not None and not 1 <= port <= 65535:
+            parser.error('Ports must be between 1 and 65535')
+    if args.project_name and not re.fullmatch(r'[a-z0-9][a-z0-9_-]*', args.project_name):
+        parser.error('Project names must use lowercase letters, numbers, hyphens or underscores')
     if not (args.download_only or args.prepare_only):
         subprocess.run(['docker','compose','version'],check=True,stdout=subprocess.DEVNULL)
         subprocess.run(['docker','info'],check=True,stdout=subprocess.DEVNULL)
-    download(args)
     if args.download_only:
+        download(args)
         return
-    extract(args.output.resolve(), root)
+    prepared = all((root/name).is_file() for name in
+                   ('compose.yaml','bundle-manifest.json','expected-state.json','.env'))
+    if prepared:
+        verify_files(root)
+        print('Using existing verified deployment files:', root)
+    else:
+        download(args)
+        extract(args.output.resolve(), root)
+    configure_destination(root, args, fresh=not prepared)
     if args.prepare_only:
         print('Files prepared only; database has not been restored.')
         return
