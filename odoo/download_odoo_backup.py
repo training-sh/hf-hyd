@@ -26,7 +26,7 @@ DEFAULT = ('https://gopalakrishnan-my.sharepoint.com/:u:/g/personal/gs_training_
            'IQBQvGC6WY2nSoJ7bp9JF2G4AdiqATei758LPec0GyReHJ0?e=FDc6xU&download=1')
 
 def file_sha256(path):
-    """Stream checksums without requiring Python 3.11's hashlib.file_digest."""
+    """Stream SHA-256 checksums using APIs available in Python 3.8+."""
     digest = hashlib.sha256()
     with path.open('rb') as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b''):
