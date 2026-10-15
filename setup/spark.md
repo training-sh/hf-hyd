@@ -1,5 +1,16 @@
 # Apache Spark Setup
 
+wsl issue with localhost/default spark listening on ip binding
+
+```
+sudo nano /opt/spark/conf/spark-env.sh
+```
+
+```
+export SPARK_MASTER_HOST=0.0.0.0
+```
+
+
 ```
 
 cd /tmp
