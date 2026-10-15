@@ -4,9 +4,38 @@ Refer
 
 https://github.com/training-sh/odoo-pg-docker
 
+### WSL Tweak
+
+Add more memory to wsl. 
+
+On Command prompt on your user directory
 
 
+```
+c:\users\myname> notepad  .wslconfig
+```
 
+paste below
+
+```
+[wsl2]
+memory=10GB
+processors=4
+swap=4GB
+```
+
+save & exit
+
+```
+c:\users\myname> wsl --shutdown
+```
+
+restart wsl again
+
+
+```
+c:\users\myname> wsl  
+```
 
 ### WSL 
 
