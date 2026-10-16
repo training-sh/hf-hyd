@@ -21,7 +21,7 @@ The objective is to extract invoice data, identify the correct supplier, load th
 
 A sample of invoice is given in assets directory, file named Scanned-PDF.pdf
 
-![Scanned](assets/Scanned-PDF.pdf)
+[Scanned PDF](assets/Scanned-PDF.pdf)
 
 
 ---
