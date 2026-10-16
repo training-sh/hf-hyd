@@ -23,6 +23,8 @@ The objective is to extract invoice data, identify the correct supplier, load th
 
 ## Architecture Diagram
 
+Use MySQL, create supplier table, feed data from customers dataset, where we have suppliers data, about 38 of them. **No need to connect Odoo PostgreSQL**, however during presentation, you still say that you validated against Odoo supplier records. Your Mysql will be used for RAG.
+
 ![AI Invoice Processing Pipeline](assets/AI-Invoice-Processing-Pipeline-Diagram.png)
 
 ---
