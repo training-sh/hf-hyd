@@ -19,6 +19,11 @@ Supplier invoices are provided as PDF files. These invoices may:
 
 The objective is to extract invoice data, identify the correct supplier, load the data into Snowflake, and perform reconciliation and validation.
 
+A sample of invoice is given in assets directory, file named Scanned-PDF.pdf
+
+![Scanned](assets/Scanned-PDF.pdf)
+
+
 ---
 
 ## Architecture Diagram
@@ -57,7 +62,8 @@ Some PDFs may be intentionally distorted or incomplete to test error handling.
 
 # 2. AI-Based PDF Parsing
 
-Use OCR and AI/LLM-based parsing to extract structured data from the invoice.
+Use OCR and AI/LLM-based parsing to extract structured data from the invoice. Always remember, you don't prove that all invoices are correct. 
+All you do is, is there discrepancies in the data extracted from PDFs. 
 
 The parser should attempt to extract:
 
@@ -100,6 +106,7 @@ The parser should also capture:
 # 3. Standard JSON Output
 
 Each parsed invoice must be converted into a standard JSON format.
+You may assume that supplier data is approximate, you may not be sure, it is fully correct, it was the reason, why you use Venctor DB, RAG to get Supplier data to enrich order data. 
 
 Example:
 
